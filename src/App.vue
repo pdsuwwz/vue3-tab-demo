@@ -1,0 +1,31 @@
+<template>
+  <NConfigProvider
+    class="h-full"
+    :locale="zhCN"
+    :date-locale="dateZhCN"
+    :theme="theme"
+    :theme-overrides="themeOverrides"
+  >
+    <NaiveProvider>
+      <RouterView />
+    </NaiveProvider>
+  </NConfigProvider>
+</template>
+
+<script lang="ts" setup>
+import NaiveProvider from './NaiveProvider.vue'
+import { zhCN, dateZhCN } from 'naive-ui'
+
+const { theme, themeOverrides } = useTheme()
+
+defineOptions({
+  name: 'App'
+})
+
+const route = useRoute()
+
+</script>
+
+<style lang="scss">
+@use "@/styles/index.scss";
+</style>
