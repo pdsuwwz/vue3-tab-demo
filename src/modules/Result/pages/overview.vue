@@ -1,12 +1,15 @@
 <template>
-  <LayoutSection
+  <!-- <LayoutSection
     flex-content
     :title="overviewData.title"
   >
     <div class="h-full flex-1 b b-#dcdfe6 dark:b-#444 b-solid">
       {{ overviewData.content }}
     </div>
-  </LayoutSection>
+  </LayoutSection> -->
+  <div class="h-full flex-1 b b-#dcdfe6 dark:b-#444 b-solid">
+    {{ overviewData.content }}
+  </div>
 </template>
 
 <script lang="ts">

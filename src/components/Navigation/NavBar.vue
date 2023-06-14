@@ -3,20 +3,22 @@
     class="navigation-navbar-header-container"
     :class="{
       'fixed-header': fixed,
-      'navbar-shadow dark:dark-navbar-shadow': auth,
-      'login-navbar-shadow dark:shadow-none': !auth,
+      'navbar-shadow dark:dark-navbar-shadow': isAuth,
+      'login-navbar-shadow dark:shadow-none': !isAuth,
     }"
   >
     <div
       class="navbar-header-box"
       :class="{
-        'bg-#fff dark:bg-#1e1e20': auth,
-        'bg-#8d8b89 bg-opacity-30': !auth
+        'bg-#fff dark:bg-#1e1e20': isAuth,
+        'bg-#8d8b89 bg-opacity-30': !isAuth
       }"
     >
-      <slot></slot>
+      <NavigationSideLogo
+        :auth="isAuth"
+      />
       <div style="flex: 1;"></div>
-      <template v-if="auth">
+      <template v-if="isAuth">
         <NavigationSideAction />
         <NavigationAvatar />
       </template>
@@ -25,29 +27,29 @@
   </header>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import NavigationSideAction from '@/components/Navigation/Side/SideAction.vue'
 import NavigationAvatar from '@/components/Navigation/Avatar.vue'
 import NavigationChangeTheme from '@/components/Navigation/ChangeTheme.vue'
+import NavigationSideLogo from '@/components/Navigation/Side/SideLogo.vue'
 
-export default defineComponent({
-  name: 'NavigationNavBar',
-  components: {
-    NavigationSideAction,
-    NavigationAvatar,
-    NavigationChangeTheme
-  },
-  props: {
-    auth: {
-      type: Boolean,
-      default: true
-    },
-    fixed: {
-      type: Boolean,
-      default: true
-    }
+defineOptions({
+  name: 'NavigationNavBar'
+})
+
+const props = defineProps({
+  fixed: {
+    type: Boolean,
+    default: false
   }
 })
+
+const route = useRoute()
+
+const isAuth = computed(() => {
+  return route.name !== 'UserLogin'
+})
+
 </script>
 <style lang="scss" scoped>
 $headerHeight: 48px;

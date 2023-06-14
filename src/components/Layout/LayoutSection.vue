@@ -1,6 +1,9 @@
 <template>
   <div class="layout-section-container">
-    <div class="layout-section-container__header">
+    <div
+      v-if="!title && !$slots.head"
+      class="layout-section-container__header"
+    >
       <div class="layout-section-container__header-head c-#303133 dark:c-#fff text_nowrap">
         <h1
           v-if="title"
@@ -86,7 +89,6 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     position: relative;
-    margin-top: 16px;
     flex: auto;
 
     .content-divider {

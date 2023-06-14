@@ -13,6 +13,8 @@
 </template>
 
 <script lang="ts">
+import { systemTitleZh } from '@/base'
+
 
 export default defineComponent({
   name: 'NavigationSideAction',
@@ -26,7 +28,7 @@ export default defineComponent({
       proxy.$emit('click')
     }
 
-    const title = computed(() => 'NaiveUI Template 项目')
+    const title = computed(() => systemTitleZh)
 
     return {
       title,

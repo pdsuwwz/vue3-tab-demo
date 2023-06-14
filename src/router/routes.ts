@@ -7,7 +7,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Root',
     redirect: {
-      name: 'Project'
+      name: 'GroupProjectRoot'
     }
   },
   ...childrenRoutes,

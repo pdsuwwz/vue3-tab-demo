@@ -24,6 +24,8 @@
 </template>
 
 <script lang="ts">
+import { systemTitleZh } from '@/base'
+
 
 export default defineComponent({
   name: 'NavigationSideLogo',
@@ -35,7 +37,7 @@ export default defineComponent({
   },
   setup () {
 
-    const title = computed(() => 'NaiveUI Template 项目')
+    const title = computed(() => systemTitleZh)
 
     return {
       title

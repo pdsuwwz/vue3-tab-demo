@@ -24,7 +24,7 @@ export function isBoolean (obj: any) {
   return originToString.call(obj) === '[object Boolean]'
 }
 
-export function isString (obj: any) {
+export function isString(obj: any): obj is string {
   return originToString.call(obj) === '[object String]'
 }
 
