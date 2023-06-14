@@ -239,60 +239,60 @@ const _routesWorkPlatform: RouteRecordRaw = {
       name: 'MaterialBackupManageRoot',
       component: LayoutWork,
       redirect: {
-        name: 'MaterialBackupManageIndex'
+        name: 'MaterialBackupIndex'
       },
       children: [
         {
           path: '',
-          name: 'MaterialBackupManageIndex',
+          name: 'MaterialBackupIndex',
           meta: {
             title: '资料管理-备份版本列表',
             cacheSpaceKey: CacheSpaceKeys.materialBackup
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/MaterialBackup/pages/index.vue')
         },
         {
           path: 'settings',
-          name: 'MaterialBackupManageSettings',
+          name: 'MaterialBackupSettings',
           meta: {
             title: '资料管理-备份设置',
             cacheSpaceKey: CacheSpaceKeys.materialBackup
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/MaterialBackup/pages/settings.vue')
         },
         {
           path: 'log',
-          name: 'MaterialBackupManageLog',
+          name: 'MaterialBackupLog',
           meta: {
             title: '资料管理-日志记录',
             cacheSpaceKey: CacheSpaceKeys.materialBackup
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/MaterialBackup/pages/log.vue')
         },
         {
           path: 'new',
-          name: 'MaterialBackupManageNew',
+          name: 'MaterialBackupNew',
           meta: {
             title: '资料管理-新建备份',
             cacheSpaceKey: CacheSpaceKeys.materialBackup
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/MaterialBackup/pages/new.vue')
         },
         {
           path: ':datasetId',
           name: 'MaterialBackupManageDetail',
           redirect: {
-            name: 'MaterialBackupManageDetailPreview'
+            name: 'MaterialBackupPreview'
           },
           children: [
             {
               path: 'preview',
-              name: 'MaterialBackupManageDetailPreview',
+              name: 'MaterialBackupPreview',
               meta: {
                 title: '资料管理-备份明细查看',
                 cacheSpaceKey: CacheSpaceKeys.materialBackup
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/MaterialBackup/pages/preview.vue')
             }
           ]
         }
