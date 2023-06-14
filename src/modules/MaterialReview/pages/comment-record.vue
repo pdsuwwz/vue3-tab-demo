@@ -8,16 +8,16 @@
 <script lang="ts" setup>
 
 /**
- * MaterialPreparePreview 资料管理-资料信息查看
+ * MaterialReviewCommentRecord 资料管理-审阅意见记录
  */
 defineOptions({
-  name: 'MaterialPreparePreview'
+  name: 'MaterialReviewCommentRecord'
 })
 
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialPreparePreview 资料管理-资料信息查看')
+const pageTitle = ref('MaterialReviewCommentRecord 资料管理-审阅意见记录')
 
 const inputValue = ref(pageTitle.value)
 
