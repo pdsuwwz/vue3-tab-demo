@@ -181,51 +181,51 @@ const _routesWorkPlatform: RouteRecordRaw = {
       name: 'MaterialReviewManageRoot',
       component: LayoutWork,
       redirect: {
-        name: 'MaterialReviewManageIndex'
+        name: 'MaterialReviewIndex'
       },
       children: [
         {
           path: '',
-          name: 'MaterialReviewManageIndex',
+          name: 'MaterialReviewIndex',
           meta: {
             title: '资料管理-审阅列表',
             cacheSpaceKey: CacheSpaceKeys.materialReview
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/MaterialReview/pages/index.vue')
         },
         {
           path: 'status',
-          name: 'MaterialReviewManageStatus',
+          name: 'MaterialReviewStatus',
           meta: {
             title: '资料管理-审阅状态管理',
             cacheSpaceKey: CacheSpaceKeys.materialReview
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/MaterialReview/pages/status.vue')
         },
         {
           path: ':datasetId',
           name: 'MaterialReviewManageDetail',
           redirect: {
-            name: 'MaterialReviewManageDetailPreview'
+            name: 'MaterialReviewPreview'
           },
           children: [
             {
               path: 'preview',
-              name: 'MaterialReviewManageDetailPreview',
+              name: 'MaterialReviewPreview',
               meta: {
                 title: '资料管理-审阅任务详情',
                 cacheSpaceKey: CacheSpaceKeys.materialReview
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/MaterialReview/pages/preview.vue')
             },
             {
               path: 'comment-record',
-              name: 'MaterialReviewManageDetailCommentRecord',
+              name: 'MaterialReviewCommentRecord',
               meta: {
                 title: '资料管理-审阅意见记录',
                 cacheSpaceKey: CacheSpaceKeys.materialReview
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/MaterialReview/pages/comment-record.vue')
             }
           ]
         }

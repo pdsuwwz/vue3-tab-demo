@@ -8,16 +8,16 @@
 <script lang="ts" setup>
 
 /**
- * MaterialPreparePreview 资料管理-资料信息查看
+ * TestComponent
  */
 defineOptions({
-  name: 'MaterialPreparePreview'
+  name: 'TestComponent'
 })
 
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialPreparePreview 资料管理-资料信息查看')
+const pageTitle = ref('TestComponent')
 
 const inputValue = ref(pageTitle.value)
 
