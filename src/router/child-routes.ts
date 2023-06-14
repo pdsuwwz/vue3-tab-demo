@@ -1,3 +1,4 @@
+import { routesHomeFrontend } from './frontend'
 
 const importModule = import.meta.glob('../modules/**/*.vue')
 const Layout = () => import('@/components/Layout/index.vue')
@@ -34,63 +35,10 @@ const childrenRoutes: Array<RouteRecordRaw> = [
       }
     ]
   },
-  {
-    path: '/project',
-    component: Layout,
-    name: 'Project',
-    redirect: {
-      name: 'ProjectList'
-    },
-    children: [
-      {
-        path: '',
-        name: 'ProjectList',
-        meta: {
-          title: '项目列表'
-        },
-        component: importModule['../modules/Project/pages/list.vue']
-      },
-      {
-        path: 'list',
-        name: 'ProjectList',
-        component: importModule['../modules/Project/pages/list.vue'],
-        meta: {
-          title: '项目管理'
-        }
-      }
-    ]
-  },
-  {
-    path: '/result',
-    redirect: {
-      name: 'ProjectList'
-    }
-  },
-  {
-    path: '/result/:projectId',
-    component: LayoutView,
-    name: 'result',
-    redirect: {
-      name: 'ResultOverview'
-    },
-    children: [
-      {
-        path: 'overview',
-        name: 'ResultOverview',
-        component: importModule['../modules/Result/pages/overview.vue'],
-        meta: {
-          title: '总览'
-        },
-        children: [
-          {
-            path: '',
-            name: 'ResultOverview',
-            component: importModule['../modules/Result/pages/overview.vue']
-          }
-        ]
-      }
-    ]
-  }
+
+
+  /** ------- 所有业务路由 ------- */
+  routesHomeFrontend
 ]
 
 export default childrenRoutes

@@ -2,7 +2,7 @@ import { useUserAccountStore } from '@/modules/UserAccount/store'
 
 import Cookie from 'js-cookie'
 import { allowlist } from '@/router/auth-list'
-import { systemTitle } from '@/base'
+import { systemTitleEn } from '@/base'
 
 import NProgress from 'nprogress'
 import { Router } from 'vue-router'
@@ -17,7 +17,7 @@ export function createRouterGuards(router: Router) {
 
     NProgress.start()
 
-    document.title = `${to.meta.title || ''} - ${systemTitle}`
+    document.title = `${to.meta.title || ''} - ${ systemTitleEn }`
 
     console.log('😄😄😄 ', to)
 

@@ -82,10 +82,18 @@ export default defineConfig(({ mode }) => {
               'RouteRecordRaw',
               'RouteLocationRaw',
               'LocationQuery',
+              'NavigationFailure',
               'RouteParams',
               'RouteLocationNormalizedLoaded',
               'RouteRecordName',
               'NavigationGuard'
+            ],
+            type: true
+          },
+          {
+            from: 'naive-ui',
+            imports: [
+              'DataTableColumns'
             ],
             type: true
           }

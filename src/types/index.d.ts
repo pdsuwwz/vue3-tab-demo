@@ -59,6 +59,11 @@ declare module 'vue-router' {
   // }
   export interface RouteMeta {
     title?: string
+    /**
+     * 路由缓存空间的 Key, 用于 Tabs 页签的缓存
+     * @example CacheSpaceKey_Xxxxxxx
+     */
+    cacheSpaceKey?: string
   }
 }
 

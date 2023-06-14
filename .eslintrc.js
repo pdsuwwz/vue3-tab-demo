@@ -39,7 +39,7 @@ module.exports = {
     'no-multiple-empty-lines': [
       2,
       {
-        max: 1
+        max: 3
       }
     ],
     // https://cn.eslint.org/docs/rules/eol-last

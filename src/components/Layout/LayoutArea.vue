@@ -19,11 +19,7 @@
         </aside>
         <section class="content-section-container bg-#f0f2f5 dark:bg-#1e1e20">
           <main class="main-content-box">
-            <div
-              class="inner-content"
-            >
-              <slot name="content"></slot>
-            </div>
+            <slot name="content"></slot>
           </main>
         </section>
       </div>
@@ -92,14 +88,7 @@ $headerHeight: 48px;
         .main-content-box {
           flex: auto;
           position: relative;
-
-          .inner-content {
-            padding: 24px;
-            position: absolute;
-            inset: 0;
-            overflow: auto;
-            scroll-behavior: smooth;
-          }
+          overflow: auto;
         }
       }
     }
