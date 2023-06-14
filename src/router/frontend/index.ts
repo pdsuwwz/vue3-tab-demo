@@ -25,37 +25,37 @@ const _routesWorkPlatform: RouteRecordRaw = {
       name: 'MemberTeamManageRoot',
       component: LayoutWork,
       redirect: {
-        name: 'MemberTeamManageIndex'
+        name: 'MemberTeamIndex'
       },
       children: [
         {
           path: '',
-          name: 'MemberTeamManageIndex',
+          name: 'MemberTeamIndex',
           meta: {
             title: '成员管理-团队成员',
             cacheSpaceKey: CacheSpaceKeys.memberTeam
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/MemberTeam/pages/index.vue')
         },
         {
           path: ':datasetId',
           name: 'MemberTeamManageDetail',
           redirect: {
-            name: 'MemberTeamManageDetailPreview'
+            name: 'MemberTeamPreview'
           },
           children: [
             {
               path: 'preview',
-              name: 'MemberTeamManageDetailPreview',
+              name: 'MemberTeamPreview',
               meta: {
                 title: '成员管理-成员信息查看',
                 cacheSpaceKey: CacheSpaceKeys.memberTeam
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/MemberTeam/pages/preview.vue')
             },
             {
               path: 'edit',
-              name: 'MemberTeamManageDetailEdit',
+              name: 'MemberTeamEdit',
               meta: {
                 title: '成员管理-成员信息编辑',
                 cacheSpaceKey: CacheSpaceKeys.memberTeam
@@ -66,48 +66,49 @@ const _routesWorkPlatform: RouteRecordRaw = {
         }
       ]
     },
+
     // 成员管理-角色分配
     {
       path: 'member-access-manage',
       name: 'MemberAccessManageRoot',
       component: LayoutWork,
       redirect: {
-        name: 'MemberAccessManageIndex'
+        name: 'MemberAccessIndex'
       },
       children: [
         {
           path: '',
-          name: 'MemberAccessManageIndex',
+          name: 'MemberAccessIndex',
           meta: {
             title: '成员管理-角色列表',
             cacheSpaceKey: CacheSpaceKeys.memberAccess
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/MemberAccess/pages/index.vue')
         },
         {
           path: ':datasetId',
           name: 'MemberAccessManageDetail',
           redirect: {
-            name: 'MemberAccessManageDetailPreview'
+            name: 'MemberAccessEdit'
           },
           children: [
             {
               path: 'edit',
-              name: 'MemberTeamManageDetailEdit',
+              name: 'MemberAccessEdit',
               meta: {
                 title: '成员管理-角色信息编辑',
                 cacheSpaceKey: CacheSpaceKeys.memberAccess
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/MemberAccess/pages/edit.vue')
             },
             {
               path: 'assign-member',
-              name: 'MemberTeamManageDetailAssignMemberEdit',
+              name: 'MemberAccessAssignMember',
               meta: {
                 title: '成员管理-角色-成员分配',
                 cacheSpaceKey: CacheSpaceKeys.memberAccess
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/MemberAccess/pages/assign-member.vue')
             }
           ]
         }
