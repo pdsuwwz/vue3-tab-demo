@@ -60,7 +60,7 @@ const _routesWorkPlatform: RouteRecordRaw = {
                 title: '成员管理-成员信息编辑',
                 cacheSpaceKey: CacheSpaceKeys.memberTeam
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/MemberTeam/pages/edit.vue')
             }
           ]
         }
@@ -124,51 +124,51 @@ const _routesWorkPlatform: RouteRecordRaw = {
       name: 'MaterialPrepareManageRoot',
       component: LayoutWork,
       redirect: {
-        name: 'MaterialPrepareManageIndex'
+        name: 'MaterialPrepareIndex'
       },
       children: [
         {
           path: '',
-          name: 'MaterialPrepareManageIndex',
+          name: 'MaterialPrepareIndex',
           meta: {
             title: '资料管理-资料列表',
             cacheSpaceKey: CacheSpaceKeys.materialPrepare
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/MaterialPrepare/pages/index.vue')
         },
         {
           path: 'new',
-          name: 'MaterialPrepareManageNew',
+          name: 'MaterialPrepareNew',
           meta: {
             title: '资料管理-资料上传',
             cacheSpaceKey: CacheSpaceKeys.materialPrepare
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/MaterialPrepare/pages/new.vue')
         },
         {
           path: ':datasetId',
           name: 'MaterialPrepareManageDetail',
           redirect: {
-            name: 'MaterialPrepareManageDetailPreview'
+            name: 'MaterialPreparePreview'
           },
           children: [
             {
               path: 'preview',
-              name: 'MaterialPrepareManageDetailPreview',
+              name: 'MaterialPreparePreview',
               meta: {
                 title: '资料管理-资料信息查看',
                 cacheSpaceKey: CacheSpaceKeys.materialPrepare
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/MaterialPrepare/pages/preview.vue')
             },
             {
               path: 'edit',
-              name: 'MaterialPrepareManageDetailEdit',
+              name: 'MaterialPrepareEdit',
               meta: {
                 title: '资料管理-资料信息编辑',
                 cacheSpaceKey: CacheSpaceKeys.materialPrepare
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/MaterialPrepare/pages/edit.vue')
             }
           ]
         }
