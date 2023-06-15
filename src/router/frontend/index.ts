@@ -405,33 +405,33 @@ const _routesWorkPlatform: RouteRecordRaw = {
       name: 'CostDistributeManageRoot',
       component: LayoutWork,
       redirect: {
-        name: 'CostDistributeManageIndex'
+        name: 'CostDistributeIndex'
       },
       children: [
         {
           path: '',
-          name: 'CostDistributeManageIndex',
+          name: 'CostDistributeIndex',
           meta: {
             title: '成本核算管理-成本数据列表', // 为多个成本分配（交互为多选表格，勾选后可打开多个子tab，在子tab页面进行归集、汇总）
             cacheSpaceKey: CacheSpaceKeys.costDistribute
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/CostDistribute/pages/overview.vue')
         },
         {
           path: ':datasetId',
           name: 'CostDistributeManageDetail',
           redirect: {
-            name: 'CostDistributeManageDetailEdit'
+            name: 'CostDistributeEdit'
           },
           children: [
             {
               path: 'edit',
-              name: 'CostDistributeManageDetailEdit',
+              name: 'CostDistributeEdit',
               meta: {
                 title: '成本核算管理-成本数据详情',
                 cacheSpaceKey: CacheSpaceKeys.costDistribute
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/CostDistribute/pages/overview.vue')
             }
           ]
         }
