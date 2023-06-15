@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * CostCollectionIndex 成本核算管理-数据收集预览
+ * CostCollectionIndex 成本核算管理-数据收集-数据收集预览
  */
 defineOptions({
   name: 'CostCollectionIndex'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('CostCollectionIndex 成本核算管理-数据收集预览')
+const pageTitle = ref('CostCollectionIndex 成本核算管理-数据收集-数据收集预览')
 
 const inputValue = ref(pageTitle.value)
 

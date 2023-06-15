@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialBackupLog 资料管理-日志记录
+ * MaterialBackupLog 资料管理-备份与恢复-日志记录
  */
 defineOptions({
   name: 'MaterialBackupLog'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialBackupLog 资料管理-日志记录')
+const pageTitle = ref('MaterialBackupLog 资料管理-备份与恢复-日志记录')
 
 const inputValue = ref(pageTitle.value)
 

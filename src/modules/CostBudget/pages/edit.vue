@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * CostBudgetEdit 成本核算管理-成本预算录入
+ * CostBudgetEdit 成本核算管理-预算设定-成本预算录入
  */
 defineOptions({
   name: 'CostBudgetEdit'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('CostBudgetEdit 成本核算管理-成本预算录入')
+const pageTitle = ref('CostBudgetEdit 成本核算管理-预算设定-成本预算录入')
 
 const inputValue = ref(pageTitle.value)
 

@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialPreparePreview 资料管理-资料信息查看
+ * MaterialPreparePreview 资料管理-资料准备-资料信息查看
  */
 defineOptions({
   name: 'MaterialPreparePreview'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialPreparePreview 资料管理-资料信息查看')
+const pageTitle = ref('MaterialPreparePreview 资料管理-资料准备-资料信息查看')
 
 const inputValue = ref(pageTitle.value)
 

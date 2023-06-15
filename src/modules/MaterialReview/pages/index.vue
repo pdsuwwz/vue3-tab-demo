@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialReviewIndex 资料管理-审阅列表
+ * MaterialReviewIndex 资料管理-资料审阅-审阅列表
  */
 defineOptions({
   name: 'MaterialReviewIndex'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialReviewIndex 资料管理-审阅列表')
+const pageTitle = ref('MaterialReviewIndex 资料管理-资料审阅-审阅列表')
 
 const inputValue = ref(pageTitle.value)
 

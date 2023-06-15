@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MemberAccessIndex 成员管理-角色分配-角色列表
+ * MemberAccessIndex 成员管理-角色权限分配-角色列表
  */
 defineOptions({
   name: 'MemberAccessIndex'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MemberAccessIndex 成员管理-团队成员')
+const pageTitle = ref('MemberAccessIndex 成员管理-角色权限分配-角色列表')
 
 const inputValue = ref(pageTitle.value)
 

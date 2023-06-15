@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * CostDistributeEdit 成本核算管理-成本数据详情
+ * CostDistributeEdit 成本核算管理-分配和归集-成本数据详情
  */
 defineOptions({
   name: 'CostDistributeEdit'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('CostDistributeEdit 成本核算管理-成本数据详情')
+const pageTitle = ref('CostDistributeEdit 成本核算管理-分配和归集-成本数据详情')
 
 const inputValue = ref(pageTitle.value)
 

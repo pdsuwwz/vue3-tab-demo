@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * CostBudgetCategoryAssign 成本核算管理-成本类别分配
+ * CostBudgetCategoryAssign 成本核算管理-预算设定-成本类别分配
  */
 defineOptions({
   name: 'CostBudgetCategoryAssign'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('CostBudgetCategoryAssign 成本核算管理-成本类别分配')
+const pageTitle = ref('CostBudgetCategoryAssign 成本核算管理-预算设定-成本类别分配')
 
 const inputValue = ref(pageTitle.value)
 

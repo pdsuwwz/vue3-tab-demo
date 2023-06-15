@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialPrepareIndex 资料管理-资料列表
+ * MaterialPrepareIndex 资料管理-资料准备-资料列表
  */
 defineOptions({
   name: 'MaterialPrepareIndex'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialPrepareIndex 资料管理-资料列表')
+const pageTitle = ref('MaterialPrepareIndex 资料管理-资料准备-资料列表')
 
 const inputValue = ref(pageTitle.value)
 

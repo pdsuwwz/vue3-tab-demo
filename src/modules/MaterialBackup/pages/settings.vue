@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialBackupSettings 资料管理-备份设置
+ * MaterialBackupSettings 资料管理-备份与恢复-备份设置
  */
 defineOptions({
   name: 'MaterialBackupSettings'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialBackupSettings 资料管理-备份设置')
+const pageTitle = ref('MaterialBackupSettings 资料管理-备份与恢复-备份设置')
 
 const inputValue = ref(pageTitle.value)
 

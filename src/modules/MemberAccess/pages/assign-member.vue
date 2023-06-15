@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MemberAccessAssignMember 成员管理-角色-成员分配
+ * MemberAccessAssignMember 成员管理-角色权限分配-成员分配
  */
 defineOptions({
   name: 'MemberAccessAssignMember'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MemberAccessAssignMember 成员管理-角色-成员分配')
+const pageTitle = ref('MemberAccessAssignMember 成员管理-角色权限分配-成员分配')
 
 const inputValue = ref(pageTitle.value)
 

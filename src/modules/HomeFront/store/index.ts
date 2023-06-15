@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { sleep } from '@/utils/request'
 import * as HomeFrontAPI from '../api'
 
-export const useProjectStore = defineStore('HomeFront', {
+export const useHomeFrontStore = defineStore('HomeFront', {
   state: () => {
     return {
       demoList: {}

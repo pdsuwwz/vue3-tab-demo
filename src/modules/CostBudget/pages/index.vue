@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * CostBudgetIndex 成本核算管理-成本预算总览
+ * CostBudgetIndex 成本核算管理-预算设定-成本预算总览
  */
 defineOptions({
   name: 'CostBudgetIndex'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('CostBudgetIndex 成本核算管理-成本预算总览')
+const pageTitle = ref('CostBudgetIndex 成本核算管理-预算设定-成本预算总览')
 
 const inputValue = ref(pageTitle.value)
 
