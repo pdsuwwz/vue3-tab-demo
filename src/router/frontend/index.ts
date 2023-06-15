@@ -308,42 +308,42 @@ const _routesWorkPlatform: RouteRecordRaw = {
       name: 'CostBudgetManageRoot',
       component: LayoutWork,
       redirect: {
-        name: 'CostBudgetManageIndex'
+        name: 'CostBudgetIndex'
       },
       children: [
         {
           path: '',
-          name: 'CostBudgetManageIndex',
+          name: 'CostBudgetIndex',
           meta: {
             title: '成本核算管理-成本预算总览', // 总体和各个类别的预算数据预览
             cacheSpaceKey: CacheSpaceKeys.costBudget
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/CostBudget/pages/index.vue')
         },
         {
           path: 'category-assign',
-          name: 'CostBudgetManageCategoryAssign',
+          name: 'CostBudgetCategoryAssign',
           meta: {
             title: '成本核算管理-成本类别分配',
             cacheSpaceKey: CacheSpaceKeys.costBudget
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/CostBudget/pages/category-assign.vue')
         },
         {
           path: ':datasetId',
           name: 'CostBudgetManageDetail',
           redirect: {
-            name: 'CostBudgetManageDetailPreview'
+            name: 'CostBudgetEdit'
           },
           children: [
             {
               path: 'edit',
-              name: 'CostBudgetManageDetailEdit',
+              name: 'CostBudgetEdit',
               meta: {
                 title: '成本核算管理-成本预算录入',
                 cacheSpaceKey: CacheSpaceKeys.costBudget
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/CostBudget/pages/edit.vue')
             }
           ]
         }
