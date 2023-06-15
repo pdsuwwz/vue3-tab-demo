@@ -43,6 +43,7 @@ declare module 'vue' {
     NSpace: typeof import('naive-ui')['NSpace']
     NStatistic: typeof import('naive-ui')['NStatistic']
     NSwitch: typeof import('naive-ui')['NSwitch']
+    NThing: typeof import('naive-ui')['NThing']
     Octocat: typeof import('./src/components/Footer/octocat.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

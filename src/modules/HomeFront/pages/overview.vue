@@ -5,7 +5,7 @@
     >
       <template #title>
         <a
-          href="javascript:void(0)"
+          href="javascript:;"
           style="text-decoration: none; color: inherit"
           @click="handlerPreviewDetail()"
         >返回项目列表</a>

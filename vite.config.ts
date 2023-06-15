@@ -2,6 +2,7 @@ import path from 'path'
 import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 
+import SvgLoader from 'vite-svg-loader'
 import UnoCSS from 'unocss/vite'
 
 import AutoImport from 'unplugin-auto-import/vite'
@@ -116,6 +117,7 @@ export default defineConfig(({ mode }) => {
           NaiveUiResolver()
         ]
       }),
+      SvgLoader(),
       htmlPlugin()
     ],
     // https://esbuild.github.io/api/#drop
