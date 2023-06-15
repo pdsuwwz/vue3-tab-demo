@@ -356,44 +356,44 @@ const _routesWorkPlatform: RouteRecordRaw = {
       name: 'CostCollectionManageRoot',
       component: LayoutWork,
       redirect: {
-        name: 'CostCollectionManageIndex'
+        name: 'CostCollectionIndex'
       },
       children: [
         {
           path: '',
-          name: 'CostCollectionManageIndex',
+          name: 'CostCollectionIndex',
           meta: {
             title: '成本核算管理-数据收集预览',
             cacheSpaceKey: CacheSpaceKeys.costCollection
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/CostCollection/pages/index.vue')
         },
         {
           path: 'direct',
-          name: 'CostCollectionManageDirect',
+          name: 'CostCollectionDirect',
           meta: {
             title: '成本核算管理-数据收集-直接成本',
             cacheSpaceKey: CacheSpaceKeys.costCollection
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/CostCollection/pages/direct.vue')
         },
         {
           path: 'indirect',
-          name: 'CostCollectionManageIndirect',
+          name: 'CostCollectionIndirect',
           meta: {
             title: '成本核算管理-数据收集-间接成本',
             cacheSpaceKey: CacheSpaceKeys.costCollection
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/CostCollection/pages/indirect.vue')
         },
         {
           path: 'manual-upload',
-          name: 'CostCollectionManageManualUpload',
+          name: 'CostCollectionManualUpload',
           meta: {
             title: '成本核算管理-数据收集-手动录入',
             cacheSpaceKey: CacheSpaceKeys.costCollection
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/CostCollection/pages/manual-upload.vue')
         }
         // TODO: 为丰富页面元素，可以增加一个导入的弹框按钮（非新页面导入）
       ]
