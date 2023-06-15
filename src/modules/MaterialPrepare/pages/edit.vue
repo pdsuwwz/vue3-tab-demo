@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialPrepareEdit 资料管理-资料信息编辑
+ * MaterialPrepareEdit 资料管理-资料准备-资料信息编辑
  */
 defineOptions({
   name: 'MaterialPrepareEdit'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialPrepareEdit 资料管理-资料信息编辑')
+const pageTitle = ref('MaterialPrepareEdit 资料管理-资料准备-资料信息编辑')
 
 const inputValue = ref(pageTitle.value)
 

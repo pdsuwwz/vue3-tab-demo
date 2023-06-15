@@ -15,7 +15,7 @@ export const CacheSpaceKeys = {
   memberTeam: 'CacheSpaceKey_WorkPlatform_MemberTeam',
 
   /**
-   * 缓存空间 Key -> 成员管理-角色分配
+   * 缓存空间 Key -> 成员管理-角色权限分配
    */
   memberAccess: 'CacheSpaceKey_WorkPlatform_MemberAccess',
 

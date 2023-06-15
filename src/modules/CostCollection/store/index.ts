@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { sleep } from '@/utils/request'
 import * as CostCollectionAPI from '../api'
 
-export const useProjectStore = defineStore('CostCollection', {
+export const useCostCollectionStore = defineStore('CostCollection', {
   state: () => {
     return {
       demoList: {}

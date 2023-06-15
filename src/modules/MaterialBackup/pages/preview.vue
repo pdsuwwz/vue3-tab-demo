@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialBackupPreview 资料管理-备份明细查看
+ * MaterialBackupPreview 资料管理-备份与恢复-备份明细查看
  */
 defineOptions({
   name: 'MaterialBackupPreview'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialBackupPreview 资料管理-备份明细查看')
+const pageTitle = ref('MaterialBackupPreview 资料管理-备份与恢复-备份明细查看')
 
 const inputValue = ref(pageTitle.value)
 

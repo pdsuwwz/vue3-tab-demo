@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MemberTeamIndex 成员管理-团队成员
+ * MemberTeamIndex 成员管理-团队成员列表
  */
 defineOptions({
   name: 'MemberTeamIndex'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MemberTeamIndex 成员管理-团队成员')
+const pageTitle = ref('MemberTeamIndex 成员管理-团队成员列表')
 
 const inputValue = ref(pageTitle.value)
 

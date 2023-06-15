@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { sleep } from '@/utils/request'
 import * as MaterialPrepareAPI from '../api'
 
-export const useProjectStore = defineStore('MaterialPrepare', {
+export const useMaterialPrepareStore = defineStore('MaterialPrepare', {
   state: () => {
     return {
       demoList: {}

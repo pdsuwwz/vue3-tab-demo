@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialReviewStatus 资料管理-审阅状态管理
+ * MaterialReviewStatus 资料管理-资料审阅-审阅状态管理
  */
 defineOptions({
   name: 'MaterialReviewStatus'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialReviewStatus 资料管理-审阅状态管理')
+const pageTitle = ref('MaterialReviewStatus 资料管理-资料审阅-审阅状态管理')
 
 const inputValue = ref(pageTitle.value)
 

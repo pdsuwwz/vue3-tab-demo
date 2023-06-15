@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * CostDistributeIndex 成本核算管理-成本数据列表
+ * CostDistributeIndex 成本核算管理-分配和归集-成本数据列表
  */
 defineOptions({
   name: 'CostDistributeIndex'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('CostDistributeIndex 成本核算管理-成本数据列表')
+const pageTitle = ref('CostDistributeIndex 成本核算管理-分配和归集-成本数据列表')
 
 const inputValue = ref(pageTitle.value)
 

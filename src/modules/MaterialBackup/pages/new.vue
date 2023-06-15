@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialBackupNew 资料管理-新建备份
+ * MaterialBackupNew 资料管理-备份与恢复-新建备份
  */
 defineOptions({
   name: 'MaterialBackupNew'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialBackupNew 资料管理-新建备份')
+const pageTitle = ref('MaterialBackupNew 资料管理-备份与恢复-新建备份')
 
 const inputValue = ref(pageTitle.value)
 

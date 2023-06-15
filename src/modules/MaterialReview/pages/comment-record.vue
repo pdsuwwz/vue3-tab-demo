@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialReviewCommentRecord 资料管理-审阅意见记录
+ * MaterialReviewCommentRecord 资料管理-资料审阅-审阅意见记录
  */
 defineOptions({
   name: 'MaterialReviewCommentRecord'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialReviewCommentRecord 资料管理-审阅意见记录')
+const pageTitle = ref('MaterialReviewCommentRecord 资料管理-资料审阅-审阅意见记录')
 
 const inputValue = ref(pageTitle.value)
 

@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialBackupIndex 资料管理-备份版本列表
+ * MaterialBackupIndex 资料管理-备份与恢复-备份版本列表
  */
 defineOptions({
   name: 'MaterialBackupIndex'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialBackupIndex 资料管理-备份版本列表')
+const pageTitle = ref('MaterialBackupIndex 资料管理-备份与恢复-备份版本列表')
 
 const inputValue = ref(pageTitle.value)
 

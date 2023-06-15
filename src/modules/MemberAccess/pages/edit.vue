@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MemberAccessEdit 成员管理-角色信息编辑
+ * MemberAccessEdit 成员管理-角色权限分配-角色信息编辑
  */
 defineOptions({
   name: 'MemberAccessEdit'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MemberAccessEdit 成员管理-角色信息编辑')
+const pageTitle = ref('MemberAccessEdit 成员管理-角色权限分配-角色信息编辑')
 
 const inputValue = ref(pageTitle.value)
 

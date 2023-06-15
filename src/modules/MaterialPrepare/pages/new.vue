@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 
 /**
- * MaterialPrepareNew 资料管理-资料上传
+ * MaterialPrepareNew 资料管理-资料准备-资料上传
  */
 defineOptions({
   name: 'MaterialPrepareNew'
@@ -17,7 +17,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 
-const pageTitle = ref('MaterialPrepareNew 资料管理-资料上传')
+const pageTitle = ref('MaterialPrepareNew 资料管理-资料准备-资料上传')
 
 const inputValue = ref(pageTitle.value)
 
