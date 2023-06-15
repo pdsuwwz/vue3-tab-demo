@@ -13,5 +13,6 @@
 		"source.fixAll.stylelint": true
 	},
 	"files.autoSaveDelay": 500,
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"vue.codeActions.enabled": false,
 }

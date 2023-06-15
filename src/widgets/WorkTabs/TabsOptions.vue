@@ -123,6 +123,8 @@ const isKeepHover = ref(false)
   user-select: none;
 
   .close-icon {
+    display: flex;
+    align-items: center;
     color: #b6b9c1;
     font-size: 14px;
     cursor: pointer;

@@ -6,7 +6,7 @@
     }"
   >
     <div
-      class="container"
+      class="footer-container"
     >
       <p
         class="text"
@@ -50,7 +50,7 @@ export default defineComponent({
   margin: 0 auto;
   width: 100%;
 
-  .container {
+  .footer-container {
     padding: 14px 0;
 
     .text {

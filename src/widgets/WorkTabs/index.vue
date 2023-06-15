@@ -1,6 +1,6 @@
 <template>
   <div class="work-tabs-container">
-    <div class="work-tabs__controller bg-#eaedf2 dark:bg-#7a7a7a">
+    <div class="work-tabs__controller bg-#fff dark:bg-#333333">
       <TabsOutset v-if="showOutset" />
       <TabsHeader />
       <TabsOptions />
@@ -52,8 +52,9 @@ const showOutset = computed(() => route.path.includes('/group-project'))
     left: 0;
     width: 100%;
     height: 100%;
-
-    // box-shadow: 0 1px 4px 0 rgb(0 0 0 / 8%);
+    z-index: 1;
+    pointer-events: none;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 8%);
   }
 
   .work-tabs__content {

@@ -17,7 +17,7 @@
           #titleIcon
         >
           <img
-            src="@/assets/brand/logo-vite.svg"
+            src="@/assets/brand/logo-unocss.svg?url"
             alt=""
           >
         </template>

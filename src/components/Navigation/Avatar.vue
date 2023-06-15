@@ -1,6 +1,7 @@
 <template>
   <n-dropdown
     trigger="hover"
+    show-arrow
     :options="commandList"
   >
     <div class="navigation-avatar">

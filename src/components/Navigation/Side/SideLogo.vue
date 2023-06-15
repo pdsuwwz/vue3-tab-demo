@@ -5,11 +5,11 @@
     <router-link
       :to="`/`"
     >
-      <!-- <img
+      <img
         class="side-logo-img"
-        src="@/assets/brand/logo-naive.svg"
+        src="@/assets/brand/logo-naive.svg?url"
         alt="商标"
-      > -->
+      >
       <h1
         class="side-logo-title c-#303133 dark:c-#fff"
         :class="{
@@ -57,6 +57,7 @@ export default defineComponent({
     height: 100%;
 
     .side-logo-img {
+      width: 32px;
       height: 38px;
     }
 
