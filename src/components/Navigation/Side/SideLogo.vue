@@ -7,7 +7,7 @@
     >
       <img
         class="side-logo-img"
-        src="@/assets/images/naive-logo.svg"
+        src="@/assets/brand/logo-naive.svg?url"
         alt="商标"
       >
       <h1
@@ -57,6 +57,7 @@ export default defineComponent({
     height: 100%;
 
     .side-logo-img {
+      width: 32px;
       height: 38px;
     }
 

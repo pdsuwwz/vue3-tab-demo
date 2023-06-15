@@ -1,6 +1,7 @@
 @use "@/styles/naive-variables.scss" as *;
 
 #nprogress .bar {
+  height: 4px !important;
   background: $color-primary !important;
 }
 

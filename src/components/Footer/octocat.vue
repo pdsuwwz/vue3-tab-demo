@@ -23,7 +23,7 @@
 export default defineComponent({
   name: 'Octocat',
   setup() {
-    const link = ref('https://github.com/pdsuwwz/vite-naive-template')
+    const link = ref('https://github.com/pdsuwwz/vue3-tab-demo')
     return {
       link
     }

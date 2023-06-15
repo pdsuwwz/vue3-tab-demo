@@ -65,7 +65,7 @@ const hasBorder = ref(true)
       opacity: 0;
       min-width: 340px;
       max-width: 1000px;
-      height: calc(100vh - 56px);
+      height: calc(100vh - 48px - 54px);
 
       &::-webkit-scrollbar {
         width: 20px;
