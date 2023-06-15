@@ -444,73 +444,67 @@ const _routesWorkPlatform: RouteRecordRaw = {
       name: 'CostAnalysisManageRoot',
       component: LayoutWork,
       redirect: {
-        name: 'CostAnalysisManageIndex'
+        name: 'CostAnalysisIndex'
       },
       children: [
         {
           path: '',
-          name: 'CostAnalysisManageIndex',
+          name: 'CostAnalysisIndex',
           meta: {
             title: '成本核算管理-分析和报告-成本总览', // 总体成本情况，可视化组件，包括总成本、成本占比、成本趋势等概览信息
             cacheSpaceKey: CacheSpaceKeys.costAnalysis
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/CostAnalysis/pages/index.vue')
         },
         {
           path: 'structure',
-          name: 'CostAnalysisManageStructure',
+          name: 'CostAnalysisStructure',
           meta: {
             title: '成本核算管理-分析和报告-成本结构',
             cacheSpaceKey: CacheSpaceKeys.costAnalysis
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/CostAnalysis/pages/structure.vue')
         },
         {
           path: 'diff',
-          name: 'CostAnalysisManageLog',
+          name: 'CostAnalysisDiff',
           meta: {
             title: '成本核算管理-分析和报告-成本比较',
             cacheSpaceKey: CacheSpaceKeys.costAnalysis
           },
-          component: () => import('@/modules/Result/pages/overview.vue')
+          component: () => import('@/modules/CostAnalysis/pages/diff.vue')
         },
         {
-          path: 'diff',
-          name: 'CostAnalysisManageLog',
-          meta: {
-            title: '成本核算管理-分析和报告-成本比较',
-            cacheSpaceKey: CacheSpaceKeys.costAnalysis
-          },
-          component: () => import('@/modules/Result/pages/overview.vue')
-        },
-        {
-          path: ':datasetId', // 每个成本对应多个报表
+          path: ':datasetId', // 每个成本报告对应多个报表
           name: 'CostAnalysisManageDetail',
           redirect: {
-            name: 'CostAnalysisManageDetailPreview'
+            name: 'CostAnalysisPreview'
           },
           children: [
             {
               path: 'preview',
-              name: 'CostAnalysisManageDetailPreview',
+              name: 'CostAnalysisPreview',
               meta: {
                 title: '成本核算管理-分析和报告-报表列表',
                 cacheSpaceKey: CacheSpaceKeys.costAnalysis
               },
-              component: () => import('@/modules/Result/pages/overview.vue')
+              component: () => import('@/modules/CostAnalysis/pages/preview.vue')
             },
             {
               path: ':reportId',
               name: 'CostAnalysisManageDetailReport',
+              redirect: {
+                name: 'CostAnalysisReportInfo'
+              },
               children: [
                 {
                   path: 'report-info',
-                  name: 'CostAnalysisManageDetailReportInfo',
+                  name: 'CostAnalysisReportInfo',
                   meta: {
                     title: '成本核算管理-分析和报告-报表查看',
                     cacheSpaceKey: CacheSpaceKeys.costAnalysis
                   },
-                  component: () => import('@/modules/Result/pages/overview.vue')
+                  component: () => import('@/modules/CostAnalysis/pages/report-info.vue')
                 }
               ]
             }
