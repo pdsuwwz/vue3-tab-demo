@@ -9,6 +9,7 @@
         class="resize-content"
       >
         <!-- <ProjectTree /> -->
+        侧边栏
       </div>
       <div
         class="resize-line"

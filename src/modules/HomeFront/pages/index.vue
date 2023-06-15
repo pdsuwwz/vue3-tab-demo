@@ -3,9 +3,9 @@
     title="主页"
     flex-content
   >
-    <template #action>
+    <!-- <template #action>
       <n-button>测绘</n-button>
-    </template>
+    </template> -->
 
     <n-data-table
       :columns="tableColumns"

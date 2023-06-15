@@ -16,10 +16,12 @@
         v-for="(tabItem) in workTabsStore.currentTabsInCacheSpace"
         :key="tabItem.tabKey"
         ref="refsTabs"
-        class="tab-item-box"
-        :class="{
-          active: tabItem.tabKey === workTabsStore.currentCacheSpace?.activeTabKey
-        }"
+        :class="[
+          'tab-item-box',
+          {
+            'active': tabItem.tabKey === workTabsStore.currentCacheSpace?.activeTabKey
+          }
+        ]"
         @click="handleSwitch(tabItem)"
       >
         <span
@@ -28,10 +30,10 @@
         >{{ tabItem.customLabel || tabItem.label }}</span>
         <div
           v-if="!isOnlyOneTab"
-          class="tab-item-icon"
+          class="tab-item-icon flex items-center"
           @click.stop="handleCloseTab(tabItem)"
         >
-          <IconFont icon="icon-error" />
+          <n-icon :component="IosCloseCircleOutline" />
         </div>
       </li>
     </ul>
@@ -39,6 +41,7 @@
 </template>
 
 <script lang="ts" setup>
+import { IosCloseCircleOutline } from '@vicons/ionicons4'
 import useWorkTabsStore from './store'
 import type { WorkTab } from './types'
 
@@ -206,9 +209,10 @@ onUnmounted(async() => {
       padding: 0 11px 0 12px;
       cursor: pointer;
       transition: all .2s;
-      background-color: #dee2ea;
       border-radius: 8px 8px 0 0;
       margin-right: 2px;
+
+      --at-apply: bg-#dee2ea dark:bg-#565555;
 
       &:last-child {
         margin-right: 0;
@@ -231,11 +235,12 @@ onUnmounted(async() => {
         font-size: 14px;
         font-family: PingFangSC-Regular, "PingFang SC";
         font-weight: 400;
-        color: #303133;
+
+        --at-apply: c-#303133 dark:c-#dee2ea;
       }
 
       &:hover {
-        background-color: #cacfd8;
+        --at-apply: bg-#cacfd8 dark:bg-#3e3e3e;
 
         & > .tab-item-icon {
           color: #909399;
@@ -243,13 +248,18 @@ onUnmounted(async() => {
       }
 
       &.active {
-        background-color: #fff;
+        --at-apply: bg-#fff dark:bg-#1e1e20;
+
+        & > .tab-item-label {
+          --at-apply: dark:c-#fff;
+        }
 
         & > .tab-item-icon {
           color: transparent;
         }
 
         &:hover {
+          --at-apply: dark:bg-#1e1e20;
 
           & > .tab-item-icon {
             color: #b6b9c1;

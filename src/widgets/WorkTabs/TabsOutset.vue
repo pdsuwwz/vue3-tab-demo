@@ -1,14 +1,21 @@
 <template>
   <div
     id="tabs-outset-box"
-    @click="handleJumpToCockpit()"
+    @click="handleJumpToOverview()"
   >
-    <IconFont icon="icon-jiashicang" />
-    <span class="tabs-outset-box-label">驾</span>
+    <n-icon
+      :component="AppFolder20Regular"
+    />
+    <span
+      v-if="false"
+      class="tabs-outset-box-label"
+    >驾</span>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { AppFolder20Regular } from '@vicons/fluent'
+
 
 /**
  * 驾驶舱 - 🏠
@@ -20,9 +27,9 @@ defineOptions({
 
 const router = useTabRouter()
 
-const handleJumpToCockpit = () => {
+const handleJumpToOverview = () => {
   router.push({
-    name: 'GroupProjectCockpit'
+    name: 'GroupProjectDetail'
   })
 }
 </script>

@@ -553,9 +553,6 @@ export const routesHomeFrontend: RouteRecordRaw = {
         {
           path: 'dashboard',
           name: 'DashboardIndex',
-          meta: {
-            title: 'Dashboard'
-          },
           redirect: {
             name: 'DashboardConsole'
           },
