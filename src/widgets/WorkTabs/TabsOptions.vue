@@ -1,21 +1,22 @@
 <template>
-  <el-popover
+  <n-popover
     trigger="hover"
-    :width="236"
-    :show-after="300"
-    popper-class="tabs-options-box"
+    style="width: 236px"
+    :delay="300"
+    class="tabs-options-box"
     placement="bottom-start"
-    @show="isKeepHover = true"
-    @hide="isKeepHover = false"
+    @update:show="(showValue) => isKeepHover = showValue"
   >
-    <template #reference>
+    <template #trigger>
       <div
-        class="tabs-options-action"
+        class="tabs-options-action hover-bg-#cacfd8 dark:hover-c-#303133"
         :class="{
-          'is-hover': isKeepHover
+          'bg-#cacfd8 dark:c-#303133': isKeepHover
         }"
       >
-        <IconFont icon="icon-arrow_down" />
+        <n-icon
+          :component="KeyboardDoubleArrowDownFilled"
+        />
       </div>
     </template>
     <template #default>
@@ -27,7 +28,7 @@
         @click="handleCloseOtherTabs()"
       >
         <span class="close-icon">
-          <IconFont icon="icon-error" />
+          <n-icon :component="IosCloseCircleOutline" />
         </span>
         <span class="close-other-text">关闭其他标签</span>
       </div>
@@ -55,11 +56,13 @@
         </li>
       </ul>
     </template>
-  </el-popover>
+  </n-popover>
 </template>
 
 <script lang="ts" setup>
 
+import { IosCloseCircleOutline } from '@vicons/ionicons4'
+import { KeyboardDoubleArrowDownFilled } from '@vicons/material'
 import useWorkTabsStore from './store'
 import type { WorkTab } from './types'
 
@@ -110,14 +113,6 @@ const isKeepHover = ref(false)
   transition: .3s;
   cursor: pointer;
   z-index: 0;
-
-  &:hover {
-    background-color: #cacfd8;
-  }
-
-  &.is-hover {
-    background-color: #cacfd8;
-  }
 }
 
 .tabs-options-box {

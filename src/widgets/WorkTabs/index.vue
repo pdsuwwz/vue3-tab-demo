@@ -1,10 +1,9 @@
 <template>
   <div class="work-tabs-container">
-    <div class="work-tabs__controller">
+    <div class="work-tabs__controller bg-#eaedf2 dark:bg-#7a7a7a">
       <TabsOutset v-if="showOutset" />
       <TabsHeader />
-      <!-- TODO: 需要将 element-plus 重构为 naive-ui 组件 -->
-      <!-- <TabsOptions /> -->
+      <TabsOptions />
     </div>
 
     <div class="work-tabs__content">
@@ -43,7 +42,6 @@ const showOutset = computed(() => route.path.includes('/group-project'))
     justify-content: space-between;
     user-select: none;
     padding: 16px 21px 0 24px;
-    background-color: #eaedf2;
     position: relative;
   }
 
@@ -61,7 +59,6 @@ const showOutset = computed(() => route.path.includes('/group-project'))
   .work-tabs__content {
     flex: 1;
     min-height: 0;
-    background-color: #fff;
     overflow-y: auto;
   }
 }
