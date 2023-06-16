@@ -41,13 +41,26 @@
                   text
                   tag="a"
                   type="primary"
+                  tabindex="-1"
                   @click="handleClickLink(formItem.link)"
                 >
                   {{ formItem.link.text }}
                 </n-button>
               </div>
             </template>
+
+            <n-auto-complete
+              v-if="formItem.type === 'email'"
+              v-model:value="formData[formItem.attrs.path]"
+              v-bind="getInputItemAttrs(formItem)"
+              :input-props="{
+                autocomplete: 'disabled'
+              }"
+              :options="getEmailAutoCompleteOptions(formData[formItem.attrs.path])"
+              blur-after-select
+            />
             <n-input
+              v-else
               v-model:value="formData[formItem.attrs.path]"
               v-bind="getInputItemAttrs(formItem)"
             >
@@ -189,6 +202,17 @@ function getActionItemEvent (on: any) {
     onEvent[onItem] = on[onItem].bind(proxy.$parent, boxForm.value)
   })
   return onEvent
+}
+
+
+const getEmailAutoCompleteOptions = (valueRef) => {
+  return ['@admin.com', '@test.com', '@qq.com'].map((suffix) => {
+    const prefix = valueRef.split('@')[0]
+    return {
+      label: prefix + suffix,
+      value: prefix + suffix
+    }
+  })
 }
 
 function handleClickLink (link: any) {

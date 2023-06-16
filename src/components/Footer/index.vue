@@ -24,7 +24,7 @@
   </footer>
 </template>
 <script lang="ts">
-import Octocat from './octocat.vue'
+import Octocat from '@/components/Octocat.vue'
 
 export default defineComponent({
   name: 'MyFooter',

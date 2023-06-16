@@ -66,7 +66,7 @@ export default defineComponent({
   cursor: pointer;
   user-select: none;
   outline: none;
-  padding: 0 12px;
+  padding: 0 6px;
 
   img {
     width: 24px;

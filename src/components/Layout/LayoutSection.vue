@@ -1,22 +1,14 @@
 <template>
   <div class="layout-section-container">
     <div
-      v-if="!title && !$slots.head"
+      v-if="$slots.title"
       class="layout-section-container__header"
     >
-      <div class="layout-section-container__header-head c-#303133 dark:c-#fff text_nowrap">
-        <h1
-          v-if="title"
-          :title="title"
-          class="layout-section-container__header-title text_nowrap"
-        >
-          {{ title }}
-        </h1>
-        <slot name="head"></slot>
-      </div>
-      <div class="layout-section-container__header-action">
-        <slot name="action"></slot>
-      </div>
+      <h1
+        class="layout-section-container__header-title c-#303133 dark:c-#fff text_nowrap"
+      >
+        <slot name="title"></slot>
+      </h1>
     </div>
     <div class="layout-section-container__content">
       <div
@@ -68,16 +60,11 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 40px;
+    padding: 8px 0;
 
-    .layout-section-container__header-head {
-
-      .layout-section-container__header-title {
-        height: 18px;
-        font-size: 18px;
-        line-height: 18px;
-        font-weight: 500;
-      }
+    .layout-section-container__header-title {
+      font-size: 18px;
+      font-weight: 500;
     }
 
     .layout-section-container__header-action {
@@ -90,6 +77,8 @@ export default defineComponent({
     flex-direction: column;
     position: relative;
     flex: auto;
+    min-height: 0;
+    overflow-y: auto;
 
     .content-divider {
       height: 1px;

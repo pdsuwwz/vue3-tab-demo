@@ -1,6 +1,6 @@
 <template>
   <a
-    class="octocat-link c-#71717a dark:c-#666 hover-c-#3f3f46 dark:hover-c-#f6f5f7"
+    class="octocat-link c-#3f3f46 dark:c-#bbb hover-c-#000 dark:hover-c-#f6f5f7"
     target="_blank"
     :href="link"
   >
@@ -32,6 +32,8 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .octocat-link {
+  display: flex;
+  align-items: center;
   width: 22px;
   margin: 0 6px;
   transition: 0.2s color;

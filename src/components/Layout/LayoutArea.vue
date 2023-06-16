@@ -2,38 +2,41 @@
   <div class="layout-area-container bg-#f0f2f5 dark:bg-#1e1e20">
     <div class="layout-area-container__top">
       <slot name="top"></slot>
+      <TabsController />
     </div>
     <div class="layout-area-container__bottom">
-      <div class="layout-area-container__bottom__inner">
-        <aside
-          v-if="$slots.side"
-          :class="[
-            'side-layout-area-menu-bar',
-            'b-r-#dcdfe6 b-r b-r-solid',
-            'dark:b-r-#444',
-          ]"
-        >
-          <div class="layout-area-menu-bar__inner">
-            <slot name="side"></slot>
-          </div>
-        </aside>
-        <section class="content-section-container bg-#f0f2f5 dark:bg-#1e1e20">
-          <main class="main-content-box">
-            <slot name="content"></slot>
-          </main>
-        </section>
-      </div>
+      <!-- <aside
+        v-if="$slots.side"
+        :class="[
+          'side-layout-area-menu-bar',
+          'b-r-#dcdfe6 b-r b-r-solid',
+          'dark:b-r-#444',
+        ]"
+      >
+        <div class="layout-area-menu-bar__inner">
+          <slot name="side"></slot>
+        </div>
+      </aside> -->
+      <section
+        class="flex-1"
+        :class="{
+          'overflow-y-auto': false
+        }"
+      >
+        <slot name="content"></slot>
+      </section>
+      <MyFooter show-border />
     </div>
-    <MyFooter show-border />
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import TabsController from '@/widgets/WorkTabs/TabsController.vue'
 
 /**
  * 上下左右布局，顶部导航 + (底部左侧侧边栏 + 底部右侧内容区域)
  */
-export default defineComponent({
+defineOptions({
   name: 'LayoutArea'
 })
 </script>
@@ -50,46 +53,41 @@ $headerHeight: 48px;
   overflow: hidden;
 
   .layout-area-container__top {
-
+    z-index: 1;
   }
 
   .layout-area-container__bottom {
     display: flex;
+    flex-direction: column;
     flex: 1;
-    position: relative;
+    overflow-y: auto;
 
-    .layout-area-container__bottom__inner {
-      position: absolute;
-      inset: 1px 0 0;
-      display: flex;
+    .side-layout-area-menu-bar {
+      position: relative;
+      flex-direction: column;
+      width: 256px;
+      transition: width 0.28s;
 
-      .side-layout-area-menu-bar {
-        position: relative;
-        flex-direction: column;
-        width: 256px;
-        transition: width 0.28s;
-
-        .layout-area-menu-bar__inner {
-          position: absolute;
-          inset: 0;
-          overflow-x: hidden;
-          overflow-y: auto;
-          padding: 24px;
-          scroll-behavior: smooth;
-        }
+      .layout-area-menu-bar__inner {
+        position: absolute;
+        inset: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 24px;
+        scroll-behavior: smooth;
       }
+    }
 
-      .content-section-container {
-        display: flex;
+    .content-section-container {
+      display: flex;
+      flex: auto;
+      flex-direction: column;
+      min-width: 0;
+
+      .main-content-box {
         flex: auto;
-        flex-direction: column;
-        min-width: 0;
-
-        .main-content-box {
-          flex: auto;
-          position: relative;
-          overflow: auto;
-        }
+        position: relative;
+        overflow: auto;
       }
     }
   }

@@ -1,10 +1,6 @@
 <template>
   <div class="work-tabs-container">
-    <div class="work-tabs__controller bg-#fff dark:bg-#333333">
-      <TabsOutset v-if="showOutset" />
-      <TabsHeader />
-      <TabsOptions />
-    </div>
+    <!-- <TabsController /> -->
 
     <div class="work-tabs__content">
       <TabContent />
@@ -14,9 +10,8 @@
 
 
 <script lang="ts" setup>
-import TabsOutset from './TabsOutset.vue'
-import TabsHeader from './Tabs.vue'
-import TabsOptions from './TabsOptions.vue'
+
+import TabsController from './TabsController.vue'
 import TabContent from './Content.vue'
 
 defineOptions({
@@ -24,8 +19,6 @@ defineOptions({
 })
 
 const route = useRoute()
-
-const showOutset = computed(() => route.path.includes('/group-project'))
 
 </script>
 
