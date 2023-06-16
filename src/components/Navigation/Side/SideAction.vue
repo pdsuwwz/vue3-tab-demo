@@ -49,7 +49,7 @@ export default defineComponent({
     .action-item {
       height: 100%;
       line-height: inherit;
-      padding: 0 12px;
+      padding: 0 6px;
       margin-right: 5px;
 
       &:last-child {

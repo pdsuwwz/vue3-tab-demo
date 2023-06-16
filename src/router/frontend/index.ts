@@ -539,16 +539,27 @@ export const routesHomeFrontend: RouteRecordRaw = {
       path: ':projectId',
       name: 'GroupProjectDetail',
       redirect: {
-        name: 'GroupProjectOverview'
+        name: 'GroupProjectOverviewRoot'
       },
       children: [
         {
           path: 'overview', // overview 类似驾驶舱
-          name: 'GroupProjectOverview',
-          meta: {
-            title: '项目整体概况'
+          name: 'GroupProjectOverviewRoot',
+          component: LayoutWorkTabs,
+          redirect: {
+            name: 'GroupProjectOverview'
           },
-          component: () => import('@/modules/HomeFront/pages/overview.vue')
+          children: [
+            {
+              path: '',
+              name: 'GroupProjectOverview',
+              meta: {
+                title: '项目整体概况',
+                cacheSpaceKey: CacheSpaceKeys.dashboard
+              },
+              component: () => import('@/modules/HomeFront/pages/overview.vue')
+            }
+          ]
         },
         {
           path: 'dashboard',

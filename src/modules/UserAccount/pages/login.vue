@@ -88,6 +88,7 @@ const configLogin = computed(() => {
           }
         },
         label: '邮箱',
+        type: 'email',
         prefixIcon: IconUserFa,
         placeholder: '123456@admin.com'
       },
@@ -104,7 +105,7 @@ const configLogin = computed(() => {
         link: {
           text: '忘记密码？',
           click () {
-            console.log(proxy, '忘记密码？')
+            window.open('https://github.com/pdsuwwz/vue3-tab-demo', '_blank')
           }
         },
         type: 'password',

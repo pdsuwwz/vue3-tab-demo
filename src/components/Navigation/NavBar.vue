@@ -18,10 +18,9 @@
         :auth="isAuth"
       />
       <div style="flex: 1;"></div>
-      <template v-if="isAuth">
-        <NavigationSideAction />
-        <NavigationAvatar />
-      </template>
+      <NavigationSideAction v-if="isAuth" />
+      <Octocat />
+      <NavigationAvatar v-if="isAuth" />
       <NavigationChangeTheme />
     </div>
   </header>
@@ -32,6 +31,8 @@ import NavigationSideAction from '@/components/Navigation/Side/SideAction.vue'
 import NavigationAvatar from '@/components/Navigation/Avatar.vue'
 import NavigationChangeTheme from '@/components/Navigation/ChangeTheme.vue'
 import NavigationSideLogo from '@/components/Navigation/Side/SideLogo.vue'
+
+import Octocat from '@/components/Octocat.vue'
 
 defineOptions({
   name: 'NavigationNavBar'
@@ -72,7 +73,8 @@ $headerHeight: 48px;
   .navbar-header-box {
     display: flex;
     height: 100%;
-    padding: 0 16px;
+    padding-left: 16px;
+    padding-right: 6px;
   }
 }
 </style>
