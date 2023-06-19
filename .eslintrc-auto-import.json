@@ -309,6 +309,7 @@
     "watchTriggerable": true,
     "watchWithFilter": true,
     "whenever": true,
-    "DataTableColumns": true
+    "DataTableColumns": true,
+    "useWorkPlatform": true
   }
 }

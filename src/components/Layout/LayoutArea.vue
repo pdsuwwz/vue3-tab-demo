@@ -20,12 +20,13 @@
       <section
         class="flex-1"
         :class="{
-          'overflow-y-auto': false
+          'overflow-y-auto': false,
+          'min-h-0': minHeight
         }"
       >
         <slot name="content"></slot>
       </section>
-      <MyFooter show-border />
+      <slot name="footer"></slot>
     </div>
   </div>
 </template>
@@ -38,6 +39,16 @@ import TabsController from '@/widgets/WorkTabs/TabsController.vue'
  */
 defineOptions({
   name: 'LayoutArea'
+})
+
+defineProps({
+  /**
+   * 开启后，子内容高度扩大后不会撑开父容器高度
+   */
+  minHeight: {
+    type: Boolean,
+    default: false
+  }
 })
 </script>
 
