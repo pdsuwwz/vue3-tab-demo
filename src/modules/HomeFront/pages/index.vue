@@ -16,6 +16,9 @@
       flex-height
       :bordered="true"
     />
+    <MyFooter
+      show-border
+    />
   </LayoutSection>
 </template>
 

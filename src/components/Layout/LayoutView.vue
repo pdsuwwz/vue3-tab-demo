@@ -1,5 +1,7 @@
 <template>
-  <LayoutArea>
+  <LayoutArea
+    :min-height="isWorkPlatform"
+  >
     <template #top>
       <NavigationNavBar />
     </template>
@@ -18,6 +20,8 @@ import NavigationNavBar from '@/components/Navigation/NavBar.vue'
 defineOptions({
   name: 'LayoutView'
 })
+
+const { isWorkPlatform } = useWorkPlatform()
 
 </script>
 

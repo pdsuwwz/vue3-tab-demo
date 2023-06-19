@@ -1,14 +1,19 @@
 <template>
-  <router-view v-slot="{ Component }">
-    <KeepAlive
-      :include="workTabsStore.getterCachesKeepAliveInclude"
-    >
-      <Component
-        :is="Component"
-        :key="$route.path"
-      />
-    </KeepAlive>
-  </router-view>
+  <section class="flex flex-col flex-1">
+    <router-view v-slot="{ Component }">
+      <KeepAlive
+        :include="workTabsStore.getterCachesKeepAliveInclude"
+      >
+        <Component
+          :is="Component"
+          :key="$route.path"
+        />
+      </KeepAlive>
+    </router-view>
+  </section>
+  <MyFooter
+    show-border
+  />
 </template>
 
 <script lang="ts" setup>

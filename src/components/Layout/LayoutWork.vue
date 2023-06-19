@@ -56,7 +56,6 @@ const hasBorder = ref(true)
 
   .common-work__sidebar {
     position: relative;
-    background-color: #f5f6f8;
 
     .resizable {
       overflow: scroll;
@@ -65,7 +64,7 @@ const hasBorder = ref(true)
       opacity: 0;
       min-width: 340px;
       max-width: 1000px;
-      height: calc(100vh - 48px - 54px);
+      height: 100%;
 
       &::-webkit-scrollbar {
         width: 20px;
@@ -87,7 +86,6 @@ const hasBorder = ref(true)
       height: 100%;
       inset: 0 5px 0 0;
       overflow-y: auto;
-      background-color: #f5f6f8;
 
       // box-shadow: 1px 0 0 0 #d3d7df;
     }
@@ -102,7 +100,9 @@ const hasBorder = ref(true)
       pointer-events: none;
 
       &.has-border {
-        border-right: 1px solid #d3d7df;
+        // border-right: 1px solid #d3d7df;
+
+        --at-apply: b-r b-r-solid b-r-#d3d7df dark:b-r-#444;
       }
     }
   }
