@@ -11,6 +11,7 @@
       <n-icon :size="24">
         <UserAvatar />
       </n-icon>
+      <span class="px-4px">Wisdom</span>
     </div>
   </n-dropdown>
 </template>

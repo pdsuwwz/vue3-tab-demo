@@ -5,11 +5,11 @@
     <router-link
       :to="`/`"
     >
-      <!-- <img
+      <img
         class="side-logo-img"
         src="@/assets/brand/logo-naive.svg?url"
         alt="商标"
-      > -->
+      >
       <h1
         class="side-logo-title c-#303133 dark:c-#fff"
         :class="{

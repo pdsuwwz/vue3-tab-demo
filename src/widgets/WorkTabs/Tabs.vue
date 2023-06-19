@@ -212,7 +212,7 @@ onUnmounted(async() => {
       border-radius: 8px 8px 0 0;
       margin-right: 2px;
 
-      --at-apply: bg-#fff dark:bg-#444444;
+      --at-apply: bg-#fcfcfc dark:bg-#444444;
 
       &:last-child {
         margin-right: 0;
@@ -240,7 +240,7 @@ onUnmounted(async() => {
       }
 
       &:hover {
-        --at-apply: bg-#cacfd8 dark:bg-#3e3e3e;
+        --at-apply: bg-#f0f2f5 dark:bg-#3e3e3e;
 
         & > .tab-item-icon {
           color: #909399;
@@ -248,7 +248,7 @@ onUnmounted(async() => {
       }
 
       &.active {
-        --at-apply: bg-#f0f2f5 dark:bg-#1e1e20;
+        --at-apply: bg-#cacfd8 dark:bg-#1e1e20;
 
         & > .tab-item-label {
           --at-apply: dark:c-#f0f2f5;
