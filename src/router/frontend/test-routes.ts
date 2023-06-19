@@ -137,7 +137,7 @@ export const testRoutesNested = {
 
 export const testRoutesExample = {
   path: 'example-component',
-  name: 'exampleComponentRoot',
+  name: 'ExampleComponentRoot',
   component: LayoutWork,
   redirect: {
     name: 'ExampleComponentBasic'

@@ -15,7 +15,7 @@ const _routesWorkPlatform: RouteRecordRaw = {
     title: '工作台'
   },
   redirect: {
-    name: 'MemberManageRoot'
+    name: 'MemberTeamManageRoot'
   },
   component: Layout,
   children: [
