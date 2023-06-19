@@ -5,7 +5,7 @@ const LayoutWork = () => import('@/components/Layout/LayoutWork.vue')
 const LayoutWorkTabs = () => import('@/widgets/WorkTabs/index.vue')
 const LayoutView = () => import('@/components/Layout/LayoutView.vue')
 
-import { routesNested } from './nested'
+import * as _TestRoutes from './test-routes'
 
 /** ------------------------- 工作台下的所有子页面 ------------------------- */
 const _routesWorkPlatform: RouteRecordRaw = {
@@ -19,6 +19,12 @@ const _routesWorkPlatform: RouteRecordRaw = {
   },
   component: Layout,
   children: [
+
+    /** ------------------------- 测试路由 ------------------------- */
+    _TestRoutes.testRoutesNested,
+    _TestRoutes.testRoutesExample,
+
+
     /** ------------------------- 成员管理页面 ------------------------- */
 
     // 成员管理-团队成员
@@ -513,10 +519,8 @@ const _routesWorkPlatform: RouteRecordRaw = {
           ]
         }
       ]
-    },
+    }
     // ......
-
-    routesNested
 
   ]
 }

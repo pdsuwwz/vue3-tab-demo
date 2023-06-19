@@ -62,6 +62,11 @@ export const CacheSpaceKeys = {
   /**
    * 缓存空间 Key -> 多级菜单
    */
-  nestedLevel: 'CacheSpaceKey_WorkPlatform_NestedLevel'
+  nestedLevel: 'CacheSpaceKey_WorkPlatform_NestedLevel',
+
+  /**
+   * 缓存空间 Key -> 组件示例
+   */
+  exampleComponent: 'CacheSpaceKey_WorkPlatform_ExampleComponent'
 
 }
