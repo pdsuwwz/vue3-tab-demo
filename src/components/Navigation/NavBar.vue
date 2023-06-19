@@ -19,9 +19,9 @@
       />
       <div style="flex: 1;"></div>
       <NavigationSideAction v-if="isAuth" />
+      <NavigationChangeTheme />
       <Octocat />
       <NavigationAvatar v-if="isAuth" />
-      <NavigationChangeTheme />
     </div>
   </header>
 </template>

@@ -1,5 +1,14 @@
 <template>
-  <div class="user-account-login light:bg-[url(@/assets/images/logo-background.jpg)] dark:bg-#1e1e20 bg-no-repeat bg-cover">
+  <div
+    :class="[
+      'user-account-login',
+      'light:bg-[url(@/assets/images/logo-background-light.jpg)]',
+      'dark:bg-[url(@/assets/images/logo-background-dark.jpeg)]',
+      'dark:bg-#1e1e20',
+      'bg-no-repeat',
+      'bg-cover'
+    ]"
+  >
     <NavigationNavBar
       :fixed="false"
       :auth="false"

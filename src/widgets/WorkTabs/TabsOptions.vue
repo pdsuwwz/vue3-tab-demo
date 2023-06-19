@@ -4,7 +4,7 @@
     style="width: 236px"
     :delay="300"
     class="tabs-options-box"
-    placement="bottom-start"
+    flip
     @update:show="(showValue) => isKeepHover = showValue"
   >
     <template #trigger>
@@ -27,9 +27,9 @@
         }"
         @click="handleCloseOtherTabs()"
       >
-        <span class="close-icon">
-          <n-icon :component="IosCloseCircleOutline" />
-        </span>
+        <n-icon
+          :component="IosCloseCircleOutline"
+        />
         <span class="close-other-text">关闭其他标签</span>
       </div>
       <ul class="tabs-options-body">
@@ -51,7 +51,9 @@
             class="close-icon"
             @click.stop="handleCloseTab(tabItem)"
           >
-            <IconFont icon="icon-error" />
+            <n-icon
+              :component="IosCloseCircleOutline"
+            />
           </div>
         </li>
       </ul>
@@ -125,12 +127,13 @@ const isKeepHover = ref(false)
   .close-icon {
     display: flex;
     align-items: center;
-    color: #b6b9c1;
     font-size: 14px;
     cursor: pointer;
 
+    --at-apply: c-#bbb dark:c-#aaa;
+
     &:hover {
-      color: #909399;
+      --at-apply: c-#909399 dark:c-#ddd;
     }
   }
 
@@ -145,24 +148,21 @@ const isKeepHover = ref(false)
     justify-content: center;
     height: 36px;
     box-shadow: inset 0 -1px 0 0 #eee;
-    color: #303133;
     cursor: pointer;
+    opacity: 0.8;
 
     &.disabled {
       color: #c8c8c8;
       cursor: not-allowed;
+      opacity: 0.6;
 
-      .close-icon {
-        cursor: not-allowed;
-        color: #c8c8c8 !important;
+      &:hover {
+        opacity: 0.6;
       }
     }
 
     &:hover {
-
-      .close-icon {
-        color: #909399;
-      }
+      opacity: 1;
     }
   }
 
@@ -179,16 +179,20 @@ const isKeepHover = ref(false)
       justify-content: space-between;
       padding: 8px;
       transition: .3s;
-      color: #303133;
       cursor: pointer;
+      margin-bottom: 4px;
+      border-radius: 4px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       &.active {
-        color: $color-primary;
+        --at-apply: bg-#eee dark:bg-#777;
       }
 
       &:hover {
-        border-radius: 4px;
-        background-color: #eff1f4;
+        --at-apply: bg-#eff1f4 dark:bg-#666;
       }
 
       .tabs-options-label {
