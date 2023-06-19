@@ -4,6 +4,7 @@
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
+    "noErrorTruncation": true,
     "noLib": false,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
