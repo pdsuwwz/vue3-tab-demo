@@ -56,7 +56,12 @@ export const CacheSpaceKeys = {
   /**
    * 缓存空间 Key -> 成本核算管理-分析和报告
    */
-  costAnalysis: 'CacheSpaceKey_WorkPlatform_CostAnalysis'
+  costAnalysis: 'CacheSpaceKey_WorkPlatform_CostAnalysis',
 
+
+  /**
+   * 缓存空间 Key -> 多级菜单
+   */
+  nestedLevel: 'CacheSpaceKey_WorkPlatform_NestedLevel'
 
 }

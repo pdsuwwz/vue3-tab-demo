@@ -1,5 +1,7 @@
 # vite-naive-template
 
+带命名空间的 Tab 切换选项卡
+
 [![Deploy](https://github.com/pdsuwwz/vite-naive-template/workflows/gh-pages/badge.svg)](https://github.com/pdsuwwz/vite-naive-template/actions/workflows/deploy.yml)
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/pdsuwwz/vite-naive-template/deploy.yml?branch=main)](https://github.com/pdsuwwz/vite-naive-template/deployments/activity_log?environment=github-pages)
 [![thanks](https://badgen.net/badge/thanks/♥/pink)](https://github.com/pdsuwwz)
