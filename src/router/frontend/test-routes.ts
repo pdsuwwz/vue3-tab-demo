@@ -5,7 +5,7 @@ import { CacheSpaceKeys } from './constants'
 
 /** ------------------------- 多级菜单页面 ------------------------- */
 
-export const routesNested = {
+export const testRoutesNested = {
   path: 'nested-level',
   name: 'NestedLevelRoot',
   component: LayoutWork,
@@ -132,3 +132,44 @@ export const routesNested = {
     }
   ]
 }
+
+/** ------------------------- 组件示例页面 ------------------------- */
+
+export const testRoutesExample = {
+  path: 'example-component',
+  name: 'exampleComponentRoot',
+  component: LayoutWork,
+  redirect: {
+    name: 'ExampleComponentBasic'
+  },
+  children: [
+    {
+      path: 'basic',
+      name: 'ExampleComponentBasic',
+      meta: {
+        title: '组件示例-基础组件',
+        cacheSpaceKey: CacheSpaceKeys.exampleComponent
+      },
+      component: () => import('@/modules/exampleComponent/pages/basic.vue')
+    },
+    {
+      path: 'table',
+      name: 'ExampleComponentTable',
+      meta: {
+        title: '组件示例-表格',
+        cacheSpaceKey: CacheSpaceKeys.exampleComponent
+      },
+      component: () => import('@/modules/exampleComponent/pages/table.vue')
+    },
+    {
+      path: 'form',
+      name: 'ExampleComponentForm',
+      meta: {
+        title: '组件示例-表单',
+        cacheSpaceKey: CacheSpaceKeys.exampleComponent
+      },
+      component: () => import('@/modules/exampleComponent/pages/form.vue')
+    }
+  ]
+}
+
