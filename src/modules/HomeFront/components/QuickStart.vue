@@ -81,7 +81,7 @@ const cardConfigOptions = shallowRef<Array<CardConfig>>([
   {
     title: '组件示例',
     icon: IconComponents,
-    routeName: 'CostBudgetManageRoot'
+    routeName: 'ExampleComponentRoot'
   },
   {
     title: '多级菜单',
