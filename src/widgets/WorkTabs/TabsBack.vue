@@ -1,20 +1,20 @@
 <template>
-  <div
-    id="tabs-back-box"
-    @click="handleJumpToHome()"
+  <n-popover
+    trigger="hover"
+    placement="top-start"
   >
-    <n-popover
-      trigger="hover"
-      placement="top-start"
-    >
-      <template #trigger>
+    <template #trigger>
+      <div
+        id="tabs-back-box"
+        @click="handleJumpToHome()"
+      >
         <n-icon
           :component="ArrowBackUp"
         />
-      </template>
-      返回首页
-    </n-popover>
-  </div>
+      </div>
+    </template>
+    返回首页
+  </n-popover>
 </template>
 
 <script lang="ts" setup>

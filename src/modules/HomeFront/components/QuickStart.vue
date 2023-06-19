@@ -32,11 +32,13 @@
 <script lang="ts" setup>
 import {
   Dashboard as IconDashboard,
-  ReportMoney as IconReportMoney
+  ReportMoney as IconReportMoney,
+  Components as IconComponents
 } from '@vicons/tabler'
 import {
   TeamOutlined as IconTeamOutlined,
-  ProfileOutlined as IconProfileOutlined
+  ProfileOutlined as IconProfileOutlined,
+  MenuOutlined as IconMenuOutlined
 } from '@vicons/antd'
 
 
@@ -77,14 +79,14 @@ const cardConfigOptions = shallowRef<Array<CardConfig>>([
     routeName: 'CostBudgetManageRoot'
   },
   {
-    title: '系统管理',
-    icon: IconReportMoney,
+    title: '组件示例',
+    icon: IconComponents,
     routeName: 'CostBudgetManageRoot'
   },
   {
-    title: '基础组件',
-    icon: IconReportMoney,
-    routeName: 'CostBudgetManageRoot'
+    title: '多级菜单',
+    icon: IconMenuOutlined,
+    routeName: 'NestedLevelRoot'
   }
 ])
 

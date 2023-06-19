@@ -1,9 +1,11 @@
+import { CacheSpaceKeys } from './constants'
+
 const Layout = () => import('@/components/Layout/index.vue')
 const LayoutWork = () => import('@/components/Layout/LayoutWork.vue')
 const LayoutWorkTabs = () => import('@/widgets/WorkTabs/index.vue')
 const LayoutView = () => import('@/components/Layout/LayoutView.vue')
 
-import { CacheSpaceKeys } from './constants'
+import { routesNested } from './nested'
 
 /** ------------------------- 工作台下的所有子页面 ------------------------- */
 const _routesWorkPlatform: RouteRecordRaw = {
@@ -511,8 +513,10 @@ const _routesWorkPlatform: RouteRecordRaw = {
           ]
         }
       ]
-    }
+    },
     // ......
+
+    routesNested
 
   ]
 }
