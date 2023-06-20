@@ -12,12 +12,14 @@ export const CacheSpaceKeys = {
   /**
    * 缓存空间 Key -> 成员管理-团队成员
    */
-  memberTeam: 'CacheSpaceKey_WorkPlatform_MemberTeam',
+  // memberTeam: 'CacheSpaceKey_WorkPlatform_MemberTeam',
+  memberTeam: 'CacheSpaceKey_WorkPlatform_Member',
 
   /**
    * 缓存空间 Key -> 成员管理-角色权限分配
    */
-  memberAccess: 'CacheSpaceKey_WorkPlatform_MemberAccess',
+  // memberAccess: 'CacheSpaceKey_WorkPlatform_MemberAccess',
+  memberAccess: 'CacheSpaceKey_WorkPlatform_Member',
 
 
 

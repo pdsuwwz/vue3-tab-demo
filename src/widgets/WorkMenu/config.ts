@@ -53,7 +53,7 @@ function renderLink (labelText: string, routeName: RouteRecordName) {
 
 export const _menuOptions: MenuOption[] = [
   {
-    // type: 'group',
+    type: 'group',
     label: '成员管理',
     key: 'MemberTeamManageRoot',
     children: [
@@ -70,7 +70,7 @@ export const _menuOptions: MenuOption[] = [
     ]
   },
   {
-    // type: 'group',
+    type: 'group',
     label: '资料管理',
     key: 'MaterialPrepareManageRoot',
     children: [
@@ -92,7 +92,7 @@ export const _menuOptions: MenuOption[] = [
     ]
   },
   {
-    // type: 'group',
+    type: 'group',
     label: '成本核算',
     key: 'CostBudgetManageRoot',
     children: [
@@ -119,14 +119,13 @@ export const _menuOptions: MenuOption[] = [
     ]
   },
   {
-    // type: 'group',
+    type: 'group',
     label: '组件示例',
     key: 'ExampleComponentRoot',
-    icon: renderIcon(IconComponents),
     children: [
       {
         label: '基础组件',
-        key: 'ExampleComponentRoot',
+        key: 'ExampleComponentBasic',
         icon: renderIcon(IconComponents)
       },
       {
@@ -142,7 +141,7 @@ export const _menuOptions: MenuOption[] = [
     ]
   },
   {
-    // type: 'group',
+    type: 'group',
     label: '多级菜单',
     key: 'NestedLevelRoot',
     children: [
