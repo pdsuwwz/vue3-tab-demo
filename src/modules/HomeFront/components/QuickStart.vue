@@ -12,10 +12,11 @@
     >
       <n-card
         hoverable
+        class="cursor-pointer"
         @click="handlePreviewUrl(cardConfigItem)"
       >
         <div
-          class="flex flex-col justify-center items-center h-full cursor-pointer"
+          class="flex flex-col justify-center items-center h-full"
         >
           <n-icon
             :size="30"
