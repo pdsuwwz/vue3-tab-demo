@@ -1,12 +1,12 @@
 import { NIcon } from 'naive-ui'
+
 import type { MenuOption } from 'naive-ui'
+
 import {
   TeamOutlined as IconTeamOutlined,
-  ProfileOutlined as IconProfileOutlined,
   MenuOutlined as IconMenuOutlined
 } from '@vicons/antd'
 import {
-  Users as IconUsers,
   ReportMoney as IconReportMoney,
   Components as IconComponents,
   Menu as IconMenu,
@@ -22,161 +22,172 @@ import {
   TextLinkAnalysis as IconTextLinkAnalysis
 } from '@vicons/carbon'
 import {
-  TableSimple16Regular as IconTableSimple16Regular,
   TextAlignDistributed24Filled as IconTextAlignDistributed24Filled
 } from '@vicons/fluent'
-import {
-  AssignmentTurnedInOutlined as IconAssignmentTurnedInOutlined
-} from '@vicons/material'
+import { RouterLink } from 'vue-router'
+
 
 function renderIcon (icon: Component) {
-  return () => h(NIcon, null, { default: () => h(icon) })
+  return () => h(
+    NIcon,
+    null,
+    {
+      default: () => h(icon)
+    }
+  )
+}
+
+function renderLink (labelText: string, routeName: RouteRecordName) {
+  return () => h(
+    RouterLink,
+    {
+      to: {
+        name: routeName
+      }
+    },
+    { default: () => labelText }
+  )
 }
 
 
 
 export const _menuOptions: MenuOption[] = [
   {
-    // type: 'group',
+    type: 'group',
     label: '成员管理',
-    key: 'member',
-    icon: renderIcon(IconUsers),
+    key: 'MemberTeamManageRoot',
     children: [
       {
         label: '团队成员',
-        key: 'member-index',
+        key: 'MemberTeamManageRoot',
         icon: renderIcon(IconTeamOutlined)
       },
       {
         label: '角色权限分配',
-        key: 'member-role',
+        key: 'MemberAccessManageRoot',
         icon: renderIcon(IconUserCheck)
       }
     ]
   },
   {
-    // type: 'group',
+    type: 'group',
     label: '资料管理',
-    key: 'ziliaoguanli',
-    icon: renderIcon(IconProfileOutlined),
+    key: 'MaterialPrepareManageRoot',
     children: [
       {
         label: '资料准备',
-        key: 'ziliaoguanli-1',
+        key: 'MaterialPrepareManageRoot',
         icon: renderIcon(IconDataCheck)
       },
       {
         label: '资料审阅',
-        key: 'ziliaoguanli-2',
+        key: 'MaterialReviewManageRoot',
         icon: renderIcon(IconDataViewAlt)
       },
       {
         label: '备份与恢复',
-        key: 'ziliaoguanli-3',
+        key: 'MaterialBackupManageRoot',
         icon: renderIcon(IconDataBackup)
       }
     ]
   },
   {
-    // type: 'group',
+    type: 'group',
     label: '成本核算',
-    key: '成本核算',
-    icon: renderIcon(IconReportMoney),
+    key: 'CostBudgetManageRoot',
     children: [
       {
         label: '预算设定',
-        key: '预算设定',
-        icon: renderIcon(IconAssignmentTurnedInOutlined)
+        key: 'CostBudgetManageRoot',
+        icon: renderIcon(IconReportMoney)
       },
       {
         label: '数据收集',
-        key: '数据收集',
+        key: 'CostCollectionManageRoot',
         icon: renderIcon(IconDataCollection)
       },
       {
         label: '分配和归集',
-        key: '分配和归集',
+        key: 'CostDistributeManageRoot',
         icon: renderIcon(IconTextAlignDistributed24Filled)
       },
       {
         label: '分析和报告',
-        key: '分析和报告',
+        key: 'CostAnalysisManageRoot',
         icon: renderIcon(IconTextLinkAnalysis)
       }
     ]
   },
   {
-    // type: 'group',
+    type: 'group',
     label: '组件示例',
-    key: 'example-component',
-    icon: renderIcon(IconComponents),
+    key: 'ExampleComponentRoot',
     children: [
       {
         label: '基础组件',
-        key: 'example-component-basic',
-        icon: renderIcon(IconTableSimple16Regular)
+        key: 'ExampleComponentBasic',
+        icon: renderIcon(IconComponents)
       },
       {
         label: '表格',
-        key: 'example-component-table',
+        key: 'ExampleComponentTable',
         icon: renderIcon(IconTableSplit)
       },
       {
         label: '表单',
-        key: 'example-component-form',
+        key: 'ExampleComponentForm',
         icon: renderIcon(IconReport)
       }
     ]
   },
   {
-    // type: 'group',
+    type: 'group',
     label: '多级菜单',
-    key: 'multiple-level',
-    icon: renderIcon(IconMenuOutlined),
+    key: 'NestedLevelRoot',
     children: [
       {
         label: '1-1',
-        key: '1-1',
-        icon: renderIcon(IconMenu)
+        key: 'NestedLevelRoot',
+        icon: renderIcon(IconMenuOutlined)
       },
       {
         label: '1-2',
-        key: '1-2',
-        icon: renderIcon(IconMenu),
+        key: 'NestedLevel12',
+        icon: renderIcon(IconMenuOutlined),
         children: [
           {
             label: '2-1',
-            key: '2-1',
+            key: 'NestedLevel21',
             icon: renderIcon(IconMenu)
           },
           {
             label: '2-2',
-            key: '2-2',
+            key: 'NestedLevel22',
             icon: renderIcon(IconMenu),
             children: [
               {
                 label: '3-1',
-                key: '3-1',
+                key: 'NestedLevel31',
                 icon: renderIcon(IconMenu)
               },
               {
                 label: '3-2',
-                key: '3-2',
+                key: 'NestedLevel32',
                 icon: renderIcon(IconMenu)
               },
               {
                 label: '3-3',
-                key: '3-3',
+                key: 'NestedLevel33',
                 icon: renderIcon(IconMenu),
                 children: [
                   {
                     label: '4-1',
-                    key: '4-1',
+                    key: 'NestedLevel41',
                     icon: renderIcon(IconMenu)
                   },
                   {
                     label: '4-2',
-                    key: '4-2',
+                    key: 'NestedLevel41',
                     icon: renderIcon(IconMenu)
                   }
                 ]
@@ -187,13 +198,13 @@ export const _menuOptions: MenuOption[] = [
       },
       {
         label: '1-3',
-        key: '1-3',
-        icon: renderIcon(IconMenu)
+        key: 'NestedLevel13',
+        icon: renderIcon(IconMenuOutlined)
       },
       {
         label: '1-4',
-        key: '1-4',
-        icon: renderIcon(IconMenu)
+        key: 'NestedLevel14',
+        icon: renderIcon(IconMenuOutlined)
       }
     ]
   }

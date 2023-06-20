@@ -87,7 +87,10 @@ const hasBorder = ref(true)
     .resize-content {
       position: absolute;
       height: 100%;
-      inset: 0 5px 0 0;
+
+      // inset: 0 5px 0 0;
+
+      inset: 0;
       overflow-y: auto;
 
       // box-shadow: 1px 0 0 0 #d3d7df;

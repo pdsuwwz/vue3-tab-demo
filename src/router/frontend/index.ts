@@ -8,7 +8,7 @@ const LayoutView = () => import('@/components/Layout/LayoutView.vue')
 import * as _TestRoutes from './test-routes'
 
 /** ------------------------- 工作台下的所有子页面 ------------------------- */
-const _routesWorkPlatform: RouteRecordRaw = {
+export const routesWorkPlatform: RouteRecordRaw = {
   path: 'work-platform',
   name: 'WorkPlatform',
   meta: {
@@ -637,7 +637,7 @@ export const routesHomeFrontend: RouteRecordRaw = {
         },
 
         /** ------------------------- 工作台下的所有子页面 ------------------------- */
-        _routesWorkPlatform
+        routesWorkPlatform
       ]
     }
   ]
