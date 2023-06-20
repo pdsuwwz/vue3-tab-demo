@@ -28,7 +28,6 @@ const menuOptions = shallowRef(
 
 const activeKey = ref<string | null>(null)
 const refMenu = ref<MenuInst>()
-console.log(refMenu)
 
 let lockPush = false
 const handleSelect = (key: string) => {
@@ -105,8 +104,11 @@ const setActiveKey = async (key: string) => {
 
 watch(
   () => route.fullPath,
-  () => {
-    if (lockPush) return
+  (newRoute) => {
+    if (
+      lockPush ||
+      !newRoute.includes('/work-platform') // 防止离开工作台后会继续 watch
+    ) return
 
     const targetRoute = recursion(menuOptions.value, route.name, {
       id: 'key',
@@ -143,8 +145,6 @@ watch(
     immediate: true
   }
 )
-
-
 
 </script>
 
