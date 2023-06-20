@@ -11,14 +11,6 @@ export interface WorkTab {
   routeName: RouteRecordName
 }
 
-// export interface BaseCacheSpace {
-//   combineCompanyId: string
-//   projectId: string
-//   parentId: string
-//   parentName: string
-//   subId: string
-//   subName: string
-// }
 
 export interface BaseCacheSpace {
   cacheSpaceKey: string

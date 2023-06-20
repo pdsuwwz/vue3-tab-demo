@@ -9,7 +9,8 @@
         class="resize-content"
       >
         <!-- <ProjectTree /> -->
-        <div>侧边栏</div>
+        <!-- <div>侧边栏</div> -->
+        <WorkMenu />
       </div>
       <div
         class="resize-line"
@@ -40,6 +41,7 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
+import WorkMenu from '@/widgets/WorkMenu/index.vue'
 import WorkTabs from '@/widgets/WorkTabs/index.vue'
 
 
@@ -56,6 +58,7 @@ const hasBorder = ref(true)
 
   .common-work__sidebar {
     position: relative;
+    height: inherit;
 
     .resizable {
       overflow: scroll;
@@ -64,7 +67,7 @@ const hasBorder = ref(true)
       opacity: 0;
       min-width: 340px;
       max-width: 1000px;
-      height: 100%;
+      height: inherit;
 
       &::-webkit-scrollbar {
         width: 20px;

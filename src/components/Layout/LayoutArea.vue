@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-area-container bg-#f0f2f5 dark:bg-#1e1e20">
+  <div class="layout-area-container bg-#fff dark:bg-#1e1e20">
     <div class="layout-area-container__top">
       <slot name="top"></slot>
       <TabsController />

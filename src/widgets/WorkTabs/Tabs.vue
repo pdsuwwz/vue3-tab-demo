@@ -240,7 +240,7 @@ onUnmounted(async() => {
       }
 
       &:hover {
-        --at-apply: bg-#f0f2f5 dark:bg-#3e3e3e;
+        --at-apply: bg-#f5f7f9 dark:bg-#3e3e3e;
 
         & > .tab-item-icon {
           color: #909399;
@@ -251,7 +251,7 @@ onUnmounted(async() => {
         --at-apply: bg-#cacfd8 dark:bg-#1e1e20;
 
         & > .tab-item-label {
-          --at-apply: dark:c-#f0f2f5;
+          --at-apply: dark:c-#f5f7f9;
         }
 
         & > .tab-item-icon {

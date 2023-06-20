@@ -319,12 +319,6 @@ const useWorkTabsStore = defineStore('work-tabs',
      */
     const createFactoryCacheSpace = (dynamicCacheSpacePrefixKey: string, targetCacheSpace: BaseCacheSpace): CacheSpace => {
       return {
-      // combineCompanyId: targetCacheSpace.combineCompanyId,
-      // projectId: targetCacheSpace.projectId,
-      // parentId: targetCacheSpace.parentId,
-      // parentName: targetCacheSpace.parentName,
-      // subId: targetCacheSpace.subId,
-      // subName: targetCacheSpace.subName,
 
         cacheSpaceKey: createNewCacheSpaceKey(
           dynamicCacheSpacePrefixKey,
