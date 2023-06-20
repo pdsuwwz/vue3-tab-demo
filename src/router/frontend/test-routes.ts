@@ -150,7 +150,7 @@ export const testRoutesExample = {
         title: '组件示例-基础组件',
         cacheSpaceKey: CacheSpaceKeys.exampleComponent
       },
-      component: () => import('@/modules/exampleComponent/pages/basic.vue')
+      component: () => import('@/modules/ExampleComponent/pages/basic.vue')
     },
     {
       path: 'table',
@@ -159,7 +159,7 @@ export const testRoutesExample = {
         title: '组件示例-表格',
         cacheSpaceKey: CacheSpaceKeys.exampleComponent
       },
-      component: () => import('@/modules/exampleComponent/pages/table.vue')
+      component: () => import('@/modules/ExampleComponent/pages/table.vue')
     },
     {
       path: 'form',
@@ -168,7 +168,7 @@ export const testRoutesExample = {
         title: '组件示例-表单',
         cacheSpaceKey: CacheSpaceKeys.exampleComponent
       },
-      component: () => import('@/modules/exampleComponent/pages/form.vue')
+      component: () => import('@/modules/ExampleComponent/pages/form.vue')
     }
   ]
 }
