@@ -172,6 +172,7 @@ const isKeepHover = ref(false)
     overflow-y: auto;
     padding: 8px;
     font-size: 14px;
+    max-height: 350px;
 
     .tabs-options-list-item {
       display: flex;

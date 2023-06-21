@@ -2,7 +2,7 @@
   <footer
     class="footer"
     :class="{
-      'b-t b-t-solid b-t-#dcdfe6 dark:b-t-#444': showBorder
+      'b-t b-t-solid b-t-#ededed dark:b-t-#444': showBorder
     }"
   >
     <div
@@ -51,7 +51,7 @@ export default defineComponent({
   width: 100%;
 
   .footer-container {
-    padding: 14px 0;
+    padding: 12px 0;
 
     .text {
       display: flex;
