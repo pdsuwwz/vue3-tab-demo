@@ -14,10 +14,10 @@ const baseThemeOverrides: GlobalThemeOverrides = {
 export const themeOverridesDark: GlobalThemeOverrides = {
   common: {
     ...baseThemeOverrides.common,
-    primaryColor: 'rgba(15,38,208, 1)',
-    primaryColorHover: 'rgb(58,71,173)',
-    primaryColorPressed: 'rgb(14,25,106)',
-    primaryColorSuppl: 'rgb(14,25,106)'
+    primaryColor: '#5fbc21',
+    primaryColorHover: '#68d91d',
+    primaryColorPressed: '#549e23',
+    primaryColorSuppl: '#549e23'
   },
   Button: {
     textColorPrimary: '#fff',
