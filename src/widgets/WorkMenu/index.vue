@@ -1,7 +1,7 @@
 <template>
   <n-menu
     v-model:value="activeKey"
-    class="select-none"
+    class="work-menu select-none"
     :options="menuOptions"
     default-expand-all
     @update:value="handleSelect"
@@ -25,6 +25,8 @@ const {
 
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+.work-menu {
+  box-shadow: 2px 0 8px #1d23290d;
+}
 </style>

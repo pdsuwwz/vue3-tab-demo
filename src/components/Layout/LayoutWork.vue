@@ -46,7 +46,7 @@ import WorkTabs from '@/widgets/WorkTabs/index.vue'
 
 
 const refSidebar = ref<HTMLElement>()
-const hasBorder = ref(true)
+const hasBorder = ref(false)
 
 
 </script>
@@ -59,6 +59,8 @@ const hasBorder = ref(true)
   .common-work__sidebar {
     position: relative;
     height: inherit;
+
+    --at-apply: sidebar-shadow dark:dark-sidebar-shadow;
 
     .resizable {
       overflow: scroll;

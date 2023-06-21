@@ -16,6 +16,7 @@ declare module 'vue' {
     IconFont: typeof import('./src/components/IconFont/index.vue')['default']
     Layout: typeof import('./src/components/Layout/index.vue')['default']
     LayoutArea: typeof import('./src/components/Layout/LayoutArea.vue')['default']
+    LayoutPage: typeof import('./src/components/Layout/LayoutPage.vue')['default']
     LayoutSection: typeof import('./src/components/Layout/LayoutSection.vue')['default']
     LayoutView: typeof import('./src/components/Layout/LayoutView.vue')['default']
     LayoutWork: typeof import('./src/components/Layout/LayoutWork.vue')['default']
