@@ -11,6 +11,7 @@ declare module 'vue' {
     Avatar: typeof import('./src/components/Navigation/Avatar.vue')['default']
     ChangeTheme: typeof import('./src/components/Navigation/ChangeTheme.vue')['default']
     Footer: typeof import('./src/components/Footer/index.vue')['default']
+    FullScreen: typeof import('./src/components/Navigation/FullScreen.vue')['default']
     GradientBox: typeof import('./src/components/GradientBox/index.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld/index.vue')['default']
     IconFont: typeof import('./src/components/IconFont/index.vue')['default']

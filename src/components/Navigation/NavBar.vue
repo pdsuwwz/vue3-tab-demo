@@ -21,6 +21,7 @@
       <NavigationSideAction v-if="isAuth" />
       <NavigationChangeTheme />
       <Octocat />
+      <NavigationFullScreen />
       <NavigationAvatar v-if="isAuth" />
     </div>
   </header>
@@ -30,6 +31,7 @@
 import NavigationSideAction from '@/components/Navigation/Side/SideAction.vue'
 import NavigationAvatar from '@/components/Navigation/Avatar.vue'
 import NavigationChangeTheme from '@/components/Navigation/ChangeTheme.vue'
+import NavigationFullScreen from '@/components/Navigation/FullScreen.vue'
 import NavigationSideLogo from '@/components/Navigation/Side/SideLogo.vue'
 
 import Octocat from '@/components/Octocat.vue'
