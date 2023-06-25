@@ -1,5 +1,5 @@
 {
-  "name": "vite-naive-template",
+  "name": "vue3-tab-demo",
   "description": "Template using Vite + Pinia + TypeScript + NaiveUI to fast build a prototyping",
   "version": "0.0.1",
   "author": "Wisdom <pdsu.wwz@foxmail.com>",
@@ -38,13 +38,13 @@
     "naive-ui",
     "admin-template"
   ],
-  "homepage": "https://github.com/pdsuwwz/vite-naive-template",
+  "homepage": "https://github.com/pdsuwwz/vue3-tab-demo",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pdsuwwz/vite-naive-template"
+    "url": "git+https://github.com/pdsuwwz/vue3-tab-demo"
   },
   "bugs": {
-    "url": "https://github.com/pdsuwwz/vite-naive-template/issues"
+    "url": "https://github.com/pdsuwwz/vue3-tab-demo/issues"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "6.4.0",
