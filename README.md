@@ -1,76 +1,221 @@
 # vue3-tab-demo
 
-带命名空间的 Tab 切换选项卡
+示例项目：带命名空间的 Tab 切换选项卡实战项目
 
 [![Deploy](https://github.com/pdsuwwz/vue3-tab-demo/workflows/gh-pages/badge.svg)](https://github.com/pdsuwwz/vue3-tab-demo/actions/workflows/deploy.yml)
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/pdsuwwz/vue3-tab-demo/deploy.yml?branch=main)](https://github.com/pdsuwwz/vue3-tab-demo/deployments/activity_log?environment=github-pages)
 [![thanks](https://badgen.net/badge/thanks/♥/pink)](https://github.com/pdsuwwz)
 [![License](https://img.shields.io/github/license/pdsuwwz/vue3-tab-demo?color=blue)](https://github.com/pdsuwwz/vue3-tab-demo/blob/main/LICENSE)
 
-🐳 Starter using NaiveUI + Vite 4 + Vue 3 + Pinia + TypeScript + i18n + Unplugin + UnoCSS to fast build a prototyping
-
-一个适用国际化多语言(i18n)扩展、帮助你快速开发 B 端 ✈️✈️✈️ Vue3 + Vite4 + TS + Pinia 中小型后台管理系统的原型模板项目框架，集成 vue-i18n-next 💪
-
-
-__[💻 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo/#/zh-hans)__
+🗂️ 一个基于 Vue 3 的 Tab 切换选项卡演示项目，其内部抽象出了一个**比较贴近实战**的业务(项目管理系统)，旨在更好地理解和展示如何使用 Tab 标签页组件
+> 为方便二次改造，不涉及特别复杂的业务逻辑(请自由发挥)
 
 
-## 🌱 不同版本
-目前一共有以下六个不同技术栈的仓库模板在持续维护，请尝试后选择适合自己的模板使用
-
-### NaiveUI
-(推荐基于在[当前仓库](https://github.com/pdsuwwz/naive-ts-starter/generate)基础上二次开发)
-- 💚 (推荐1) [TS + Pinia + 🌐 低耦合(i18n)多语言 Vite4 + Vue3 + TS + UnoCSS + UnPlugin + NaiveUI + vue-i18n@next](https://github.com/pdsuwwz/naive-ts-starter)
-
-### ElementPlus
-
-- 💥 (推荐2) [TS + Pinia + 🌐 低耦合(i18n)多语言 Vite4 + Vue3 + TS + UnoCSS + UnPlugin + Element-Plus2 + vue-i18n@next](https://github.com/pdsuwwz/vue-boilerplate-i18n)
-
-- ⚡️ TS + Pinia 版 [Vite4 + Vue3 + TS + Pinia + Element-Plus2 + useLocale + i18n](https://github.com/pdsuwwz/pinia-starter-ts)
-- ⚡️ JS + Pinia 版 [Vite4 + Vue3 + Pinia + Element-Plus2 + useLocale + i18n](https://github.com/pdsuwwz/vite-pinia-starter)
-
-- ⚡️ TS + Vuex4 版 [Vite4 + Vue3 + TS + Vuex4 + Element-Plus2 + useLocale + i18n](https://github.com/pdsuwwz/vite-ts-starter)
-- ⚡️ JS + Vuex4 版 [Vite4 + Vue3 + Vuex4 + Element-Plus2 + useLocale + i18n](https://github.com/pdsuwwz/vite-starter)
+__[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 
 
+## 🌱 技术栈
 
-## 🎉 Features
+项目采用多种前端技术栈：
 
-* 支持 __Vite 4 + Vue 3 + TypeScript__
-* UI 框架: __NaiveUI 2.x__
-* Icons: 内置 __XIcons__ 和 \<IconFont \/> 组件, 可直接使用 IconFont 图标
-* 状态管理: __Pinia__
-* 基于 __UnoCSS__ 进行`暗黑模式`切换
-* 单元测试框架: __Vitest__
-* 内置 __ESlint__ 和 __Stylelint__, 可在此基础上扩充你想要的 Lint 配置规范
-* 内置封装了一个**可能比较好用的** Axios , 需要时配合 Pinia Actions 一起食用
-* 内置 **vue-i18n-next**, 支持到 VueRouter 路由级别切换语言，可编写国际化配置文件及扩展其他语言
-* 路由鉴权已帮你封装好，同时配合 Nprogress, 只需要修改 permission.ts 文件即可
-* 自带一个模块化的组件开发环境，可按照 Modules 目录解耦页面组件、路由组件、样式等文件
-* 高度封装但不失灵活，内部抽象出了一个简单的业务流程供你参考(自由发挥)，涉及三个核心页面：登录、列表和明细
-* 节省你配置的时间，因此该项目的**轻量化**致使你只需要专心编写自己的业务代码即可
+* Naive UI 2.x
+* Vue 3.3.x
+* Vite 4.x
+* Pinia 2.x
+* TypeScript 5.x 
+* VueUse
+* Unplugin + UnoCSS
 
 
-## Screenshot
+## 🎉 Tab 核心功能
+- [x] 支持按照一级 ID 进行划分的缓存空间集合，本示例项目的一级ID名为 [projectId](src/router/frontend/index.ts#L547)，可加以[自行改造和将其耦合到组件内](src/widgets/WorkTabs/hook.ts#L13)
+- [x] 支持命名空间的 Tab 集合
+- [x] 支持 Caches 缓存, 用于 Keep Alive
+- [x] 支持缓存空间的切换及内部 Tab 的添加/关闭
+- [x] 支持一键关闭其他标签页
+- [x] 支持多层级动态路由参数页面的缓存(如 `/xxxx/:id1`, `/xxxx/:id1/xxx/:id2`...)
+- [x] 支持关闭 Tab 之前的 Hook 钩子, 用于手动处理阻止关闭 Tab 的逻辑
+- [x] 支持同时打开多个 Tab
+- [x] 支持 Tab 打开时自定义命名
+- [x] 支持 Pinia 统一数据管理和本地 Session 存储 (可自由改造为 LocalStorage)
 
-<img width="1440" alt="image" src="https://user-images.githubusercontent.com/19891724/154831095-32a64eee-01ce-49be-ad64-626f0d276559.png">
-<img width="1440" alt="image" src="https://user-images.githubusercontent.com/19891724/168773776-2d43c03d-54dd-4364-8830-0bba65603ef4.png">
 
 
-## Environment Support
+## 🛠️ 缓存空间设计
 
-* Vue 3.2.x
+由于每个 __WorkTab__ 代表一个路由页面，所以在设计初期就已经将以下核心概念引入到路由中，以方便更好的理解组件的设计理念:
+
+<details>
+<summary>路由 Layout 布局配置</summary><br>
+
+Tab 组件本身已经解耦了 `TabContent` 区域和 `TabsController` 区域，所以只需要将两者简单结合封装即可完成路由布局的配置
+
+本示例项目主要到涉及两个 Tab 路由布局, 感兴趣的可以直接看源码: [路由布局组件1](src/components/Layout/LayoutWork.vue), [路由布局组件2](src/components/Layout/LayoutArea.vue)
+
+为确保 Tab 和路由不会有较强的耦合关系，缓存空间 Key 则以可插拔的形式绑定到路由元信息 `meta` 中，形如以下路由配置代码:
+
+```ts
+// src/router/frontend/test-routes.ts
+export const testRoutesExample = {
+  path: 'example-component',
+  name: 'ExampleComponentRoot',
+  component: LayoutWork, // 配置 Tab 路由布局
+  redirect: {
+    name: 'ExampleComponentBasic'
+  },
+  children: [
+    {
+      path: 'basic',
+      name: 'ExampleComponentBasic',
+      meta: {
+        title: '组件示例-基础组件',
+        cacheSpaceKey: CacheSpaceKeys.exampleComponent // 配置缓存空间 Key
+      },
+      component: () => import('@/modules/ExampleComponent/pages/basic.vue')
+    },
+    {
+      path: 'form',
+      name: 'ExampleComponentForm',
+      meta: {
+        title: '组件示例-表单',
+        cacheSpaceKey: CacheSpaceKeys.exampleComponent // 配置缓存空间 Key
+      },
+      component: () => import('@/modules/ExampleComponent/pages/form.vue')
+    },
+    // ...
+  ]
+}
+```
+
+这样也就能确保具有相同缓存空间 Key 的路由(`WorkTab`)能够被归集到同一个缓存空间 `CacheSpace` 内
+
+<br></details>
+
+<details>
+<summary>缓存空间与 Tab 的缓存</summary><br>
+
+为尽可能地保证使用者无感知的使用体验并避免重复编码，这里通过监听 Vue Router 中 `route.fullPath` 的变化来实现自动触发 Tab 缓存的添加、切换等逻辑。具体的实现细节可以看[源码](src/widgets/WorkTabs/hook.ts#L32)
+
+为了满足同时打开一个或多个自定义命名 Tab 的需求，并克服 Vue Router 自身的限制，项目中封装了 `useTabRouter` Hook 方法，用于替代原生的 `useRouter` 中的 `push` 和 `replace` 方法（也可以根据需要进行扩展）
+在 `useTabRouter` 内部，采用了单例模式来处理每个Tab的自定义命名。感兴趣的可以深究对应[源码](src/hooks/useTabRouter.ts)
+
+其核心就是利用 Vue Router 的 API 解决缓存空间的创建时机、缓存空间于 Tab 的关联以及 Tab 的自定义命名等问题。
+
+
+以下是 Tab 缓存空间的核心结构设计:
+
+
+* 单个缓存空间
+```ts
+export interface CacheSpace {
+  cacheSpaceKey: string
+  tabs: Array<WorkTab>
+  activeTabKey: string | null
+}
+```
+
+* 缓存空间集合
+
+```ts
+Map<cacheSpaceKey, CacheSpace>
+```
+
+* 单个 Tab 页签数据
+
+```ts
+export interface WorkTab {
+  // 取自 meta.title 的 tab 标题名称
+  label: string
+  // 自定义 tab 标题名称
+  customLabel: string
+  tabKey: string
+  link: string
+  routeName: RouteRecordName
+}
+
+```
+<br></details>
+
+
+## 🧪 使用示例
+
+* 打开单个 Tab
+
+```ts
+const router = useTabRouter()
+router.push({
+  name: 'Xxxxxx',
+  params: {
+    datasetId: row.xxxId
+  }
+}, `自定义名称-${row.xxxId}`)
+```
+
+
+* 打开多个 Tab
+
+```ts
+const router = useTabRouter()
+router.pushMultiple(
+  // 路由一级动态ID
+  'xxxxprojectId',
+  [
+    {
+      to: {
+        name: 'Xxxx1',
+        params: {
+          datasetId: row.id
+        },
+        query: {
+          query1: '123456'
+        }
+      },
+      tabName: '自定义名称1'
+    },
+    {
+      to: {
+        name: 'Xxxx2',
+      },
+      tabName: '自定义名称2'
+    },
+  ]
+)
+```
+
+或直接使用全路径：
+
+```ts
+// 路由一级动态ID
+const prefixKey = route.params.projectId // 'xxxxprojectId'
+router.pushMultiple(
+  prefixKey,
+  [
+    `/group-project/${prefixKey}/dashboard/monitor`,
+    `/group-project/${prefixKey}/work-platform`,
+    `/group-project/${prefixKey}/work-platform/nested-level/level-1-2`,
+  ]
+)
+```
+
+## 效果截图
+
+
+
+## 前置条件
+
+* Vue 3.3.x
 * Node >= 16.15.x
+* Pnpm 8.x
 
-## Install
+## 安装和运行
 
-Run `pnpm i` to install the dependencies.
+* Run `pnpm i` to install the dependencies.
 
 ```bash
 pnpm i
 ```
 
-## Run
+* Run
 
 Run `pnpm dev` to start the frontend dev server.
 
@@ -78,26 +223,30 @@ Run `pnpm dev` to start the frontend dev server.
 pnpm dev
 ```
 
-## Test
 
-Unit Testing.
+## 💡 注意事项
 
-```bash
-pnpm test
-```
+* Vue 组件名称需要与对应路由名称保持一致，否则 Keep Alive 将会失效
+* 由于 Tab 组件自身解耦了所有的业务逻辑，所以涉及到路由一级动态 ID 这种跟业务路有强耦合的地方都需要再自行传入，嫌麻烦的可以直接修改源码中的所有 `dynamicCacheSpacePrefixKey` 字段或将相关 hook 二次封装一下。具体参考这两个位置：[源码1](src/widgets/WorkTabs/store.ts#L142) 和 [源码2](src/hooks/useTabRouter.ts#L50) 
+* 推荐使用本项目进行二次改造和开发实际的业务项目
 
-Test code coverage.
 
-```bash
-pnpm test:coverage
-```
+## 😎 说明
 
-## 😎 Awesome
+* 如果此开源对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^ 🌹
 
-* [awesome-vite](https://github.com/pdsuwwz/awesome-vite)
+* 或者您可以 "follow" 一下, 我会不断开源更多的有趣的项目
+
+* 开发环境 macOS Ventura, VSCode
+
+* 如有问题请直接在 Issues 中提, 或者您发现问题并有非常好的解决方案, 欢迎 PR 👍
+
+* 推荐一个 Vue3 + TS + Element Plus 开源入门项目, 对 Element Plus UI 库感兴趣的朋友可以去看看。[地址在这里](https://github.com/pdsuwwz/vite-ts-starter)
+
+* 另外一个 Vue3 + Naive UI + TS 的入门项目, 比当前项目简洁很多, 非常适合入门练习和二次开发。[地址在这里](https://github.com/pdsuwwz/naive-ts-starter)
 
 
 ## License
 
-[MIT](./LICENSE) License | Copyright © 2020-PRESENT [Wisdom](https://github.com/pdsuwwz)
+[MIT](./LICENSE) License | Copyright © 2023-PRESENT [Wisdom](https://github.com/pdsuwwz)
 
