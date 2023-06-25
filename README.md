@@ -1,22 +1,19 @@
 # vue3-tab-demo
 
-示例项目：带命名空间的 Tab 切换选项卡实战项目
-
 [![Deploy](https://github.com/pdsuwwz/vue3-tab-demo/workflows/gh-pages/badge.svg)](https://github.com/pdsuwwz/vue3-tab-demo/actions/workflows/deploy.yml)
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/pdsuwwz/vue3-tab-demo/deploy.yml?branch=main)](https://github.com/pdsuwwz/vue3-tab-demo/deployments/activity_log?environment=github-pages)
 [![thanks](https://badgen.net/badge/thanks/♥/pink)](https://github.com/pdsuwwz)
 [![License](https://img.shields.io/github/license/pdsuwwz/vue3-tab-demo?color=blue)](https://github.com/pdsuwwz/vue3-tab-demo/blob/main/LICENSE)
 
-🗂️ 一个基于 Vue 3 的 Tab 切换选项卡演示项目，其内部抽象出了一个**比较贴近实战**的业务(项目管理系统)，旨在更好地理解和展示如何使用 Tab 标签页组件
-> 为方便二次改造，不涉及特别复杂的业务逻辑(请自由发挥)
+## 简介
+
+🗂️ 一个基于 Vue 3 + Naive UI + TS 的 Tab 切换选项卡演示项目，其内部抽象出了一个**比较贴近实战**的**项目管理系统**的业务场景，虽不涉及特别复杂的业务逻辑但也不失灵活，旨在更好地理解和展示如何使用 Tab 标签页组件，项目基于原子化 UnoCSS 框架配置主题，还自带一个模块化的组件开发环境，使页面组件、路由组件、状态管理和样式等模块可以根据 Modules 目录进行解耦，它是一个开箱即用的解决方案，也适合作为快速开发中后台前端，可用于学习和参考
 
 
 __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 
 
 ## 🌱 技术栈
-
-项目采用多种前端技术栈：
 
 * Naive UI 2.x
 * Vue 3.3.x
@@ -27,7 +24,7 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 * Unplugin + UnoCSS
 
 
-## 🎉 Tab 核心功能
+## 🎉 Tab 核心特性
 - [x] 支持按照一级 ID 进行划分的缓存空间集合，本示例项目的一级ID名为 [projectId](src/router/frontend/index.ts#L547)，可加以[自行改造和将其耦合到组件内](src/widgets/WorkTabs/hook.ts#L13)
 - [x] 支持命名空间的 Tab 集合
 - [x] 支持 Caches 缓存, 用于 Keep Alive
@@ -38,6 +35,98 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 - [x] 支持同时打开多个 Tab
 - [x] 支持 Tab 打开时自定义命名
 - [x] 支持 Pinia 统一数据管理和本地 Session 存储 (可自由改造为 LocalStorage)
+
+
+## 项目示例图
+
+<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/0ff2c765-4e1b-46f3-8f60-8d5d565bdce8">
+<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/e782ac6a-e815-4fde-8372-40f762be1d73">
+<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/1e52c556-70cf-4441-abee-3b172967a620">
+<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/3e9da158-00b0-4fdb-a5b5-956fe29174fd">
+<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/30720df3-d9e2-4d2f-855a-a4c8fd21daf6">
+
+## 🧪 使用示例
+
+* 打开单个 Tab
+
+```ts
+const router = useTabRouter()
+router.push({
+  name: 'Xxxxxx',
+  params: {
+    datasetId: row.xxxId
+  }
+}, `自定义名称-${row.xxxId}`)
+```
+
+
+* 打开多个 Tab
+
+```ts
+const router = useTabRouter()
+router.pushMultiple(
+  // 路由一级动态ID
+  'xxxxprojectId',
+  [
+    {
+      to: {
+        name: 'Xxxx1',
+        params: {
+          datasetId: row.id
+        },
+        query: {
+          query1: '123456'
+        }
+      },
+      tabName: '自定义名称1'
+    },
+    {
+      to: {
+        name: 'Xxxx2',
+      },
+      tabName: '自定义名称2'
+    },
+  ]
+)
+```
+
+或直接使用全路径：
+
+```ts
+// 路由一级动态ID
+const prefixKey = route.params.projectId // 'xxxxprojectId'
+router.pushMultiple(
+  prefixKey,
+  [
+    `/group-project/${prefixKey}/dashboard/monitor`,
+    `/group-project/${prefixKey}/work-platform`,
+    `/group-project/${prefixKey}/work-platform/nested-level/level-1-2`,
+  ]
+)
+```
+
+
+## 前置条件
+
+* Vue 3.3.x
+* Node >= 16.15.x
+* Pnpm 8.x
+
+## 安装和运行
+
+* Run `pnpm i` to install the dependencies.
+
+```bash
+pnpm i
+```
+
+* Run
+
+Run `pnpm dev` to start the frontend dev server.
+
+```bash
+pnpm dev
+```
 
 
 
@@ -137,92 +226,6 @@ export interface WorkTab {
 <br></details>
 
 
-## 🧪 使用示例
-
-* 打开单个 Tab
-
-```ts
-const router = useTabRouter()
-router.push({
-  name: 'Xxxxxx',
-  params: {
-    datasetId: row.xxxId
-  }
-}, `自定义名称-${row.xxxId}`)
-```
-
-
-* 打开多个 Tab
-
-```ts
-const router = useTabRouter()
-router.pushMultiple(
-  // 路由一级动态ID
-  'xxxxprojectId',
-  [
-    {
-      to: {
-        name: 'Xxxx1',
-        params: {
-          datasetId: row.id
-        },
-        query: {
-          query1: '123456'
-        }
-      },
-      tabName: '自定义名称1'
-    },
-    {
-      to: {
-        name: 'Xxxx2',
-      },
-      tabName: '自定义名称2'
-    },
-  ]
-)
-```
-
-或直接使用全路径：
-
-```ts
-// 路由一级动态ID
-const prefixKey = route.params.projectId // 'xxxxprojectId'
-router.pushMultiple(
-  prefixKey,
-  [
-    `/group-project/${prefixKey}/dashboard/monitor`,
-    `/group-project/${prefixKey}/work-platform`,
-    `/group-project/${prefixKey}/work-platform/nested-level/level-1-2`,
-  ]
-)
-```
-
-## 效果截图
-
-
-
-## 前置条件
-
-* Vue 3.3.x
-* Node >= 16.15.x
-* Pnpm 8.x
-
-## 安装和运行
-
-* Run `pnpm i` to install the dependencies.
-
-```bash
-pnpm i
-```
-
-* Run
-
-Run `pnpm dev` to start the frontend dev server.
-
-```bash
-pnpm dev
-```
-
 
 ## 💡 注意事项
 
@@ -231,7 +234,7 @@ pnpm dev
 * 推荐使用本项目进行二次改造和开发实际的业务项目
 
 
-## 😎 说明
+## 说明
 
 * 如果此开源对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^ 🌹
 
