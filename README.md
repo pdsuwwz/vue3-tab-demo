@@ -1,18 +1,18 @@
-# vite-naive-template
+# vue3-tab-demo
 
 带命名空间的 Tab 切换选项卡
 
-[![Deploy](https://github.com/pdsuwwz/vite-naive-template/workflows/gh-pages/badge.svg)](https://github.com/pdsuwwz/vite-naive-template/actions/workflows/deploy.yml)
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/pdsuwwz/vite-naive-template/deploy.yml?branch=main)](https://github.com/pdsuwwz/vite-naive-template/deployments/activity_log?environment=github-pages)
+[![Deploy](https://github.com/pdsuwwz/vue3-tab-demo/workflows/gh-pages/badge.svg)](https://github.com/pdsuwwz/vue3-tab-demo/actions/workflows/deploy.yml)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/pdsuwwz/vue3-tab-demo/deploy.yml?branch=main)](https://github.com/pdsuwwz/vue3-tab-demo/deployments/activity_log?environment=github-pages)
 [![thanks](https://badgen.net/badge/thanks/♥/pink)](https://github.com/pdsuwwz)
-[![License](https://img.shields.io/github/license/pdsuwwz/vite-naive-template?color=blue)](https://github.com/pdsuwwz/vite-naive-template/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/pdsuwwz/vue3-tab-demo?color=blue)](https://github.com/pdsuwwz/vue3-tab-demo/blob/main/LICENSE)
 
 🐳 Starter using NaiveUI + Vite 4 + Vue 3 + Pinia + TypeScript + i18n + Unplugin + UnoCSS to fast build a prototyping
 
 一个适用国际化多语言(i18n)扩展、帮助你快速开发 B 端 ✈️✈️✈️ Vue3 + Vite4 + TS + Pinia 中小型后台管理系统的原型模板项目框架，集成 vue-i18n-next 💪
 
 
-__[💻 Live Demo 在线体验](https://pdsuwwz.github.io/vite-naive-template/#/zh-hans)__
+__[💻 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo/#/zh-hans)__
 
 
 ## 🌱 不同版本
