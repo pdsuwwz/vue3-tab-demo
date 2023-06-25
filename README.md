@@ -25,7 +25,7 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 
 
 ## 🎉 Tab 核心特性
-- [x] 支持按照一级 ID 进行划分的缓存空间集合，本示例项目的一级ID名为 [projectId](src/router/frontend/index.ts#L547)，可加以[自行改造和将其耦合到组件内](src/widgets/WorkTabs/hook.ts#L13)
+- [x] 支持按照一级 ID 进行划分的缓存空间集合，本示例的一级ID为 [projectId](src/router/frontend/index.ts#L547)，可加以[自行改造和将其耦合到组件内](src/widgets/WorkTabs/hook.ts#L13)
 - [x] 支持命名空间的 Tab 集合
 - [x] 支持 Caches 缓存, 用于 Keep Alive
 - [x] 支持缓存空间的切换及内部 Tab 的添加/关闭
@@ -39,11 +39,11 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 
 ## 项目示例图
 
-<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/0ff2c765-4e1b-46f3-8f60-8d5d565bdce8">
-<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/e782ac6a-e815-4fde-8372-40f762be1d73">
-<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/1e52c556-70cf-4441-abee-3b172967a620">
-<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/3e9da158-00b0-4fdb-a5b5-956fe29174fd">
-<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/30720df3-d9e2-4d2f-855a-a4c8fd21daf6">
+<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/90af35bb-af44-4d38-8545-67093535f06b">
+<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/81dc718e-86c9-4abd-adcd-aed9d874577f">
+<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/c3a7eede-1969-443b-a145-0f6a4b0c47d9">
+<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/9ec11946-eccc-4162-b0ab-28a7ef32e27b">
+<img width="1680" alt="image" src="https://github.com/pdsuwwz/vue3-tab-demo/assets/19891724/f1453c56-780c-4afd-a961-ed82e87e2298">
 
 ## 🧪 使用示例
 
