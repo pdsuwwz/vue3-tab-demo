@@ -1,20 +1,51 @@
 <template>
   <LayoutSection
-    title="主页"
     flex-content
   >
-    <!-- <template #action>
-      <n-button>测绘</n-button>
-    </template> -->
+    <template #title>
+      <n-icon
+        :size="22"
+        class="flex items-center"
+      >
+        <IconPaperPlaneRegular />
+      </n-icon>
+      <h3>项目列表</h3>
+    </template>
+    <template #action>
+      <div class="w-320px">
+        <n-input
+          v-model:value="searchValue"
+          placeholder="请输入项目名称搜索"
+          clearable
+          @update:value="handleChangeTableData"
+        >
+          <template #prefix>
+            <n-icon
+              :component="IconSearch"
+            />
+          </template>
+        </n-input>
+      </div>
+      <n-button
+        type="primary"
+      >
+        <template #icon>
+          <n-icon :component="IconAdd" />
+        </template>
+        添加项目
+      </n-button>
+    </template>
 
     <n-data-table
       :columns="tableColumns"
-      :data="tableData"
+      :data="filterTableData"
       :style="{
-        height: `100%`
+        height: `100%`,
       }"
+      striped
       flex-height
-      :bordered="true"
+      :loading="tableLoading"
+      :bordered="false"
     />
     <MyFooter
       show-border
@@ -23,7 +54,10 @@
 </template>
 
 <script lang="ts" setup>
+import { Search as IconSearch, Add as IconAdd } from '@vicons/carbon'
+import { PaperPlaneRegular as IconPaperPlaneRegular } from '@vicons/fa'
 import { NButton } from 'naive-ui'
+
 
 /**
  * 首页项目列表
@@ -117,6 +151,7 @@ const handlerPreviewDetail = (row: ProjectItem) => {
 }
 
 
+const tableLoading = ref(true)
 setTimeout(() => {
   // tableData.value = [
   //   {
@@ -150,7 +185,22 @@ setTimeout(() => {
       create_by: '李华'
     }
   })
-})
+  tableLoading.value = false
+}, 300)
+
+const searchValue = ref('')
+
+const filterTableData = ref<Array<ProjectItem>>([])
+const handleChangeTableData = _.debounce(
+  () => {
+    filterTableData.value = tableData.value.filter(({ project_name }) => {
+      return searchValue.value.includes(project_name) ||
+        project_name.includes(searchValue.value)
+    })
+  },
+  400
+)
+handleChangeTableData()
 
 
 </script>
