@@ -1,14 +1,25 @@
 <template>
   <div class="layout-section-container">
     <div
-      v-if="$slots.title"
+      v-if="$slots.title || $slots.action"
       class="layout-section-container__header"
     >
       <h1
+        v-if="$slots.title"
         class="layout-section-container__header-title c-#303133 dark:c-#fff text_nowrap"
       >
-        <slot name="title"></slot>
+        <n-space class="flex items-center">
+          <slot name="title"></slot>
+        </n-space>
       </h1>
+      <div
+        v-if="$slots.action"
+        class="layout-section-container__header-action"
+      >
+        <n-space class="flex items-center">
+          <slot name="action"></slot>
+        </n-space>
+      </div>
     </div>
     <div class="layout-section-container__content">
       <div
@@ -60,15 +71,12 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    padding: 16px;
 
     .layout-section-container__header-title {
-      font-size: 18px;
-      font-weight: 500;
     }
 
     .layout-section-container__header-action {
-
     }
   }
 
