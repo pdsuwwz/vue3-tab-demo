@@ -19,7 +19,9 @@
 
 <script lang="ts" setup>
 import { NTag, NSpace, NButton, NPopconfirm } from 'naive-ui'
-import type { DataTableColumn } from 'naive-ui'
+
+import { memberTeamList, userRankMap } from '@/modules/MemberTeam/data'
+import type { TypeMemberPerson } from '@/modules/MemberTeam/data'
 
 /**
  * MemberTeamIndex 成员管理-团队成员列表
@@ -45,30 +47,8 @@ const pagination = reactive({
   }
 })
 
-function getRandomValueFromArray (arr: any[]) {
-  const randomIndex = Math.floor(Math.random() * arr.length)
-  return arr[randomIndex]
-}
 
-const userRankMap = [
-  {
-    key: 'junior',
-    label: '初级开发',
-    type: 'info'
-  },
-  {
-    key: 'middle',
-    label: '中级开发',
-    type: 'success'
-  },
-  {
-    key: 'senior',
-    label: '高级开发',
-    type: 'error'
-  }
-]
-
-const columns: Array<DataTableColumn> = [
+const columns: DataTableColumns<TypeMemberPerson> = [
   {
     title: '成员名称',
     key: 'username'
@@ -118,7 +98,7 @@ const columns: Array<DataTableColumn> = [
                     router.push({
                       name: 'MemberTeamPreview',
                       params: {
-                        datasetId: row.userId as string
+                        datasetId: row.userId
                       }
                     }, `成员查看-${row.username}`)
                   }
@@ -136,7 +116,7 @@ const columns: Array<DataTableColumn> = [
                     router.push({
                       name: 'MemberTeamEdit',
                       params: {
-                        datasetId: row.userId as string
+                        datasetId: row.userId
                       }
                     }, `成员编辑-${row.username}`)
                   }
@@ -147,7 +127,7 @@ const columns: Array<DataTableColumn> = [
                 NPopconfirm,
                 {
                   onPositiveClick() {
-                    window.$ModalMessage.success(`假删除成功: ${row.username as string}`)
+                    window.$ModalMessage.success(`假删除成功: ${row.username}`)
                   }
                 },
                 {
@@ -173,15 +153,8 @@ const columns: Array<DataTableColumn> = [
   }
 ]
 
-const tableData = Array.from({ length: 100 }).map((_, index) => {
-  const userId = `BJ${(index + 1 + '').padStart(4, '0')}`
-  const rankItem = getRandomValueFromArray(userRankMap)
-  return {
-    key: index,
-    username: `Tom${index+1}`,
-    userId,
-    rank: rankItem.key
-  }
-})
+const tableData = ref<Array<TypeMemberPerson>>([])
+
+tableData.value = memberTeamList
 
 </script>
