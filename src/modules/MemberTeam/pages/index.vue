@@ -7,9 +7,10 @@
     >
       <n-data-table
         :columns="columns"
-        :data="data"
+        :data="tableData"
         :pagination="pagination"
         flex-height
+        striped
         class="h-full"
       />
     </n-card>
@@ -17,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { NTag, NSpace, NButton } from 'naive-ui'
+import { NTag, NSpace, NButton, NPopconfirm } from 'naive-ui'
 import type { DataTableColumn } from 'naive-ui'
 
 /**
@@ -49,21 +50,22 @@ function getRandomValueFromArray (arr: any[]) {
   return arr[randomIndex]
 }
 
-const userRankMap = [{
-  key: 'junior',
-  label: '初级开发',
-  type: 'info'
-},
-{
-  key: 'middle',
-  label: '中级开发',
-  type: 'success'
-},
-{
-  key: 'senior',
-  label: '高级开发',
-  type: 'error'
-}
+const userRankMap = [
+  {
+    key: 'junior',
+    label: '初级开发',
+    type: 'info'
+  },
+  {
+    key: 'middle',
+    label: '中级开发',
+    type: 'success'
+  },
+  {
+    key: 'senior',
+    label: '高级开发',
+    type: 'error'
+  }
 ]
 
 const columns: Array<DataTableColumn> = [
@@ -142,15 +144,26 @@ const columns: Array<DataTableColumn> = [
                 { default: () => '编辑' }
               ),
               h(
-                NButton,
+                NPopconfirm,
                 {
-                  type: 'warning',
-                  strong: true,
-                  secondary: true,
-                  size: 'small',
-                  onClick: () => {}
+                  onPositiveClick() {
+                    window.$ModalMessage.success(`假删除成功: ${row.username as string}`)
+                  }
                 },
-                { default: () => '删除' }
+                {
+                  trigger: () => h(
+                    NButton,
+                    {
+                      type: 'warning',
+                      strong: true,
+                      secondary: true,
+                      size: 'small',
+                      onClick: () => {}
+                    },
+                    { default: () => '删除' }
+                  ),
+                  default: () => '确定删除？'
+                }
               )
             ]
           }
@@ -160,7 +173,7 @@ const columns: Array<DataTableColumn> = [
   }
 ]
 
-const data = Array.from({ length: 100 }).map((_, index) => {
+const tableData = Array.from({ length: 100 }).map((_, index) => {
   const userId = `BJ${(index + 1 + '').padStart(4, '0')}`
   const rankItem = getRandomValueFromArray(userRankMap)
   return {
