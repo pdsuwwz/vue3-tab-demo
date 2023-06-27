@@ -310,6 +310,7 @@
     "watchWithFilter": true,
     "whenever": true,
     "DataTableColumns": true,
-    "useWorkPlatform": true
+    "useWorkPlatform": true,
+    "FormInst": true
   }
 }

@@ -6,24 +6,37 @@ function getRandomValueFromArray<T>(arr: Array<T>): T {
   return arr[randomIndex]
 }
 
+
+
 // 级别映射表
 export const userRankMap = [
   {
-    value: 'junior',
+    value: 'junior_development',
     label: '初级开发',
     type: 'info'
   },
   {
-    value: 'middle',
+    value: 'middle_development',
     label: '中级开发',
     type: 'success'
   },
   {
-    value: 'senior',
+    value: 'senior_development',
     label: '高级开发',
     type: 'error'
   }
 ]
+
+/**
+ * 查询目标【级别映射】
+ */
+export const findUserRankMapByRankName = (targetRank) => {
+  return userRankMap.find(
+    rankItem => rankItem.value === targetRank
+  )!
+}
+
+
 
 // 角色映射表
 export const userRoleMap = [
@@ -50,15 +63,6 @@ export const userRoleMap = [
 ]
 
 /**
- * 查询目标【级别映射】
- */
-export const findUserRankMapByRankName = (targetRank) => {
-  return userRankMap.find(
-    rankItem => rankItem.value === targetRank
-  )!
-}
-
-/**
  * 查询目标【角色映射】
  */
 export const findUserRoleMapByRankName = (targetRole) => {
@@ -67,6 +71,31 @@ export const findUserRoleMapByRankName = (targetRole) => {
   )!
 }
 
+
+
+// 状态映射表
+export const userStatusMap = [
+  {
+    value: 1,
+    label: '活跃'
+  },
+  {
+    value: 0,
+    label: '停用'
+  }
+]
+
+/**
+ * 查询目标【状态映射】
+ */
+export const findUserStatusMapByRankName = (targetStatus) => {
+  return userStatusMap.find(
+    statusItem => statusItem.value === targetStatus
+  )!
+}
+
+
+
 export interface TypeMemberPerson {
   username: string
   roleId: string
@@ -74,6 +103,8 @@ export interface TypeMemberPerson {
   email: string
   phone: string
   rank: string
+  // 1活跃, 0停用
+  memberStatus: number | null | undefined
 }
 
 /**
@@ -91,7 +122,8 @@ export const memberTeamList = Array.from({ length: 100 }).map((_, index) => {
     roleId: roleItem.value,
     rank: rankItem.value,
     phone: 10000000000 + _index + '',
-    email: `${userId}@admin.com`
+    email: `${userId}@admin.com`,
+    memberStatus: Math.random() > 0.5 ? 0 : 1
   } as TypeMemberPerson
 })
 

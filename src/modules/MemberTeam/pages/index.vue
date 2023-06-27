@@ -55,7 +55,7 @@ const pagination = reactive({
 
 const columns: DataTableColumns<TypeMemberPerson> = [
   {
-    title: '姓名',
+    title: '成员名称',
     key: 'username',
     width: 80,
     fixed: 'left'
@@ -67,7 +67,7 @@ const columns: DataTableColumns<TypeMemberPerson> = [
     width: 60
   },
   {
-    title: '角色',
+    title: '项目角色',
     key: 'roleId',
     align: 'center',
     width: 100,
@@ -111,12 +111,6 @@ const columns: DataTableColumns<TypeMemberPerson> = [
     key: 'email',
     align: 'center',
     width: 150
-  },
-  {
-    title: '手机号',
-    key: 'phone',
-    align: 'center',
-    width: 80
   },
   {
     title: '操作列',

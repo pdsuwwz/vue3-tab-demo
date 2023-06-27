@@ -99,7 +99,7 @@
 
 import { omit } from 'lodash-es'
 import { isFunction } from '@/utils/type'
-import { FormInst, lightTheme } from 'naive-ui'
+import { lightTheme } from 'naive-ui'
 
 const { theme, themeOverrides } = useTheme()
 

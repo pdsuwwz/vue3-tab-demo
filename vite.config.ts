@@ -94,7 +94,8 @@ export default defineConfig(({ mode }) => {
           {
             from: 'naive-ui',
             imports: [
-              'DataTableColumns'
+              'DataTableColumns',
+              'FormInst'
             ],
             type: true
           }
