@@ -20,7 +20,7 @@
 <script lang="ts" setup>
 import { NTag, NSpace, NButton, NPopconfirm } from 'naive-ui'
 
-import { memberTeamList, userRankMap } from '@/modules/MemberTeam/data'
+import { memberTeamList, findUserRankMapByRankName } from '@/modules/MemberTeam/data'
 import type { TypeMemberPerson } from '@/modules/MemberTeam/data'
 
 /**
@@ -50,14 +50,18 @@ const pagination = reactive({
 
 const columns: DataTableColumns<TypeMemberPerson> = [
   {
-    title: '成员名称',
+    title: '姓名',
     key: 'username'
+  },
+  {
+    title: '角色',
+    key: 'roleId'
   },
   {
     title: '职级',
     key: 'rank',
     render(row) {
-      const rankItem = userRankMap.find(rankItem => rankItem.key === row.rank)!
+      const rankItem = findUserRankMapByRankName(row.rank)
       return h(
         NTag,
         {
@@ -74,6 +78,10 @@ const columns: DataTableColumns<TypeMemberPerson> = [
   {
     title: '工号',
     key: 'userId'
+  },
+  {
+    title: '邮箱',
+    key: 'email'
   },
   {
     title: '操作列',
