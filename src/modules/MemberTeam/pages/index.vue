@@ -25,12 +25,17 @@ import { NTag, NIcon, NSpace, NButton, NPopconfirm, NDropdown } from 'naive-ui'
 import {
   memberTeamList,
   findUserRankMapByRankName,
-  findUserRoleMapByRankName
+  findUserRoleMapByRankName,
+  findUserStatusMapByRankName
 } from '@/modules/MemberTeam/data'
 import type { TypeMemberPerson } from '@/modules/MemberTeam/data'
 import {
-  MoreVertical20Regular as IconMoreVertical20Regular
+  MoreVertical20Regular as IconMoreVertical20Regular,
+  NotepadPerson24Regular as IconNotepadPerson24Regular,
+  PersonEdit24Regular as IconPersonEdit24Regular,
+  PersonDelete16Regular as IconPersonDelete16Regular
 } from '@vicons/fluent'
+import { sleep } from '@/utils/request'
 
 /**
  * MemberTeamIndex 成员管理-团队成员列表
@@ -56,9 +61,9 @@ const pagination = reactive({
   }
 })
 
-const renderIcon = (icon: Component) => {
+const renderIcon = (icon: Component, className = '') => {
   return () => {
-    return h(NIcon, { class: 'cursor-pointer' }, {
+    return h(NIcon, { class: className }, {
       default: () => h(icon)
     })
   }
@@ -73,6 +78,7 @@ const createActionsColumns = (row: TypeMemberPerson) => {
         {
           label: '查看',
           key: 'preview',
+          icon: renderIcon(IconNotepadPerson24Regular),
           props: {
             onClick: () => {
               router.push({
@@ -87,6 +93,7 @@ const createActionsColumns = (row: TypeMemberPerson) => {
         {
           label: '编辑',
           key: 'edit',
+          icon: renderIcon(IconPersonEdit24Regular),
           props: {
             onClick: () => {
               router.push({
@@ -99,111 +106,42 @@ const createActionsColumns = (row: TypeMemberPerson) => {
           }
         },
         {
+          label: '删除',
           key: 'remove',
-          type: 'render',
-          render() {
-            return h(
-              NPopconfirm,
-              {
-                onPositiveClick() {
+          icon: renderIcon(IconPersonDelete16Regular),
+          disabled: row.memberStatus === 1,
+          props: {
+            onClick: () => {
+              if (row.memberStatus === 1) return
+
+              const d = window.$ModalDialog.warning({
+                title: '警告',
+                content: `确定删除该成员: " ${row.username} "?`,
+                positiveText: '删除',
+                negativeText: '我再想想',
+                onPositiveClick: async () => {
+                  d.loading = true
+                  await sleep(400)
                   window.$ModalMessage.success(`假删除成功: ${row.username}`)
                 }
-              },
-              {
-                trigger: () => h('div', { class: 'px-4px' },
-                  h(
-                    NButton,
-                    {
-                      block: true,
-                      quaternary: true,
-                      size: 'small',
-                      onClick: () => {}
-                    },
-                    { default: () => '删除' }
-                  )
-                ),
-                default: () => '确定删除？'
-              }
-            )
+              })
+            }
           }
         }
       ]
     },
     {
-      default: renderIcon(IconMoreVertical20Regular)
+      default: () => h(
+        NButton,
+        {
+          quaternary: true,
+          round: true,
+          size: 'tiny'
+        },
+        renderIcon(IconMoreVertical20Regular, 'cursor-pointer')
+      )
     }
   )
-
-  // return [
-  //   h(
-  //     NSpace,
-  //     {
-  //       justify: 'center'
-  //     },
-  //     {
-  //       default: () => [
-  //         h(
-  //           NButton,
-  //           {
-  //             type: 'info',
-  //             strong: true,
-  //             secondary: true,
-  //             size: 'small',
-  //             onClick: () => {
-  //               router.push({
-  //                 name: 'MemberTeamPreview',
-  //                 params: {
-  //                   datasetId: row.userId
-  //                 }
-  //               }, `成员查看-${row.username}`)
-  //             }
-  //           },
-  //           { default: () => '查看' }
-  //         ),
-  //         h(
-  //           NButton,
-  //           {
-  //             type: 'primary',
-  //             strong: true,
-  //             secondary: true,
-  //             size: 'small',
-  //             onClick: () => {
-  //               router.push({
-  //                 name: 'MemberTeamEdit',
-  //                 params: {
-  //                   datasetId: row.userId
-  //                 }
-  //               }, `成员编辑-${row.username}`)
-  //             }
-  //           },
-  //           { default: () => '编辑' }
-  //         ),
-  //         h(
-  //           NPopconfirm,
-  //           {
-  //             onPositiveClick() {
-  //               window.$ModalMessage.success(`假删除成功: ${row.username}`)
-  //             }
-  //           },
-  //           {
-  //             trigger: () => h(
-  //               NButton,
-  //               {
-  //                 type: 'warning',
-  //                 strong: true,
-  //                 secondary: true,
-  //                 size: 'small',
-  //                 onClick: () => {}
-  //               },
-  //               { default: () => '删除' }
-  //             ),
-  //             default: () => '确定删除？'
-  //           }
-  //         )
-  //       ]
-  //     }
-  //   )
-  // ]
 }
 
 const columns: DataTableColumns<TypeMemberPerson> = [
@@ -264,6 +202,30 @@ const columns: DataTableColumns<TypeMemberPerson> = [
     key: 'email',
     align: 'center',
     width: 150
+  },
+  {
+    title: '成员状态',
+    key: 'status',
+    align: 'center',
+    width: 60,
+    fixed: 'right',
+    render(row) {
+      const statusItem = findUserStatusMapByRankName(row.memberStatus)
+      return h(
+        NTag,
+        {
+          bordered: false,
+          round: true,
+          type: statusItem.type as any
+        },
+        {
+          icon: renderIcon(statusItem.icon),
+          default: () => {
+            return statusItem.label
+          }
+        }
+      )
+    }
   },
   {
     title: '操作列',
