@@ -49,12 +49,11 @@
 </template>
 
 <script lang="ts" setup>
-import { NSelect } from 'naive-ui'
-import type { FormInst } from 'naive-ui'
+import { NRadioGroup, NRadio, NSelect } from 'naive-ui'
 import { sleep } from '@/utils/request'
 
 import type { TypeMemberPerson } from '../data'
-import { userRoleMap, userRankMap, findMemberInfoById } from '../data'
+import { userRoleMap, userRankMap, findMemberInfoById, userStatusMap } from '../data'
 
 /**
  * MemberTeamPreview 成员管理-成员信息查看
@@ -73,7 +72,8 @@ const memberFormModel = ref<TypeMemberPerson>({
   userId: '',
   email: '',
   rank: '',
-  phone: ''
+  phone: '',
+  memberStatus: null
 })
 
 const loadingForm = ref(true)
@@ -90,7 +90,7 @@ fetchMemberInfo()
 const memberInfoMap = [
   {
     path: 'username',
-    label: '姓名'
+    label: '成员名称'
   },
   {
     path: 'userId',
@@ -98,7 +98,7 @@ const memberInfoMap = [
   },
   {
     path: 'roleId',
-    label: '角色',
+    label: '项目角色',
     render: () => h(
       NSelect,
       {
@@ -117,6 +117,27 @@ const memberInfoMap = [
   {
     path: 'phone',
     label: '手机号'
+  },
+  {
+    path: 'memberStatus',
+    label: '成员状态',
+    render: () => h(
+      NRadioGroup,
+      {
+        value: memberFormModel.value.memberStatus,
+        onUpdateValue (v) {
+          memberFormModel.value.memberStatus = v
+        }
+      },
+      () => userStatusMap.map(
+        (statusItem) => h(
+          NRadio,
+          {
+            ...statusItem
+          }
+        )
+      )
+    )
   },
   {
     path: 'rank',
