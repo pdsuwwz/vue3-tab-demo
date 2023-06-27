@@ -5,14 +5,24 @@
       title="成员管理-团队成员列表"
       class="h-full"
     >
+      <template #header-extra>
+        <n-button
+          type="primary"
+        >
+          打开
+        </n-button>
+      </template>
       <n-data-table
         :columns="columns"
         :data="tableData"
         :pagination="pagination"
         flex-height
         striped
+        :row-key="(row: TypeMemberPerson) => row.userId"
         class="h-full"
-        :scroll-x="1800"
+        :scroll-x="1100"
+        :bordered="false"
+        :single-line="false"
       />
     </n-card>
   </LayoutPage>
@@ -146,22 +156,27 @@ const createActionsColumns = (row: TypeMemberPerson) => {
 
 const columns: DataTableColumns<TypeMemberPerson> = [
   {
+    type: 'selection',
+    fixed: 'left'
+  },
+  {
     title: '成员名称',
     key: 'username',
-    width: 80,
+    width: 100,
+    align: 'center',
     fixed: 'left'
   },
   {
     title: '工号',
     key: 'userId',
     align: 'center',
-    width: 60
+    width: 100
   },
   {
     title: '项目角色',
     key: 'roleId',
     align: 'center',
-    width: 100,
+    width: 160,
     render(row) {
       const roleItem = findUserRoleMapByRankName(row.roleId)
       return h(
@@ -181,7 +196,6 @@ const columns: DataTableColumns<TypeMemberPerson> = [
     title: '职级',
     key: 'rank',
     align: 'center',
-    width: 100,
     render(row) {
       const rankItem = findUserRankMapByRankName(row.rank)
       return h(
@@ -200,14 +214,13 @@ const columns: DataTableColumns<TypeMemberPerson> = [
   {
     title: '邮箱',
     key: 'email',
-    align: 'center',
-    width: 150
+    align: 'center'
   },
   {
     title: '成员状态',
     key: 'status',
     align: 'center',
-    width: 60,
+    width: 200,
     fixed: 'right',
     render(row) {
       const statusItem = findUserStatusMapByRankName(row.memberStatus)
@@ -231,7 +244,7 @@ const columns: DataTableColumns<TypeMemberPerson> = [
     title: '操作列',
     key: 'actions',
     align: 'center',
-    width: 25,
+    width: 80,
     fixed: 'right',
     render (row) {
       return createActionsColumns(row)
