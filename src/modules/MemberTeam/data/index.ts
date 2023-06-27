@@ -1,5 +1,7 @@
+import { sleep } from '@/utils/request'
+
 // 随机获取数组中某一项
-function getRandomValueFromArray (arr: Array<any>) {
+function getRandomValueFromArray<T>(arr: Array<T>): T {
   const randomIndex = Math.floor(Math.random() * arr.length)
   return arr[randomIndex]
 }
@@ -7,17 +9,17 @@ function getRandomValueFromArray (arr: Array<any>) {
 // 级别映射表
 export const userRankMap = [
   {
-    key: 'junior',
+    value: 'junior',
     label: '初级开发',
     type: 'info'
   },
   {
-    key: 'middle',
+    value: 'middle',
     label: '中级开发',
     type: 'success'
   },
   {
-    key: 'senior',
+    value: 'senior',
     label: '高级开发',
     type: 'error'
   }
@@ -26,42 +28,42 @@ export const userRankMap = [
 // 角色映射表
 export const userRoleMap = [
   {
-    key: 'team_member',
+    value: 'team_member',
     label: '团队成员'
   },
   {
-    key: 'team_leader',
+    value: 'team_leader',
     label: '现场负责人'
   },
   {
-    key: 'project_manager',
+    value: 'project_manager',
     label: '项目经理'
   },
   {
-    key: 'quality_manager',
+    value: 'quality_manager',
     label: '质控经理'
   },
   {
-    key: 'review_manager',
+    value: 'review_manager',
     label: '复核经理'
   }
 ]
 
 /**
- * 查询目标级别映射
+ * 查询目标【级别映射】
  */
 export const findUserRankMapByRankName = (targetRank) => {
   return userRankMap.find(
-    rankItem => rankItem.key === targetRank
+    rankItem => rankItem.value === targetRank
   )!
 }
 
 /**
- * 查询目标角色映射
+ * 查询目标【角色映射】
  */
 export const findUserRoleMapByRankName = (targetRole) => {
   return userRoleMap.find(
-    roleItem => roleItem.key === targetRole
+    roleItem => roleItem.value === targetRole
   )!
 }
 
@@ -70,18 +72,36 @@ export interface TypeMemberPerson {
   roleId: string
   userId: string
   email: string
+  phone: string
   rank: string
 }
 
+/**
+ * 构造一份成员列表的假数据
+ */
 export const memberTeamList = Array.from({ length: 100 }).map((_, index) => {
-  const userId = `BJ${(index + 1 + '').padStart(4, '0')}`
+  const _index = index + 1
+
+  const userId = `BJ${(_index + '').padStart(4, '0')}`
   const rankItem = getRandomValueFromArray(userRankMap)
   const roleItem = getRandomValueFromArray(userRoleMap)
   return {
-    username: `Tom${index+1}`,
+    username: `Tom${_index}`,
     userId,
-    roleId: roleItem.key,
-    rank: rankItem.key,
+    roleId: roleItem.value,
+    rank: rankItem.value,
+    phone: 10000000000 + _index + '',
     email: `${userId}@admin.com`
   } as TypeMemberPerson
 })
+
+
+/**
+ * 根据 userId 查询成员信息
+ */
+export const findMemberInfoById = async (userId) => {
+  await sleep(440)
+  return memberTeamList.find(
+    memberItem => memberItem.userId === userId
+  )
+}
