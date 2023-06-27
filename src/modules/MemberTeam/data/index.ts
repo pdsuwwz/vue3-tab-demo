@@ -1,4 +1,8 @@
 import { sleep } from '@/utils/request'
+import {
+  PresenceAvailable10Regular,
+  PresenceBlocked10Regular
+} from '@vicons/fluent'
 
 // 随机获取数组中某一项
 function getRandomValueFromArray<T>(arr: Array<T>): T {
@@ -77,11 +81,15 @@ export const findUserRoleMapByRankName = (targetRole) => {
 export const userStatusMap = [
   {
     value: 1,
-    label: '活跃'
+    label: '活跃',
+    type: 'success',
+    icon: PresenceAvailable10Regular
   },
   {
     value: 0,
-    label: '停用'
+    label: '停用',
+    type: 'default',
+    icon: PresenceBlocked10Regular
   }
 ]
 
@@ -103,7 +111,9 @@ export interface TypeMemberPerson {
   email: string
   phone: string
   rank: string
-  // 1活跃, 0停用
+  /**
+   * 1活跃, 0停用
+   */
   memberStatus: number | null | undefined
 }
 
