@@ -11,6 +11,7 @@
           :model="memberFormModel"
           label-placement="top"
           label-width="auto"
+          disabled
         >
           <n-form-item
             v-for="(infoItem, index) in memberInfoMap"
@@ -33,12 +34,14 @@
             <n-button
               type="primary"
               :loading="loadingSubmit"
+              disabled
               @click="handleSubmit()"
             >
               更新
             </n-button>
           </n-form-item>
         </n-form>
+
         <pre>{{ JSON.stringify(memberFormModel, null, 2) }}</pre>
       </n-spin>
     </n-card>
@@ -88,6 +91,10 @@ const memberInfoMap = [
   {
     path: 'username',
     label: '姓名'
+  },
+  {
+    path: 'userId',
+    label: '工号'
   },
   {
     path: 'roleId',
