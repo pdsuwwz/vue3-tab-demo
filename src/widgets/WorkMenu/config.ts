@@ -1,7 +1,5 @@
 import { NIcon } from 'naive-ui'
 
-import type { MenuOption } from 'naive-ui'
-
 import {
   TeamOutlined as IconTeamOutlined,
   MenuOutlined as IconMenuOutlined

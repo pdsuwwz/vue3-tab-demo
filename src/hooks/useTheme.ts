@@ -1,4 +1,4 @@
-import { GlobalThemeOverrides, lightTheme } from 'naive-ui'
+import { lightTheme } from 'naive-ui'
 import { computed, watch } from 'vue'
 import { darkTheme, useOsTheme } from 'naive-ui'
 import { useAppStore } from '@/store/hooks/useAppStore'

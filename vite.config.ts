@@ -94,7 +94,11 @@ export default defineConfig(({ mode }) => {
           {
             from: 'naive-ui',
             imports: [
+              'GlobalThemeOverrides',
+              'ConfigProviderProps',
               'DataTableColumns',
+              'DropdownOption',
+              'MenuOption',
               'FormInst'
             ],
             type: true

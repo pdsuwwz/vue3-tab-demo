@@ -21,7 +21,7 @@ import Cookie from 'js-cookie'
 
 import { SignOut20Regular } from '@vicons/fluent'
 import { UserAvatar } from '@vicons/carbon'
-import { DropdownOption, NIcon } from 'naive-ui'
+import { NIcon } from 'naive-ui'
 
 export default defineComponent({
   name: 'NavigationAvatar',

@@ -311,6 +311,10 @@
     "whenever": true,
     "DataTableColumns": true,
     "useWorkPlatform": true,
-    "FormInst": true
+    "FormInst": true,
+    "GlobalThemeOverrides": true,
+    "DropdownOption": true,
+    "ConfigProviderProps": true,
+    "MenuOption": true
   }
 }
