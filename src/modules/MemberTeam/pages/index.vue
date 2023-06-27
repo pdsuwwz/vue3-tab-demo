@@ -12,6 +12,7 @@
         flex-height
         striped
         class="h-full"
+        :scroll-x="1800"
       />
     </n-card>
   </LayoutPage>
@@ -20,7 +21,11 @@
 <script lang="ts" setup>
 import { NTag, NSpace, NButton, NPopconfirm } from 'naive-ui'
 
-import { memberTeamList, findUserRankMapByRankName } from '@/modules/MemberTeam/data'
+import {
+  memberTeamList,
+  findUserRankMapByRankName,
+  findUserRoleMapByRankName
+} from '@/modules/MemberTeam/data'
 import type { TypeMemberPerson } from '@/modules/MemberTeam/data'
 
 /**
@@ -51,15 +56,41 @@ const pagination = reactive({
 const columns: DataTableColumns<TypeMemberPerson> = [
   {
     title: '姓名',
-    key: 'username'
+    key: 'username',
+    width: 80,
+    fixed: 'left'
+  },
+  {
+    title: '工号',
+    key: 'userId',
+    align: 'center',
+    width: 60
   },
   {
     title: '角色',
-    key: 'roleId'
+    key: 'roleId',
+    align: 'center',
+    width: 100,
+    render(row) {
+      const roleItem = findUserRoleMapByRankName(row.roleId)
+      return h(
+        NTag,
+        {
+          bordered: false
+        },
+        {
+          default: () => {
+            return roleItem.label
+          }
+        }
+      )
+    }
   },
   {
     title: '职级',
     key: 'rank',
+    align: 'center',
+    width: 100,
     render(row) {
       const rankItem = findUserRankMapByRankName(row.rank)
       return h(
@@ -76,23 +107,30 @@ const columns: DataTableColumns<TypeMemberPerson> = [
     }
   },
   {
-    title: '工号',
-    key: 'userId'
+    title: '邮箱',
+    key: 'email',
+    align: 'center',
+    width: 150
   },
   {
-    title: '邮箱',
-    key: 'email'
+    title: '手机号',
+    key: 'phone',
+    align: 'center',
+    width: 80
   },
   {
     title: '操作列',
     key: 'actions',
-    width: '210px',
     align: 'center',
+    width: 80,
+    fixed: 'right',
     render (row) {
       return [
         h(
           NSpace,
-          null,
+          {
+            justify: 'center'
+          },
           {
             default: () => [
               h(
