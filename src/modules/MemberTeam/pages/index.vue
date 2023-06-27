@@ -19,7 +19,8 @@
 </template>
 
 <script lang="ts" setup>
-import { NTag, NSpace, NButton, NPopconfirm } from 'naive-ui'
+import { NTag, NIcon, NSpace, NButton, NPopconfirm, NDropdown } from 'naive-ui'
+
 
 import {
   memberTeamList,
@@ -27,6 +28,9 @@ import {
   findUserRoleMapByRankName
 } from '@/modules/MemberTeam/data'
 import type { TypeMemberPerson } from '@/modules/MemberTeam/data'
+import {
+  MoreVertical20Regular as IconMoreVertical20Regular
+} from '@vicons/fluent'
 
 /**
  * MemberTeamIndex 成员管理-团队成员列表
@@ -52,6 +56,155 @@ const pagination = reactive({
   }
 })
 
+const renderIcon = (icon: Component) => {
+  return () => {
+    return h(NIcon, { class: 'cursor-pointer' }, {
+      default: () => h(icon)
+    })
+  }
+}
+
+
+const createActionsColumns = (row: TypeMemberPerson) => {
+  return h(
+    NDropdown,
+    {
+      options: [
+        {
+          label: '查看',
+          key: 'preview',
+          props: {
+            onClick: () => {
+              router.push({
+                name: 'MemberTeamPreview',
+                params: {
+                  datasetId: row.userId
+                }
+              }, `成员查看-${row.username}`)
+            }
+          }
+        },
+        {
+          label: '编辑',
+          key: 'edit',
+          props: {
+            onClick: () => {
+              router.push({
+                name: 'MemberTeamEdit',
+                params: {
+                  datasetId: row.userId
+                }
+              }, `成员编辑-${row.username}`)
+            }
+          }
+        },
+        {
+          key: 'remove',
+          type: 'render',
+          render() {
+            return h(
+              NPopconfirm,
+              {
+                onPositiveClick() {
+                  window.$ModalMessage.success(`假删除成功: ${row.username}`)
+                }
+              },
+              {
+                trigger: () => h('div', { class: 'px-4px' },
+                  h(
+                    NButton,
+                    {
+                      block: true,
+                      quaternary: true,
+                      size: 'small',
+                      onClick: () => {}
+                    },
+                    { default: () => '删除' }
+                  )
+                ),
+                default: () => '确定删除？'
+              }
+            )
+          }
+        }
+      ]
+    },
+    {
+      default: renderIcon(IconMoreVertical20Regular)
+    }
+  )
+
+  // return [
+  //   h(
+  //     NSpace,
+  //     {
+  //       justify: 'center'
+  //     },
+  //     {
+  //       default: () => [
+  //         h(
+  //           NButton,
+  //           {
+  //             type: 'info',
+  //             strong: true,
+  //             secondary: true,
+  //             size: 'small',
+  //             onClick: () => {
+  //               router.push({
+  //                 name: 'MemberTeamPreview',
+  //                 params: {
+  //                   datasetId: row.userId
+  //                 }
+  //               }, `成员查看-${row.username}`)
+  //             }
+  //           },
+  //           { default: () => '查看' }
+  //         ),
+  //         h(
+  //           NButton,
+  //           {
+  //             type: 'primary',
+  //             strong: true,
+  //             secondary: true,
+  //             size: 'small',
+  //             onClick: () => {
+  //               router.push({
+  //                 name: 'MemberTeamEdit',
+  //                 params: {
+  //                   datasetId: row.userId
+  //                 }
+  //               }, `成员编辑-${row.username}`)
+  //             }
+  //           },
+  //           { default: () => '编辑' }
+  //         ),
+  //         h(
+  //           NPopconfirm,
+  //           {
+  //             onPositiveClick() {
+  //               window.$ModalMessage.success(`假删除成功: ${row.username}`)
+  //             }
+  //           },
+  //           {
+  //             trigger: () => h(
+  //               NButton,
+  //               {
+  //                 type: 'warning',
+  //                 strong: true,
+  //                 secondary: true,
+  //                 size: 'small',
+  //                 onClick: () => {}
+  //               },
+  //               { default: () => '删除' }
+  //             ),
+  //             default: () => '确定删除？'
+  //           }
+  //         )
+  //       ]
+  //     }
+  //   )
+  // ]
+}
 
 const columns: DataTableColumns<TypeMemberPerson> = [
   {
@@ -116,79 +269,10 @@ const columns: DataTableColumns<TypeMemberPerson> = [
     title: '操作列',
     key: 'actions',
     align: 'center',
-    width: 80,
+    width: 25,
     fixed: 'right',
     render (row) {
-      return [
-        h(
-          NSpace,
-          {
-            justify: 'center'
-          },
-          {
-            default: () => [
-              h(
-                NButton,
-                {
-                  type: 'info',
-                  strong: true,
-                  secondary: true,
-                  size: 'small',
-                  onClick: () => {
-                    router.push({
-                      name: 'MemberTeamPreview',
-                      params: {
-                        datasetId: row.userId
-                      }
-                    }, `成员查看-${row.username}`)
-                  }
-                },
-                { default: () => '查看' }
-              ),
-              h(
-                NButton,
-                {
-                  type: 'primary',
-                  strong: true,
-                  secondary: true,
-                  size: 'small',
-                  onClick: () => {
-                    router.push({
-                      name: 'MemberTeamEdit',
-                      params: {
-                        datasetId: row.userId
-                      }
-                    }, `成员编辑-${row.username}`)
-                  }
-                },
-                { default: () => '编辑' }
-              ),
-              h(
-                NPopconfirm,
-                {
-                  onPositiveClick() {
-                    window.$ModalMessage.success(`假删除成功: ${row.username}`)
-                  }
-                },
-                {
-                  trigger: () => h(
-                    NButton,
-                    {
-                      type: 'warning',
-                      strong: true,
-                      secondary: true,
-                      size: 'small',
-                      onClick: () => {}
-                    },
-                    { default: () => '删除' }
-                  ),
-                  default: () => '确定删除？'
-                }
-              )
-            ]
-          }
-        )
-      ]
+      return createActionsColumns(row)
     }
   }
 ]
