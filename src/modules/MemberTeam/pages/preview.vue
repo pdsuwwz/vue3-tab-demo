@@ -3,6 +3,7 @@
     <n-card
       :bordered="false"
       title="成员管理-成员信息查看"
+      class="bg-transparent"
     >
       <n-spin :show="loadingForm">
         <n-form
@@ -12,23 +13,29 @@
           label-width="auto"
           disabled
         >
-          <n-form-item
-            v-for="(infoItem, index) in memberInfoMap"
-            :key="index"
-            :path="infoItem.path"
-            :label="infoItem.label"
+          <n-grid
+            :cols="24"
+            :x-gap="24"
           >
-            <component
-              :is="infoItem.render"
-              v-if="infoItem.render"
-              v-model:value="memberFormModel[infoItem.path]"
-            />
+            <n-form-item-gi
+              v-for="(infoItem, index) in memberInfoMap"
+              :key="index"
+              :span="12"
+              :path="infoItem.path"
+              :label="infoItem.label"
+            >
+              <component
+                :is="infoItem.render"
+                v-if="infoItem.render"
+                v-model:value="memberFormModel[infoItem.path]"
+              />
 
-            <n-input
-              v-else
-              v-model:value="memberFormModel[infoItem.path]"
-            />
-          </n-form-item>
+              <n-input
+                v-else
+                v-model:value="memberFormModel[infoItem.path]"
+              />
+            </n-form-item-gi>
+          </n-grid>
           <n-form-item>
             <n-button
               type="primary"
@@ -69,6 +76,7 @@ const memberFormModel = ref<TypeMemberPerson>({
   username: '',
   roleId: '',
   userId: '',
+  avatar: '',
   email: '',
   rank: '',
   phone: '',

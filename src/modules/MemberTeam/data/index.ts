@@ -4,6 +4,8 @@ import {
   PresenceBlocked10Regular
 } from '@vicons/fluent'
 
+import memberAvatar from '@/assets/images/member-avatar.png'
+
 // 随机获取数组中某一项
 function getRandomValueFromArray<T>(arr: Array<T>): T {
   const randomIndex = Math.floor(Math.random() * arr.length)
@@ -108,6 +110,7 @@ export interface TypeMemberPerson {
   username: string
   roleId: string
   userId: string
+  avatar: string
   email: string
   phone: string
   rank: string
@@ -132,6 +135,7 @@ export const memberTeamList = Array.from({ length: 100 }).map((_, index) => {
     roleId: roleItem.value,
     rank: rankItem.value,
     phone: 10000000000 + _index + '',
+    avatar: memberAvatar,
     email: `${userId}@admin.com`,
     memberStatus: Math.random() > 0.5 ? 0 : 1
   } as TypeMemberPerson
