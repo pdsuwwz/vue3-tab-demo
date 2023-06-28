@@ -3,7 +3,6 @@
     <n-card
       :bordered="false"
       title="成员管理-成员信息查看"
-      class="h-full"
     >
       <n-spin :show="loadingForm">
         <n-form
