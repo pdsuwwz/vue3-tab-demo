@@ -315,6 +315,7 @@
     "GlobalThemeOverrides": true,
     "DropdownOption": true,
     "ConfigProviderProps": true,
-    "MenuOption": true
+    "MenuOption": true,
+    "DataTableRowKey": true
   }
 }

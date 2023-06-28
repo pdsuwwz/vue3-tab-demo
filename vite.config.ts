@@ -97,6 +97,7 @@ export default defineConfig(({ mode }) => {
               'GlobalThemeOverrides',
               'ConfigProviderProps',
               'DataTableColumns',
+              'DataTableRowKey',
               'DropdownOption',
               'MenuOption',
               'FormInst'
