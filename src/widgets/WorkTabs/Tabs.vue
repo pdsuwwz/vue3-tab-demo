@@ -212,7 +212,7 @@ onUnmounted(async() => {
       border-radius: 8px 8px 0 0;
       margin-right: 2px;
 
-      --at-apply: bg-#fcfcfc dark:bg-#444444;
+      --at-apply: bg-#fcfcfc dark:bg-#302f2f;
 
       &:last-child {
         margin-right: 0;
@@ -262,7 +262,7 @@ onUnmounted(async() => {
           --at-apply: dark:bg-#1e1e20;
 
           & > .tab-item-icon {
-            color: #b6b9c1;
+            --at-apply: c-#909399 dark:c-#b6b9c1;
           }
         }
       }
