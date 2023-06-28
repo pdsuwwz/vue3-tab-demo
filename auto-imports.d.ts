@@ -304,7 +304,7 @@ declare global {
   // @ts-ignore
   export type { RouteRecordRaw, RouteLocationRaw, LocationQuery, NavigationFailure, RouteParams, RouteLocationNormalizedLoaded, RouteRecordName, NavigationGuard } from 'vue-router'
   // @ts-ignore
-  export type { GlobalThemeOverrides, ConfigProviderProps, DataTableColumns, DropdownOption, MenuOption, FormInst } from 'naive-ui'
+  export type { GlobalThemeOverrides, ConfigProviderProps, DataTableColumns, DataTableRowKey, DropdownOption, MenuOption, FormInst } from 'naive-ui'
 }
 // for vue template auto import
 import { UnwrapRef } from 'vue'

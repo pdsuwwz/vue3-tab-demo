@@ -8,21 +8,24 @@
       <template #header-extra>
         <n-button
           type="primary"
+          @click="handleOpenTabs()"
         >
           打开
         </n-button>
       </template>
       <n-data-table
+        v-model:checked-row-keys="checkedRowKeysRef"
+        class="h-full"
         :columns="columns"
         :data="tableData"
         :pagination="pagination"
-        flex-height
-        striped
-        :row-key="(row: TypeMemberPerson) => row.userId"
-        class="h-full"
         :scroll-x="1100"
         :bordered="false"
         :single-line="false"
+        flex-height
+        striped
+        :row-key="getRowKey"
+        @update:checked-row-keys="handleUpdateCheckedRows"
       />
     </n-card>
   </LayoutPage>
@@ -46,6 +49,7 @@ import {
   PersonDelete16Regular as IconPersonDelete16Regular
 } from '@vicons/fluent'
 import { sleep } from '@/utils/request'
+import type { MultipleLinkItem } from '@/widgets/WorkTabs/types'
 
 /**
  * MemberTeamIndex 成员管理-团队成员列表
@@ -54,7 +58,53 @@ defineOptions({
   name: 'MemberTeamIndex'
 })
 
+const route = useRoute()
 const router = useTabRouter()
+
+
+
+/**
+ * 构造行唯一 ID
+ */
+const getRowKey = (row: TypeMemberPerson) => row.userId
+
+/**
+ * 选中行
+ */
+const checkedRowKeysRef = ref<Array<DataTableRowKey>>([])
+const checkedRowsRef = ref<Array<TypeMemberPerson>>([])
+
+const handleUpdateCheckedRows = (keys, rows: Array<object>) => {
+  checkedRowsRef.value = rows as Array<TypeMemberPerson>
+}
+
+
+/**
+ * 打开多个 Tabs
+ */
+const handleOpenTabs = () => {
+
+  const multipleLinks = checkedRowsRef.value.map((rowData) => {
+    return {
+      to: {
+        name: 'MemberTeamPreview',
+        params: {
+          datasetId: rowData.userId
+        }
+      },
+      tabName: `成员查看-${rowData.username}`
+    } as MultipleLinkItem
+  })
+
+  const projectId = route.params.projectId as string
+  router.pushMultiple(projectId, multipleLinks)
+
+  nextTick(() => {
+    checkedRowKeysRef.value = []
+  })
+
+}
+
 
 
 const pagination = reactive({
@@ -70,6 +120,7 @@ const pagination = reactive({
     pagination.page = 1
   }
 })
+
 
 const renderIcon = (icon: Component, className = '') => {
   return () => {
