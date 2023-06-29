@@ -219,13 +219,43 @@ const columns: DataTableColumns<TypeMemberPerson> = [
     key: 'username',
     width: 100,
     align: 'center',
-    fixed: 'left'
+    fixed: 'left',
+    render(row) {
+      return h(
+        NButton,
+        {
+          text: true,
+          type: 'primary',
+          onClick() {
+            goToMemberTeamPreview(row)
+          }
+        },
+        {
+          default: () => row.username
+        }
+      )
+    }
   },
   {
     title: '工号',
     key: 'userId',
     align: 'center',
-    width: 100
+    width: 100,
+    render(row) {
+      return h(
+        NButton,
+        {
+          text: true,
+          type: 'primary',
+          onClick() {
+            goToMemberTeamPreview(row)
+          }
+        },
+        {
+          default: () => row.userId
+        }
+      )
+    }
   },
   {
     title: '项目角色',
