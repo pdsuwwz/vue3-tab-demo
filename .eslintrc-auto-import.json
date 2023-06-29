@@ -316,6 +316,22 @@
     "DropdownOption": true,
     "ConfigProviderProps": true,
     "MenuOption": true,
-    "DataTableRowKey": true
+    "DataTableRowKey": true,
+    "useCostAnalysisStore": true,
+    "useCostBudgetStore": true,
+    "useCostCollectionStore": true,
+    "useCostDistributeStore": true,
+    "useExampleComponentStore": true,
+    "useHomeFrontStore": true,
+    "useMaterialBackupStore": true,
+    "useMaterialPrepareStore": true,
+    "useMaterialReviewStore": true,
+    "useMemberAccessStore": true,
+    "useMemberTeamStore": true,
+    "useNestedLevelStore": true,
+    "useProjectStore": true,
+    "useResultStore": true,
+    "useUserAccountStore": true,
+    "useUserAccountStoreWithOut": true
   }
 }

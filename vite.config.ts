@@ -115,7 +115,8 @@ export default defineConfig(({ mode }) => {
             ? []
             : [NaiveUiResolver()],
         dirs: [
-          './src/hooks'
+          './src/hooks',
+          './src/modules/**/store'
         ],
         dts: './auto-imports.d.ts',
         eslintrc: {

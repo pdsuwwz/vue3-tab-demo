@@ -139,6 +139,10 @@ declare global {
   const useCloned: typeof import('@vueuse/core')['useCloned']
   const useColorMode: typeof import('@vueuse/core')['useColorMode']
   const useConfirmDialog: typeof import('@vueuse/core')['useConfirmDialog']
+  const useCostAnalysisStore: typeof import('./src/modules/CostAnalysis/store/index')['useCostAnalysisStore']
+  const useCostBudgetStore: typeof import('./src/modules/CostBudget/store/index')['useCostBudgetStore']
+  const useCostCollectionStore: typeof import('./src/modules/CostCollection/store/index')['useCostCollectionStore']
+  const useCostDistributeStore: typeof import('./src/modules/CostDistribute/store/index')['useCostDistributeStore']
   const useCounter: typeof import('@vueuse/core')['useCounter']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVar: typeof import('@vueuse/core')['useCssVar']
@@ -168,6 +172,7 @@ declare global {
   const useEventBus: typeof import('@vueuse/core')['useEventBus']
   const useEventListener: typeof import('@vueuse/core')['useEventListener']
   const useEventSource: typeof import('@vueuse/core')['useEventSource']
+  const useExampleComponentStore: typeof import('./src/modules/ExampleComponent/store/index')['useExampleComponentStore']
   const useEyeDropper: typeof import('@vueuse/core')['useEyeDropper']
   const useFavicon: typeof import('@vueuse/core')['useFavicon']
   const useFetch: typeof import('@vueuse/core')['useFetch']
@@ -179,6 +184,7 @@ declare global {
   const useFullscreen: typeof import('@vueuse/core')['useFullscreen']
   const useGamepad: typeof import('@vueuse/core')['useGamepad']
   const useGeolocation: typeof import('@vueuse/core')['useGeolocation']
+  const useHomeFrontStore: typeof import('./src/modules/HomeFront/store/index')['useHomeFrontStore']
   const useIdle: typeof import('@vueuse/core')['useIdle']
   const useImage: typeof import('@vueuse/core')['useImage']
   const useInfiniteScroll: typeof import('@vueuse/core')['useInfiniteScroll']
@@ -192,8 +198,13 @@ declare global {
   const useLocalStorage: typeof import('@vueuse/core')['useLocalStorage']
   const useMagicKeys: typeof import('@vueuse/core')['useMagicKeys']
   const useManualRefHistory: typeof import('@vueuse/core')['useManualRefHistory']
+  const useMaterialBackupStore: typeof import('./src/modules/MaterialBackup/store/index')['useMaterialBackupStore']
+  const useMaterialPrepareStore: typeof import('./src/modules/MaterialPrepare/store/index')['useMaterialPrepareStore']
+  const useMaterialReviewStore: typeof import('./src/modules/MaterialReview/store/index')['useMaterialReviewStore']
   const useMediaControls: typeof import('@vueuse/core')['useMediaControls']
   const useMediaQuery: typeof import('@vueuse/core')['useMediaQuery']
+  const useMemberAccessStore: typeof import('./src/modules/MemberAccess/store/index')['useMemberAccessStore']
+  const useMemberTeamStore: typeof import('./src/modules/MemberTeam/store/index')['useMemberTeamStore']
   const useMemoize: typeof import('@vueuse/core')['useMemoize']
   const useMemory: typeof import('@vueuse/core')['useMemory']
   const useMessage: typeof import('naive-ui')['useMessage']
@@ -203,6 +214,7 @@ declare global {
   const useMousePressed: typeof import('@vueuse/core')['useMousePressed']
   const useMutationObserver: typeof import('@vueuse/core')['useMutationObserver']
   const useNavigatorLanguage: typeof import('@vueuse/core')['useNavigatorLanguage']
+  const useNestedLevelStore: typeof import('./src/modules/NestedLevel/store/index')['useNestedLevelStore']
   const useNetwork: typeof import('@vueuse/core')['useNetwork']
   const useNotification: typeof import('naive-ui')['useNotification']
   const useNow: typeof import('@vueuse/core')['useNow']
@@ -223,9 +235,11 @@ declare global {
   const usePreferredLanguages: typeof import('@vueuse/core')['usePreferredLanguages']
   const usePreferredReducedMotion: typeof import('@vueuse/core')['usePreferredReducedMotion']
   const usePrevious: typeof import('@vueuse/core')['usePrevious']
+  const useProjectStore: typeof import('./src/modules/Project/store/index')['useProjectStore']
   const useRafFn: typeof import('@vueuse/core')['useRafFn']
   const useRefHistory: typeof import('@vueuse/core')['useRefHistory']
   const useResizeObserver: typeof import('@vueuse/core')['useResizeObserver']
+  const useResultStore: typeof import('./src/modules/Result/store/index')['useResultStore']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useScreenOrientation: typeof import('@vueuse/core')['useScreenOrientation']
@@ -265,6 +279,8 @@ declare global {
   const useToggle: typeof import('@vueuse/core')['useToggle']
   const useTransition: typeof import('@vueuse/core')['useTransition']
   const useUrlSearchParams: typeof import('@vueuse/core')['useUrlSearchParams']
+  const useUserAccountStore: typeof import('./src/modules/UserAccount/store/index')['useUserAccountStore']
+  const useUserAccountStoreWithOut: typeof import('./src/modules/UserAccount/store/index')['useUserAccountStoreWithOut']
   const useUserMedia: typeof import('@vueuse/core')['useUserMedia']
   const useVModel: typeof import('@vueuse/core')['useVModel']
   const useVModels: typeof import('@vueuse/core')['useVModels']
@@ -445,6 +461,10 @@ declare module 'vue' {
     readonly useCloned: UnwrapRef<typeof import('@vueuse/core')['useCloned']>
     readonly useColorMode: UnwrapRef<typeof import('@vueuse/core')['useColorMode']>
     readonly useConfirmDialog: UnwrapRef<typeof import('@vueuse/core')['useConfirmDialog']>
+    readonly useCostAnalysisStore: UnwrapRef<typeof import('./src/modules/CostAnalysis/store/index')['useCostAnalysisStore']>
+    readonly useCostBudgetStore: UnwrapRef<typeof import('./src/modules/CostBudget/store/index')['useCostBudgetStore']>
+    readonly useCostCollectionStore: UnwrapRef<typeof import('./src/modules/CostCollection/store/index')['useCostCollectionStore']>
+    readonly useCostDistributeStore: UnwrapRef<typeof import('./src/modules/CostDistribute/store/index')['useCostDistributeStore']>
     readonly useCounter: UnwrapRef<typeof import('@vueuse/core')['useCounter']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVar: UnwrapRef<typeof import('@vueuse/core')['useCssVar']>
@@ -474,6 +494,7 @@ declare module 'vue' {
     readonly useEventBus: UnwrapRef<typeof import('@vueuse/core')['useEventBus']>
     readonly useEventListener: UnwrapRef<typeof import('@vueuse/core')['useEventListener']>
     readonly useEventSource: UnwrapRef<typeof import('@vueuse/core')['useEventSource']>
+    readonly useExampleComponentStore: UnwrapRef<typeof import('./src/modules/ExampleComponent/store/index')['useExampleComponentStore']>
     readonly useEyeDropper: UnwrapRef<typeof import('@vueuse/core')['useEyeDropper']>
     readonly useFavicon: UnwrapRef<typeof import('@vueuse/core')['useFavicon']>
     readonly useFetch: UnwrapRef<typeof import('@vueuse/core')['useFetch']>
@@ -485,6 +506,7 @@ declare module 'vue' {
     readonly useFullscreen: UnwrapRef<typeof import('@vueuse/core')['useFullscreen']>
     readonly useGamepad: UnwrapRef<typeof import('@vueuse/core')['useGamepad']>
     readonly useGeolocation: UnwrapRef<typeof import('@vueuse/core')['useGeolocation']>
+    readonly useHomeFrontStore: UnwrapRef<typeof import('./src/modules/HomeFront/store/index')['useHomeFrontStore']>
     readonly useIdle: UnwrapRef<typeof import('@vueuse/core')['useIdle']>
     readonly useImage: UnwrapRef<typeof import('@vueuse/core')['useImage']>
     readonly useInfiniteScroll: UnwrapRef<typeof import('@vueuse/core')['useInfiniteScroll']>
@@ -498,8 +520,13 @@ declare module 'vue' {
     readonly useLocalStorage: UnwrapRef<typeof import('@vueuse/core')['useLocalStorage']>
     readonly useMagicKeys: UnwrapRef<typeof import('@vueuse/core')['useMagicKeys']>
     readonly useManualRefHistory: UnwrapRef<typeof import('@vueuse/core')['useManualRefHistory']>
+    readonly useMaterialBackupStore: UnwrapRef<typeof import('./src/modules/MaterialBackup/store/index')['useMaterialBackupStore']>
+    readonly useMaterialPrepareStore: UnwrapRef<typeof import('./src/modules/MaterialPrepare/store/index')['useMaterialPrepareStore']>
+    readonly useMaterialReviewStore: UnwrapRef<typeof import('./src/modules/MaterialReview/store/index')['useMaterialReviewStore']>
     readonly useMediaControls: UnwrapRef<typeof import('@vueuse/core')['useMediaControls']>
     readonly useMediaQuery: UnwrapRef<typeof import('@vueuse/core')['useMediaQuery']>
+    readonly useMemberAccessStore: UnwrapRef<typeof import('./src/modules/MemberAccess/store/index')['useMemberAccessStore']>
+    readonly useMemberTeamStore: UnwrapRef<typeof import('./src/modules/MemberTeam/store/index')['useMemberTeamStore']>
     readonly useMemoize: UnwrapRef<typeof import('@vueuse/core')['useMemoize']>
     readonly useMemory: UnwrapRef<typeof import('@vueuse/core')['useMemory']>
     readonly useMessage: UnwrapRef<typeof import('naive-ui')['useMessage']>
@@ -509,6 +536,7 @@ declare module 'vue' {
     readonly useMousePressed: UnwrapRef<typeof import('@vueuse/core')['useMousePressed']>
     readonly useMutationObserver: UnwrapRef<typeof import('@vueuse/core')['useMutationObserver']>
     readonly useNavigatorLanguage: UnwrapRef<typeof import('@vueuse/core')['useNavigatorLanguage']>
+    readonly useNestedLevelStore: UnwrapRef<typeof import('./src/modules/NestedLevel/store/index')['useNestedLevelStore']>
     readonly useNetwork: UnwrapRef<typeof import('@vueuse/core')['useNetwork']>
     readonly useNotification: UnwrapRef<typeof import('naive-ui')['useNotification']>
     readonly useNow: UnwrapRef<typeof import('@vueuse/core')['useNow']>
@@ -529,9 +557,11 @@ declare module 'vue' {
     readonly usePreferredLanguages: UnwrapRef<typeof import('@vueuse/core')['usePreferredLanguages']>
     readonly usePreferredReducedMotion: UnwrapRef<typeof import('@vueuse/core')['usePreferredReducedMotion']>
     readonly usePrevious: UnwrapRef<typeof import('@vueuse/core')['usePrevious']>
+    readonly useProjectStore: UnwrapRef<typeof import('./src/modules/Project/store/index')['useProjectStore']>
     readonly useRafFn: UnwrapRef<typeof import('@vueuse/core')['useRafFn']>
     readonly useRefHistory: UnwrapRef<typeof import('@vueuse/core')['useRefHistory']>
     readonly useResizeObserver: UnwrapRef<typeof import('@vueuse/core')['useResizeObserver']>
+    readonly useResultStore: UnwrapRef<typeof import('./src/modules/Result/store/index')['useResultStore']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useScreenOrientation: UnwrapRef<typeof import('@vueuse/core')['useScreenOrientation']>
@@ -571,6 +601,8 @@ declare module 'vue' {
     readonly useToggle: UnwrapRef<typeof import('@vueuse/core')['useToggle']>
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
+    readonly useUserAccountStore: UnwrapRef<typeof import('./src/modules/UserAccount/store/index')['useUserAccountStore']>
+    readonly useUserAccountStoreWithOut: UnwrapRef<typeof import('./src/modules/UserAccount/store/index')['useUserAccountStoreWithOut']>
     readonly useUserMedia: UnwrapRef<typeof import('@vueuse/core')['useUserMedia']>
     readonly useVModel: UnwrapRef<typeof import('@vueuse/core')['useVModel']>
     readonly useVModels: UnwrapRef<typeof import('@vueuse/core')['useVModels']>
@@ -741,6 +773,10 @@ declare module '@vue/runtime-core' {
     readonly useCloned: UnwrapRef<typeof import('@vueuse/core')['useCloned']>
     readonly useColorMode: UnwrapRef<typeof import('@vueuse/core')['useColorMode']>
     readonly useConfirmDialog: UnwrapRef<typeof import('@vueuse/core')['useConfirmDialog']>
+    readonly useCostAnalysisStore: UnwrapRef<typeof import('./src/modules/CostAnalysis/store/index')['useCostAnalysisStore']>
+    readonly useCostBudgetStore: UnwrapRef<typeof import('./src/modules/CostBudget/store/index')['useCostBudgetStore']>
+    readonly useCostCollectionStore: UnwrapRef<typeof import('./src/modules/CostCollection/store/index')['useCostCollectionStore']>
+    readonly useCostDistributeStore: UnwrapRef<typeof import('./src/modules/CostDistribute/store/index')['useCostDistributeStore']>
     readonly useCounter: UnwrapRef<typeof import('@vueuse/core')['useCounter']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVar: UnwrapRef<typeof import('@vueuse/core')['useCssVar']>
@@ -770,6 +806,7 @@ declare module '@vue/runtime-core' {
     readonly useEventBus: UnwrapRef<typeof import('@vueuse/core')['useEventBus']>
     readonly useEventListener: UnwrapRef<typeof import('@vueuse/core')['useEventListener']>
     readonly useEventSource: UnwrapRef<typeof import('@vueuse/core')['useEventSource']>
+    readonly useExampleComponentStore: UnwrapRef<typeof import('./src/modules/ExampleComponent/store/index')['useExampleComponentStore']>
     readonly useEyeDropper: UnwrapRef<typeof import('@vueuse/core')['useEyeDropper']>
     readonly useFavicon: UnwrapRef<typeof import('@vueuse/core')['useFavicon']>
     readonly useFetch: UnwrapRef<typeof import('@vueuse/core')['useFetch']>
@@ -781,6 +818,7 @@ declare module '@vue/runtime-core' {
     readonly useFullscreen: UnwrapRef<typeof import('@vueuse/core')['useFullscreen']>
     readonly useGamepad: UnwrapRef<typeof import('@vueuse/core')['useGamepad']>
     readonly useGeolocation: UnwrapRef<typeof import('@vueuse/core')['useGeolocation']>
+    readonly useHomeFrontStore: UnwrapRef<typeof import('./src/modules/HomeFront/store/index')['useHomeFrontStore']>
     readonly useIdle: UnwrapRef<typeof import('@vueuse/core')['useIdle']>
     readonly useImage: UnwrapRef<typeof import('@vueuse/core')['useImage']>
     readonly useInfiniteScroll: UnwrapRef<typeof import('@vueuse/core')['useInfiniteScroll']>
@@ -794,8 +832,13 @@ declare module '@vue/runtime-core' {
     readonly useLocalStorage: UnwrapRef<typeof import('@vueuse/core')['useLocalStorage']>
     readonly useMagicKeys: UnwrapRef<typeof import('@vueuse/core')['useMagicKeys']>
     readonly useManualRefHistory: UnwrapRef<typeof import('@vueuse/core')['useManualRefHistory']>
+    readonly useMaterialBackupStore: UnwrapRef<typeof import('./src/modules/MaterialBackup/store/index')['useMaterialBackupStore']>
+    readonly useMaterialPrepareStore: UnwrapRef<typeof import('./src/modules/MaterialPrepare/store/index')['useMaterialPrepareStore']>
+    readonly useMaterialReviewStore: UnwrapRef<typeof import('./src/modules/MaterialReview/store/index')['useMaterialReviewStore']>
     readonly useMediaControls: UnwrapRef<typeof import('@vueuse/core')['useMediaControls']>
     readonly useMediaQuery: UnwrapRef<typeof import('@vueuse/core')['useMediaQuery']>
+    readonly useMemberAccessStore: UnwrapRef<typeof import('./src/modules/MemberAccess/store/index')['useMemberAccessStore']>
+    readonly useMemberTeamStore: UnwrapRef<typeof import('./src/modules/MemberTeam/store/index')['useMemberTeamStore']>
     readonly useMemoize: UnwrapRef<typeof import('@vueuse/core')['useMemoize']>
     readonly useMemory: UnwrapRef<typeof import('@vueuse/core')['useMemory']>
     readonly useMessage: UnwrapRef<typeof import('naive-ui')['useMessage']>
@@ -805,6 +848,7 @@ declare module '@vue/runtime-core' {
     readonly useMousePressed: UnwrapRef<typeof import('@vueuse/core')['useMousePressed']>
     readonly useMutationObserver: UnwrapRef<typeof import('@vueuse/core')['useMutationObserver']>
     readonly useNavigatorLanguage: UnwrapRef<typeof import('@vueuse/core')['useNavigatorLanguage']>
+    readonly useNestedLevelStore: UnwrapRef<typeof import('./src/modules/NestedLevel/store/index')['useNestedLevelStore']>
     readonly useNetwork: UnwrapRef<typeof import('@vueuse/core')['useNetwork']>
     readonly useNotification: UnwrapRef<typeof import('naive-ui')['useNotification']>
     readonly useNow: UnwrapRef<typeof import('@vueuse/core')['useNow']>
@@ -825,9 +869,11 @@ declare module '@vue/runtime-core' {
     readonly usePreferredLanguages: UnwrapRef<typeof import('@vueuse/core')['usePreferredLanguages']>
     readonly usePreferredReducedMotion: UnwrapRef<typeof import('@vueuse/core')['usePreferredReducedMotion']>
     readonly usePrevious: UnwrapRef<typeof import('@vueuse/core')['usePrevious']>
+    readonly useProjectStore: UnwrapRef<typeof import('./src/modules/Project/store/index')['useProjectStore']>
     readonly useRafFn: UnwrapRef<typeof import('@vueuse/core')['useRafFn']>
     readonly useRefHistory: UnwrapRef<typeof import('@vueuse/core')['useRefHistory']>
     readonly useResizeObserver: UnwrapRef<typeof import('@vueuse/core')['useResizeObserver']>
+    readonly useResultStore: UnwrapRef<typeof import('./src/modules/Result/store/index')['useResultStore']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useScreenOrientation: UnwrapRef<typeof import('@vueuse/core')['useScreenOrientation']>
@@ -867,6 +913,8 @@ declare module '@vue/runtime-core' {
     readonly useToggle: UnwrapRef<typeof import('@vueuse/core')['useToggle']>
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
+    readonly useUserAccountStore: UnwrapRef<typeof import('./src/modules/UserAccount/store/index')['useUserAccountStore']>
+    readonly useUserAccountStoreWithOut: UnwrapRef<typeof import('./src/modules/UserAccount/store/index')['useUserAccountStoreWithOut']>
     readonly useUserMedia: UnwrapRef<typeof import('@vueuse/core')['useUserMedia']>
     readonly useVModel: UnwrapRef<typeof import('@vueuse/core')['useVModel']>
     readonly useVModels: UnwrapRef<typeof import('@vueuse/core')['useVModels']>
