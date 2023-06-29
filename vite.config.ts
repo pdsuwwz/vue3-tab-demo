@@ -28,7 +28,12 @@ export default defineConfig(({ mode }) => {
       : '/',
     plugins: [
       UnoCSS(),
-      vue(),
+      vue({
+        script: {
+          // https://blog.vuejs.org/posts/vue-3-3#definemodel
+          defineModel: true
+        }
+      }),
       AutoImport({
         include: [
           /\.[tj]sx?$/,

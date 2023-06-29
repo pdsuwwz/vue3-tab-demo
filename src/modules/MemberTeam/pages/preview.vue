@@ -11,32 +11,51 @@
           :model="memberFormModel"
           label-placement="top"
           label-width="auto"
-          disabled
+          :disabled="disabledForm"
         >
           <n-grid
-            :cols="24"
-            :x-gap="24"
+            :x-gap="100"
+            cols="xs:1 s:1 m:2 l:2"
+            responsive="screen"
           >
-            <n-form-item-gi
-              v-for="(infoItem, index) in memberInfoMap"
-              :key="index"
-              :span="12"
-              :path="infoItem.path"
-              :label="infoItem.label"
-            >
-              <component
-                :is="infoItem.render"
-                v-if="infoItem.render"
-                v-model:value="memberFormModel[infoItem.path]"
-              />
+            <n-grid-item>
+              <n-grid
+                cols="l:1"
+                responsive="screen"
+              >
+                <n-form-item-gi
+                  v-for="(infoItem, index) in memberInfoMap"
+                  :key="index"
+                  :path="infoItem.path"
+                  :label="infoItem.label"
+                >
+                  <component
+                    :is="infoItem.render"
+                    v-if="infoItem.render"
+                    v-model:value="memberFormModel[infoItem.path]"
+                  />
 
-              <n-input
-                v-else
-                v-model:value="memberFormModel[infoItem.path]"
-              />
-            </n-form-item-gi>
+                  <n-input
+                    v-else
+                    v-model:value="memberFormModel[infoItem.path]"
+                  />
+                </n-form-item-gi>
+              </n-grid>
+            </n-grid-item>
+            <n-grid-item>
+              <n-form-item
+                path="avatar"
+                label="成员头像"
+              >
+                <AvatarUpload
+                  v-model="memberFormModel.avatar"
+                  :disabled="disabledForm"
+                />
+              </n-form-item>
+            </n-grid-item>
           </n-grid>
-          <n-form-item>
+
+          <n-form-item v-if="!disabledForm">
             <n-button
               type="primary"
               :loading="loadingSubmit"
@@ -55,7 +74,8 @@
 </template>
 
 <script lang="ts" setup>
-import { NRadioGroup, NRadio, NSelect } from 'naive-ui'
+import AvatarUpload from '@/modules/MemberTeam/components/AvatarUpload.vue'
+import { NRadioGroup, NRadio, NSelect, NButton } from 'naive-ui'
 import { sleep } from '@/utils/request'
 
 import type { TypeMemberPerson } from '../data'
@@ -70,6 +90,9 @@ defineOptions({
 
 const route = useRoute()
 const router = useRouter()
+
+
+const disabledForm = ref(true)
 
 
 const memberFormModel = ref<TypeMemberPerson>({
