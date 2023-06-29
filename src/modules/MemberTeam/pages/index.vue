@@ -131,6 +131,15 @@ const renderIcon = (icon: Component, className = '') => {
 }
 
 
+const goToMemberTeamPreview = (row: TypeMemberPerson) => {
+  router.push({
+    name: 'MemberTeamPreview',
+    params: {
+      datasetId: row.userId
+    }
+  }, `成员查看-${row.username}`)
+}
+
 const createActionsColumns = (row: TypeMemberPerson) => {
   return h(
     NDropdown,
@@ -142,12 +151,7 @@ const createActionsColumns = (row: TypeMemberPerson) => {
           icon: renderIcon(IconNotepadPerson24Regular),
           props: {
             onClick: () => {
-              router.push({
-                name: 'MemberTeamPreview',
-                params: {
-                  datasetId: row.userId
-                }
-              }, `成员查看-${row.username}`)
+              goToMemberTeamPreview(row)
             }
           }
         },

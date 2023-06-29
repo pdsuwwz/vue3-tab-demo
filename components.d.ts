@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     404: typeof import('./src/components/404.vue')['default']
     Avatar: typeof import('./src/components/Navigation/Avatar.vue')['default']
+    AvatarUpload: typeof import('./src/components/AvatarUpload/index.vue')['default']
     ChangeTheme: typeof import('./src/components/Navigation/ChangeTheme.vue')['default']
     Footer: typeof import('./src/components/Footer/index.vue')['default']
     FullScreen: typeof import('./src/components/Navigation/FullScreen.vue')['default']
@@ -34,8 +35,10 @@ declare module 'vue' {
     NDropdown: typeof import('naive-ui')['NDropdown']
     NForm: typeof import('naive-ui')['NForm']
     NFormItem: typeof import('naive-ui')['NFormItem']
+    NFormItemGi: typeof import('naive-ui')['NFormItemGi']
     NGi: typeof import('naive-ui')['NGi']
     NGrid: typeof import('naive-ui')['NGrid']
+    NGridItem: typeof import('naive-ui')['NGridItem']
     NIcon: typeof import('naive-ui')['NIcon']
     NInput: typeof import('naive-ui')['NInput']
     NList: typeof import('naive-ui')['NList']
