@@ -7,7 +7,9 @@ import {
 import memberAvatar from '@/assets/images/member-avatar.png'
 import type { TypesMemberTeam } from '@/modules/MemberTeam/types'
 
-// 随机获取数组中某一项
+/**
+ * 随机获取数组中某一项
+ */
 function getRandomValueFromArray<T>(arr: Array<T>): T {
   const randomIndex = Math.floor(Math.random() * arr.length)
   return arr[randomIndex]
@@ -15,7 +17,9 @@ function getRandomValueFromArray<T>(arr: Array<T>): T {
 
 
 
-// 级别映射表
+/**
+ * 级别映射表
+ */
 export const userRankMap = [
   {
     value: 'junior_development',
@@ -45,7 +49,9 @@ export const findUserRankMapByRankName = (targetRank) => {
 
 
 
-// 角色映射表
+/**
+ * 角色映射表
+ */
 export const userRoleMap = [
   {
     value: 'team_member',
@@ -80,7 +86,9 @@ export const findUserRoleMapByRankName = (targetRole) => {
 
 
 
-// 状态映射表
+/**
+ * 状态映射表
+ */
 export const userStatusMap = [
   {
     value: 1,

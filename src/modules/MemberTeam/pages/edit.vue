@@ -1,8 +1,11 @@
 <template>
-  <div class="p-16px">
-    <h1>{{ pageTitle }}</h1>
-    <n-input v-model:value="inputValue" />
-  </div>
+  <LayoutPage>
+    <MemberEditor
+      title="成员管理-成员信息编辑"
+      :user-id="userId"
+      :readonly="false"
+    />
+  </LayoutPage>
 </template>
 
 <script lang="ts" setup>
@@ -14,13 +17,11 @@ defineOptions({
   name: 'MemberTeamEdit'
 })
 
+import MemberEditor from '@/modules/MemberTeam/components/MemberEditor.vue'
+
 const route = useRoute()
-const router = useRouter()
 
-const pageTitle = ref('MemberTeamEdit 成员管理-成员信息编辑')
-
-const inputValue = ref(pageTitle.value)
-
+const userId = ref(route.params.datasetId)
 
 </script>
 
