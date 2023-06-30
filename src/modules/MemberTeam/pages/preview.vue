@@ -21,7 +21,7 @@ import MemberEditor from '@/modules/MemberTeam/components/MemberEditor.vue'
 
 const route = useRoute()
 
-const userId = ref(route.params.datasetId)
+const userId = ref(route.params.datasetId as string)
 
 </script>
 
