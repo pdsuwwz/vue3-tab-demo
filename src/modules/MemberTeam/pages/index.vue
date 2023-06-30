@@ -25,6 +25,7 @@
         flex-height
         striped
         :row-key="getRowKey"
+        :loading="tableLoading"
         @update:checked-row-keys="handleUpdateCheckedRows"
       />
     </n-card>
@@ -32,16 +33,19 @@
 </template>
 
 <script lang="ts" setup>
-import { NTag, NIcon, NSpace, NButton, NPopconfirm, NDropdown } from 'naive-ui'
-
+import {
+  NTag,
+  NIcon,
+  NButton,
+  NDropdown
+} from 'naive-ui'
+import { sleep } from '@/utils/request'
 
 import {
-  memberTeamList,
   findUserRankMapByRankName,
   findUserRoleMapByRankName,
   findUserStatusMapByRankName
 } from '@/modules/MemberTeam/data'
-import type { TypesMemberTeam } from '@/modules/MemberTeam/types'
 
 import {
   MoreVertical20Regular as IconMoreVertical20Regular,
@@ -49,7 +53,9 @@ import {
   PersonEdit24Regular as IconPersonEdit24Regular,
   PersonDelete16Regular as IconPersonDelete16Regular
 } from '@vicons/fluent'
-import { sleep } from '@/utils/request'
+
+
+import type { TypesMemberTeam } from '@/modules/MemberTeam/types'
 import type { MultipleLinkItem } from '@/widgets/WorkTabs/types'
 
 /**
@@ -62,7 +68,7 @@ defineOptions({
 const route = useRoute()
 const router = useTabRouter()
 
-
+const memberTeamStore = useMemberTeamStore()
 
 /**
  * 构造行唯一 ID
@@ -338,8 +344,17 @@ const columns: DataTableColumns<TypesMemberTeam.TypeMemberPerson> = [
   }
 ]
 
-const tableData = ref<Array<TypesMemberTeam.TypeMemberPerson>>([])
 
-tableData.value = memberTeamList
+const tableLoading = ref(true)
+const initDataList = async () => {
+  tableLoading.value = true
+  await memberTeamStore.fetchMemberTeamList()
+  tableLoading.value = false
+}
+initDataList()
+
+const tableData = computed(() => memberTeamStore.memberTeamList)
+
 
 </script>
+
