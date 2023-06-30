@@ -5,6 +5,7 @@ import {
 } from '@vicons/fluent'
 
 import memberAvatar from '@/assets/images/member-avatar.png'
+import type { TypesMemberTeam } from '@/modules/MemberTeam/types'
 
 // 随机获取数组中某一项
 function getRandomValueFromArray<T>(arr: Array<T>): T {
@@ -105,21 +106,6 @@ export const findUserStatusMapByRankName = (targetStatus) => {
 }
 
 
-
-export interface TypeMemberPerson {
-  username: string
-  roleId: string
-  userId: string
-  avatar: string
-  email: string
-  phone: string
-  rank: string
-  /**
-   * 1活跃, 0停用
-   */
-  memberStatus: number | null | undefined
-}
-
 /**
  * 构造一份成员列表的假数据
  */
@@ -138,7 +124,7 @@ export const memberTeamList = Array.from({ length: 100 }).map((_, index) => {
     avatar: memberAvatar,
     email: `${userId}@admin.com`,
     memberStatus: Math.random() > 0.5 ? 0 : 1
-  } as TypeMemberPerson
+  } as TypesMemberTeam.TypeMemberPerson
 })
 
 

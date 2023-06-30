@@ -41,7 +41,8 @@ import {
   findUserRoleMapByRankName,
   findUserStatusMapByRankName
 } from '@/modules/MemberTeam/data'
-import type { TypeMemberPerson } from '@/modules/MemberTeam/data'
+import type { TypesMemberTeam } from '@/modules/MemberTeam/types'
+
 import {
   MoreVertical20Regular as IconMoreVertical20Regular,
   NotepadPerson24Regular as IconNotepadPerson24Regular,
@@ -66,16 +67,16 @@ const router = useTabRouter()
 /**
  * 构造行唯一 ID
  */
-const getRowKey = (row: TypeMemberPerson) => row.userId
+const getRowKey = (row: TypesMemberTeam.TypeMemberPerson) => row.userId
 
 /**
  * 选中行
  */
 const checkedRowKeysRef = ref<Array<DataTableRowKey>>([])
-const checkedRowsRef = ref<Array<TypeMemberPerson>>([])
+const checkedRowsRef = ref<Array<TypesMemberTeam.TypeMemberPerson>>([])
 
 const handleUpdateCheckedRows = (keys, rows: Array<object>) => {
-  checkedRowsRef.value = rows as Array<TypeMemberPerson>
+  checkedRowsRef.value = rows as Array<TypesMemberTeam.TypeMemberPerson>
 }
 
 
@@ -131,7 +132,7 @@ const renderIcon = (icon: Component, className = '') => {
 }
 
 
-const goToMemberTeamPreview = (row: TypeMemberPerson) => {
+const goToMemberTeamPreview = (row: TypesMemberTeam.TypeMemberPerson) => {
   router.push({
     name: 'MemberTeamPreview',
     params: {
@@ -140,7 +141,7 @@ const goToMemberTeamPreview = (row: TypeMemberPerson) => {
   }, `成员查看-${row.username}`)
 }
 
-const createActionsColumns = (row: TypeMemberPerson) => {
+const createActionsColumns = (row: TypesMemberTeam.TypeMemberPerson) => {
   return h(
     NDropdown,
     {
@@ -209,7 +210,7 @@ const createActionsColumns = (row: TypeMemberPerson) => {
   )
 }
 
-const columns: DataTableColumns<TypeMemberPerson> = [
+const columns: DataTableColumns<TypesMemberTeam.TypeMemberPerson> = [
   {
     type: 'selection',
     fixed: 'left'
@@ -337,7 +338,7 @@ const columns: DataTableColumns<TypeMemberPerson> = [
   }
 ]
 
-const tableData = ref<Array<TypeMemberPerson>>([])
+const tableData = ref<Array<TypesMemberTeam.TypeMemberPerson>>([])
 
 tableData.value = memberTeamList
 
