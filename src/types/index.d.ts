@@ -51,6 +51,10 @@ declare module 'pinia' {
     filterResponse: typeof getFilterResponse
     router: typeof router
   }
+  export interface DefineStoreOptionsBase<S, Store> {
+    // 任意 action 都允许定义一个防抖的毫秒数
+    debounce?: Partial<Record<keyof StoreActions<Store>, number>>
+  }
 }
 
 declare module 'vue-router' {

@@ -108,6 +108,13 @@ export default defineConfig(({ mode }) => {
               'FormInst'
             ],
             type: true
+          },
+          {
+            from: 'pinia',
+            imports: [
+              'StoreActions'
+            ],
+            type: true
           }
         ],
         resolvers:
@@ -115,7 +122,8 @@ export default defineConfig(({ mode }) => {
             ? []
             : [NaiveUiResolver()],
         dirs: [
-          './src/hooks'
+          './src/hooks',
+          './src/modules/**/store'
         ],
         dts: './auto-imports.d.ts',
         eslintrc: {
