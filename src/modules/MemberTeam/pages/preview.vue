@@ -74,12 +74,26 @@
 </template>
 
 <script lang="ts" setup>
-import AvatarUpload from '@/modules/MemberTeam/components/AvatarUpload.vue'
-import { NRadioGroup, NRadio, NSelect, NButton } from 'naive-ui'
 import { sleep } from '@/utils/request'
 
-import type { TypeMemberPerson } from '../data'
-import { userRoleMap, userRankMap, findMemberInfoById, userStatusMap } from '../data'
+import {
+  NRadioGroup,
+  NRadio,
+  NSelect,
+  NButton
+} from 'naive-ui'
+
+import AvatarUpload from '@/modules/MemberTeam/components/AvatarUpload.vue'
+
+import {
+  userRoleMap,
+  userRankMap,
+  findMemberInfoById,
+  userStatusMap
+} from '@/modules/MemberTeam/data'
+import type { TypesMemberTeam } from '@/modules/MemberTeam/types'
+
+
 
 /**
  * MemberTeamPreview 成员管理-成员信息查看
@@ -95,7 +109,7 @@ const router = useRouter()
 const disabledForm = ref(true)
 
 
-const memberFormModel = ref<TypeMemberPerson>({
+const memberFormModel = ref<TypesMemberTeam.TypeMemberPerson>({
   username: '',
   roleId: '',
   userId: '',

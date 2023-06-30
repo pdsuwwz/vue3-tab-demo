@@ -59,6 +59,9 @@ module.exports = {
     '@typescript-eslint/indent': ['error', 2, { SwitchCase: 1 }],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-namespace': [
+      'off'
+    ],
     '@typescript-eslint/member-delimiter-style': [
       'error',
       {
