@@ -35,10 +35,18 @@ export const useHomeFrontStore = defineStore('HomeFront', {
       })
     },
     fetchSearchHomeProjectList(searchValue = '') {
-      return this.homeProjectList.filter(projectItem => {
-        const { project_name } = projectItem as ProjectItem
-        return searchValue.includes(project_name) ||
-          project_name.includes(searchValue)
+      const res = {
+        msg: 'ok',
+        error: 0,
+        data: HomeFrontData.mockHomeProjectList
+      }
+
+      return this.filterResponse(res, ({ data }) => {
+        this.homeProjectList = data.filter(projectItem => {
+          const { project_name } = projectItem as ProjectItem
+          return searchValue.includes(project_name) ||
+            project_name.includes(searchValue)
+        })
       })
     }
   },

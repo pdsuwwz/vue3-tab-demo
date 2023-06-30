@@ -2,10 +2,5 @@
  * Plugins for Pinia
  */
 
-import { getFilterResponse } from '@/store/utils/mixin'
-import router from '@/router'
-
-export const pluginPinia = ({ store }) => {
-  store.filterResponse = getFilterResponse
-  store.router = router
-}
+export { pluginExternalProperties } from '@/store/plugins/externalProperties'
+export { pluginDebounceAction } from '@/store/plugins/debounce'

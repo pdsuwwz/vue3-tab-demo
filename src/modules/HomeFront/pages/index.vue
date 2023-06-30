@@ -151,7 +151,7 @@ const tableLoading = ref(true)
 
 const initHomeProjectList = async () => {
   tableLoading.value = true
-  homeFrontStore.fetchHomeProjectList()
+  await homeFrontStore.fetchHomeProjectList()
   tableLoading.value = false
 }
 initHomeProjectList()
@@ -159,9 +159,8 @@ initHomeProjectList()
 
 const searchValue = ref('')
 
-const filterTableData = ref<Array<ProjectItem>>([])
+const filterTableData = computed(() => homeFrontStore.homeProjectList)
 const handleChangeTableData = homeFrontStore.fetchSearchHomeProjectList
-handleChangeTableData()
 
 
 </script>

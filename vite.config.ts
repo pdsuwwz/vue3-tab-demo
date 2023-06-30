@@ -108,6 +108,13 @@ export default defineConfig(({ mode }) => {
               'FormInst'
             ],
             type: true
+          },
+          {
+            from: 'pinia',
+            imports: [
+              'StoreActions'
+            ],
+            type: true
           }
         ],
         resolvers:

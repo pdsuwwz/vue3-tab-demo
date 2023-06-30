@@ -332,6 +332,7 @@
     "useProjectStore": true,
     "useResultStore": true,
     "useUserAccountStore": true,
-    "useUserAccountStoreWithOut": true
+    "useUserAccountStoreWithOut": true,
+    "StoreActions": true
   }
 }
