@@ -10,7 +10,7 @@ import type { ProjectItem } from '@/modules/HomeFront/types'
 export const useHomeFrontStore = defineStore('HomeFront', {
   state: () => {
     return {
-      homeProjectList: []
+      homeProjectList: [] as Array<ProjectItem>
     }
   },
   getters: {
@@ -31,7 +31,7 @@ export const useHomeFrontStore = defineStore('HomeFront', {
       }
 
       return this.filterResponse(res, ({ data }) => {
-        this.homeProjectList = data
+        this.homeProjectList = data!
       })
     },
     fetchSearchHomeProjectList(searchValue = '') {
@@ -42,8 +42,8 @@ export const useHomeFrontStore = defineStore('HomeFront', {
       }
 
       return this.filterResponse(res, ({ data }) => {
-        this.homeProjectList = data.filter(projectItem => {
-          const { project_name } = projectItem as ProjectItem
+        this.homeProjectList = data!.filter(projectItem => {
+          const { project_name } = projectItem
           return searchValue.includes(project_name) ||
             project_name.includes(searchValue)
         })
