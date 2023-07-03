@@ -43,9 +43,9 @@ export const useHomeFrontStore = defineStore('HomeFront', {
 
       return this.filterResponse(res, ({ data }) => {
         this.homeProjectList = data!.filter(projectItem => {
-          const { project_name } = projectItem
-          return searchValue.includes(project_name) ||
-            project_name.includes(searchValue)
+          const { projectName } = projectItem
+          return searchValue.includes(projectName) ||
+            projectName.includes(searchValue)
         })
       })
     }

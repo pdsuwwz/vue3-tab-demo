@@ -28,6 +28,7 @@
       </div>
       <n-button
         type="primary"
+        @click="handleCreateProject()"
       >
         <template #icon>
           <n-icon :component="IconAdd" />
@@ -58,7 +59,9 @@ import { Search as IconSearch, Add as IconAdd } from '@vicons/carbon'
 import { PaperPlaneRegular as IconPaperPlaneRegular } from '@vicons/fa'
 import { NButton } from 'naive-ui'
 
+import CreateProjectForm from '@/modules/HomeFront/components/CreateProjectForm.vue'
 import type { ProjectItem } from '@/modules/HomeFront/types'
+import { sleep } from '@/utils/request'
 
 
 const homeFrontStore = useHomeFrontStore()
@@ -84,7 +87,7 @@ const createColumns = (): DataTableColumns<ProjectItem> => {
     },
     {
       title: '项目名称',
-      key: 'project_name',
+      key: 'projectName',
       align: 'center',
       render(row) {
         return h(
@@ -96,7 +99,7 @@ const createColumns = (): DataTableColumns<ProjectItem> => {
             strong: true,
             onClick: () => handlerPreviewDetail(row)
           },
-          { default: () => row.project_name }
+          { default: () => row.projectName }
         )
       }
     },
@@ -149,6 +152,9 @@ const handlerPreviewDetail = (row: ProjectItem) => {
 
 const tableLoading = ref(true)
 
+/**
+ * 初始化项目列表
+ */
 const initHomeProjectList = async () => {
   tableLoading.value = true
   await homeFrontStore.fetchHomeProjectList()
@@ -159,9 +165,51 @@ initHomeProjectList()
 
 const searchValue = ref('')
 
+/**
+ * 根据项目名称模糊搜索的表格数据
+ */
 const filterTableData = computed(() => homeFrontStore.homeProjectList)
 const handleChangeTableData = homeFrontStore.fetchSearchHomeProjectList
 
+
+/**
+ * 添加项目
+ */
+const handleCreateProject = () => {
+  const _positiveText = '新建'
+  const instanceRef = ref()
+
+
+  const dd = window.$ModalDialog.create({
+    title: '新建项目',
+    style: {
+      maxWidth: '900px',
+      width: '80%'
+    },
+    maskClosable: false,
+    closeOnEsc: false,
+    content: () => h(
+      CreateProjectForm, {
+        ref: instanceRef
+      }
+    ),
+    positiveText: _positiveText,
+    async onPositiveClick() {
+      const isValid = await instanceRef.value.validateRules()
+      if (!isValid) {
+        return Promise.reject()
+      }
+
+      dd.loading = true
+      dd.positiveText = '提交中..'
+      await sleep(1000)
+
+      dd.positiveText = _positiveText
+      dd.loading = false
+      return Promise.reject()
+    }
+  })
+}
 
 </script>
 

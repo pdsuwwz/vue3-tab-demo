@@ -90,6 +90,10 @@ const handleUpdateCheckedRows = (keys, rows: Array<object>) => {
  * 打开多个 Tabs
  */
 const handleOpenTabs = () => {
+  if (!checkedRowsRef.value.length) {
+    window.$ModalMessage.warning('请至少勾选一条表格数据')
+    return
+  }
 
   const multipleLinks = checkedRowsRef.value.map((rowData) => {
     return {
