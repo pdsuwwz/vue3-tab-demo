@@ -35,7 +35,7 @@ export namespace TypesHomeFront {
      */
     endDate: string | null
     /**
-     * 人员映射表 Record
+     * 成员映射表 Record
      */
     memberList: any
   }

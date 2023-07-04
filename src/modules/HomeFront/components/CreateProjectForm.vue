@@ -75,11 +75,11 @@
             size="18"
             :component="IconTeamOutlined"
           />
-          <span class="text-16px font-700">人员分配</span>
+          <span class="text-16px font-700">成员分配</span>
         </div>
       </template>
       <n-list-item>
-        asdsadasds
+        <n-button @click="handleSelectMembers()">选择成员</n-button>
         <!-- <n-form-item
           path="memberList"
         >
@@ -113,6 +113,8 @@ import {
   DepartmentBranchMap,
   ProjectLevelMap
 } from '@/modules/HomeFront/data'
+
+import MemberAssignCard from '@/modules/MemberTeam/components/MemberAssignCard.vue'
 
 defineOptions({
   name: 'CreateProjectForm'
@@ -235,6 +237,36 @@ const projectBasicMap = shallowRef([
     )
   }
 ])
+
+const handleSelectMembers = () => {
+  const dd = window.$ModalDialog.create({
+    title: '选择成员',
+    style: {
+      maxWidth: '650px',
+      width: '70%'
+    },
+    maskClosable: false,
+    closeOnEsc: false,
+    content: () => h(
+      MemberAssignCard
+    ),
+    positiveText: '确定',
+    async onPositiveClick() {
+      // const isValid = await instanceRef.value.validateRules()
+      // if (!isValid) {
+      //   return Promise.reject()
+      // }
+
+      // dd.loading = true
+      // dd.positiveText = '提交中..'
+      // await sleep(1000)
+
+      // dd.positiveText = _positiveText
+      // dd.loading = false
+      return Promise.reject()
+    }
+  })
+}
 
 const refForm = ref<FormInst>()
 const validateRules = async () => {

@@ -70,6 +70,8 @@ const router = useTabRouter()
 
 const memberTeamStore = useMemberTeamStore()
 
+const projectId = route.params.projectId as string
+
 /**
  * 构造行唯一 ID
  */
@@ -107,7 +109,6 @@ const handleOpenTabs = () => {
     } as MultipleLinkItem
   })
 
-  const projectId = route.params.projectId as string
   router.pushMultiple(projectId, multipleLinks)
 
   nextTick(() => {
@@ -352,7 +353,9 @@ const columns: DataTableColumns<TypesMemberTeam.TypeMemberPerson> = [
 const tableLoading = ref(true)
 const initDataList = async () => {
   tableLoading.value = true
-  await memberTeamStore.fetchMemberTeamList()
+  await memberTeamStore.fetchMemberTeamList({
+    projectId
+  })
   tableLoading.value = false
 }
 initDataList()

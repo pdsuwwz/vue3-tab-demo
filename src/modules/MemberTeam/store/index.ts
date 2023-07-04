@@ -17,7 +17,7 @@ export const useMemberTeamStore = defineStore('MemberTeam', {
       const res = await MemberTeamAPI.createProject(query)
       return this.filterResponse(res)
     },
-    async fetchMemberTeamList() {
+    async fetchMemberTeamList({ projectId }) {
       await sleep(240)
       const res = {
         msg: 'ok',
@@ -28,6 +28,25 @@ export const useMemberTeamStore = defineStore('MemberTeam', {
       return this.filterResponse(res, ({ data }) => {
         this.memberTeamList = data!
       })
+    },
+    async fetchAllMemberTeamList(params = { username: '' }) {
+      await sleep(130)
+      // 模拟远程搜索
+      const { username } = params
+      const res = {
+        msg: 'ok',
+        error: 0,
+        data: MemberTeamData.memberTeamList.filter(
+          (memberItem) => {
+            if (!username) return true
+
+            return memberItem.username.includes(username) ||
+            username.includes(memberItem.username)
+          }
+        )
+      }
+
+      return this.filterResponse(res)
     }
   }
 })
