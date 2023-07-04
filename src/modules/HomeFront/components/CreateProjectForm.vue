@@ -34,7 +34,7 @@
         </n-form-item>
 
         <n-grid
-          :x-gap="7"
+          :x-gap="20"
           cols="2"
           item-responsive
           responsive="screen"
@@ -54,6 +54,7 @@
               :is="infoItem.render"
               v-if="infoItem.render"
               v-model:value="projectFormModel[infoItem.path]"
+              class="flex-1"
             />
 
             <n-input
