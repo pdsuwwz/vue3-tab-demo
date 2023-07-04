@@ -83,6 +83,9 @@ module.exports = {
     'vue/no-v-html': 'off',
     'vue/multi-word-component-names': 0,
     'vue/singleline-html-element-content-newline': 'off',
+    'vue/multiline-html-element-content-newline': ['warn', {
+      'allowEmptyLines': true
+    }],
     'vue/require-default-prop': 'off',
     'vue/html-closing-bracket-spacing': 'error',
     'vue/no-unused-components': 1,

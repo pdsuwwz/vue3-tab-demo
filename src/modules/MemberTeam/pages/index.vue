@@ -70,6 +70,8 @@ const router = useTabRouter()
 
 const memberTeamStore = useMemberTeamStore()
 
+const projectId = route.params.projectId as string
+
 /**
  * 构造行唯一 ID
  */
@@ -90,6 +92,10 @@ const handleUpdateCheckedRows = (keys, rows: Array<object>) => {
  * 打开多个 Tabs
  */
 const handleOpenTabs = () => {
+  if (!checkedRowsRef.value.length) {
+    window.$ModalMessage.warning('请至少勾选一条表格数据')
+    return
+  }
 
   const multipleLinks = checkedRowsRef.value.map((rowData) => {
     return {
@@ -103,7 +109,6 @@ const handleOpenTabs = () => {
     } as MultipleLinkItem
   })
 
-  const projectId = route.params.projectId as string
   router.pushMultiple(projectId, multipleLinks)
 
   nextTick(() => {
@@ -348,7 +353,9 @@ const columns: DataTableColumns<TypesMemberTeam.TypeMemberPerson> = [
 const tableLoading = ref(true)
 const initDataList = async () => {
   tableLoading.value = true
-  await memberTeamStore.fetchMemberTeamList()
+  await memberTeamStore.fetchMemberTeamList({
+    projectId
+  })
   tableLoading.value = false
 }
 initDataList()
