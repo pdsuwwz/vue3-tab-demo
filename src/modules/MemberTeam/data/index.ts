@@ -6,6 +6,7 @@ import {
 
 import memberAvatar from '@/assets/images/member-avatar.png'
 import type { TypesMemberTeam } from '@/modules/MemberTeam/types'
+import type { TypesHomeFront } from '@/modules/HomeFront/types'
 
 /**
  * 随机获取数组中某一项
@@ -47,30 +48,34 @@ export const findUserRankMapByRankName = (targetRank) => {
   )!
 }
 
+export interface UserRole {
+  value: keyof TypesHomeFront.MemberRoleListMap
+  label: string
+}
 
 
 /**
  * 角色映射表
  */
-export const userRoleMap = [
+export const userRoleMap: Array<UserRole> = [
   {
-    value: 'team_member',
+    value: 'teamMember',
     label: '团队成员'
   },
   {
-    value: 'team_leader',
+    value: 'teamLeader',
     label: '现场负责人'
   },
   {
-    value: 'project_manager',
+    value: 'projectManager',
     label: '项目经理'
   },
   {
-    value: 'quality_manager',
+    value: 'qualityManager',
     label: '质控经理'
   },
   {
-    value: 'review_manager',
+    value: 'reviewManager',
     label: '复核经理'
   }
 ]

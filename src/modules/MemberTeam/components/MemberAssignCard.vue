@@ -110,6 +110,27 @@ import MemberAvatar from './MemberAvatar.vue'
 
 const memberTeamStore = useMemberTeamStore()
 
+const props = defineProps({
+  modelValue: {
+    type: Array as PropType<Array<TypesMemberTeam.TypeMemberPerson>>,
+    default() {
+      return []
+    }
+  }
+})
+
+const selectedMembers = props.modelValue.slice()
+
+/**
+ * 初始化已经勾选过的行状态
+ */
+const initSelectedMembers = () => {
+  nextTick(() => {
+    checkedRowKeysRef.value = selectedMembers.map((member) => member.userId)
+    checkedRowsRef.value = selectedMembers
+  })
+}
+initSelectedMembers()
 
 /**
  * 构造行唯一 ID
@@ -123,7 +144,17 @@ const checkedRowKeysRef = ref<Array<DataTableRowKey>>([])
 const checkedRowsRef = ref<Array<TypesMemberTeam.TypeMemberPerson>>([])
 
 const handleUpdateCheckedRows = (keys, rows: Array<object>) => {
-  checkedRowsRef.value = rows as Array<TypesMemberTeam.TypeMemberPerson>
+  const currentRows = rows.filter(i => i) as Array<TypesMemberTeam.TypeMemberPerson>
+
+  for (let index = 0; index < currentRows.length; index++) {
+    const _row = currentRows[index]
+    const isExist = checkedRowsRef.value.find(checkedRow => checkedRow.userId === _row.userId)
+    if (isExist) {
+      continue
+    } else {
+      checkedRowsRef.value.push(_row)
+    }
+  }
 }
 
 /**
@@ -190,6 +221,10 @@ const handleChangeSearch = _.debounce(
   },
   200
 )
+
+defineExpose({
+  checkedRowsRef
+})
 
 </script>
 

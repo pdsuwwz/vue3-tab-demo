@@ -1,3 +1,5 @@
+import type { TypesMemberTeam } from '@/modules/MemberTeam/types'
+
 export type ProjectItem = {
   id: string
   project_code: string
@@ -9,6 +11,14 @@ export type ProjectItem = {
 
 
 export namespace TypesHomeFront {
+  export interface MemberRoleListMap {
+    teamMember: Array<TypesMemberTeam.TypeMemberPerson>
+    teamLeader: Array<TypesMemberTeam.TypeMemberPerson>
+    projectManager: Array<TypesMemberTeam.TypeMemberPerson>
+    qualityManager: Array<TypesMemberTeam.TypeMemberPerson>
+    reviewManager: Array<TypesMemberTeam.TypeMemberPerson>
+  }
+
   export type TypeCreateProjectInfo = {
     /**
      * 项目名称
@@ -37,6 +47,6 @@ export namespace TypesHomeFront {
     /**
      * 成员映射表 Record
      */
-    memberList: any
+    memberList: MemberRoleListMap
   }
 }
