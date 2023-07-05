@@ -119,6 +119,9 @@ const props = defineProps({
   }
 })
 
+/**
+ * 浅拷贝，防止原数据被修改
+ */
 const selectedMembers = props.modelValue.slice()
 
 /**
@@ -143,17 +146,15 @@ const getRowKey = (row: TypesMemberTeam.TypeMemberPerson) => row.userId
 const checkedRowKeysRef = ref<Array<DataTableRowKey>>([])
 const checkedRowsRef = ref<Array<TypesMemberTeam.TypeMemberPerson>>([])
 
-const handleUpdateCheckedRows = (keys, rows: Array<object>) => {
-  const currentRows = rows.filter(i => i) as Array<TypesMemberTeam.TypeMemberPerson>
+const handleUpdateCheckedRows = (keys, rows: Array<object>, meta) => {
+  const isChecked = meta.action === 'check'
+  const _row = meta.row as TypesMemberTeam.TypeMemberPerson
 
-  for (let index = 0; index < currentRows.length; index++) {
-    const _row = currentRows[index]
-    const isExist = checkedRowsRef.value.find(checkedRow => checkedRow.userId === _row.userId)
-    if (isExist) {
-      continue
-    } else {
-      checkedRowsRef.value.push(_row)
-    }
+  if (isChecked) {
+    checkedRowsRef.value.push(_row)
+  } else {
+    const _index = checkedRowsRef.value.findIndex(checkedRow => checkedRow.userId === _row.userId)
+    _index > -1 && checkedRowsRef.value.splice(_index, 1)
   }
 }
 
