@@ -4,6 +4,7 @@
     :model="projectFormModel"
     label-placement="top"
     label-width="auto"
+    class="max-h-600px overflow-y-auto"
   >
     <n-list>
       <template #header>
@@ -79,18 +80,37 @@
         </div>
       </template>
       <n-list-item>
-        <n-button @click="handleSelectMembers()">选择成员</n-button>
-        <!-- <n-form-item
-          path="memberList"
-        >
-          <n-input
-            v-model:value="projectFormModel.memberList"
-          />
-        </n-form-item> -->
+        <n-space vertical>
+          <n-form-item
+            v-for="(userRoleItem, index) in userRoleMap"
+            :key="index"
+            label-placement="left"
+            :label="userRoleItem.label + ':'"
+          >
+            <n-space>
+              <n-tag
+                v-for="(memberListRoleItem) in projectFormModel.memberList[userRoleItem.value]"
+                :key="memberListRoleItem.userId"
+                closable
+              >
+                {{ memberListRoleItem.username }}
+              </n-tag>
+              <n-button
+                size="small"
+                type="primary"
+                dashed
+                @click="handleSelectMembers(userRoleItem)"
+              >
+                添加
+              </n-button>
+            </n-space>
+            <!-- <n-button @click="handleSelectMembers()">选择成员</n-button> -->
+          </n-form-item>
+        </n-space>
       </n-list-item>
     </n-list>
+    <pre>{{ JSON.stringify(projectFormModel, null, 2) }}</pre>
   </n-form>
-  <pre>{{ JSON.stringify(projectFormModel, null, 2) }}</pre>
 
 </template>
 
@@ -114,6 +134,10 @@ import {
   ProjectLevelMap
 } from '@/modules/HomeFront/data'
 
+import {
+  userRoleMap
+} from '@/modules/MemberTeam/data'
+
 import MemberAssignCard from '@/modules/MemberTeam/components/MemberAssignCard.vue'
 
 defineOptions({
@@ -129,7 +153,13 @@ const projectFormModel = ref<TypesHomeFront.TypeCreateProjectInfo>({
   projectDesc: '',
   startDate: null,
   endDate: null,
-  memberList: ''
+  memberList: {
+    teamMember: [],
+    teamLeader: [],
+    projectManager: [],
+    qualityManager: [],
+    reviewManager: []
+  }
 })
 
 
@@ -238,8 +268,12 @@ const projectBasicMap = shallowRef([
   }
 ])
 
-const handleSelectMembers = () => {
-  const dd = window.$ModalDialog.create({
+const refMemberAsign = ref()
+const handleSelectMembers = (userRoleItem) => {
+  const _member = reactive(
+    projectFormModel.value.memberList[userRoleItem.value]
+  )
+  window.$ModalDialog.create({
     title: '选择成员',
     style: {
       maxWidth: '650px',
@@ -248,22 +282,15 @@ const handleSelectMembers = () => {
     maskClosable: false,
     closeOnEsc: false,
     content: () => h(
-      MemberAssignCard
+      MemberAssignCard,
+      {
+        ref: refMemberAsign,
+        modelValue: _member
+      }
     ),
     positiveText: '确定',
     async onPositiveClick() {
-      // const isValid = await instanceRef.value.validateRules()
-      // if (!isValid) {
-      //   return Promise.reject()
-      // }
-
-      // dd.loading = true
-      // dd.positiveText = '提交中..'
-      // await sleep(1000)
-
-      // dd.positiveText = _positiveText
-      // dd.loading = false
-      return Promise.reject()
+      projectFormModel.value.memberList[userRoleItem.value] = refMemberAsign.value.checkedRowsRef
     }
   })
 }
