@@ -27,9 +27,11 @@
         }"
         @click="handleCloseOtherTabs()"
       >
-        <n-icon
-          :component="IosCloseCircleOutline"
-        />
+        <span class="close-icon focus">
+          <n-icon
+            :component="CloseOutline"
+          />
+        </span>
         <span class="close-other-text">关闭其他标签</span>
       </div>
       <ul class="tabs-options-body">
@@ -48,11 +50,11 @@
           >{{ tabItem.customLabel || tabItem.label }}</span>
           <div
             v-if="workTabsStore.currentTabsInCacheSpace.length !== 1"
-            class="close-icon"
+            class="close-icon right"
             @click.stop="handleCloseTab(tabItem)"
           >
             <n-icon
-              :component="IosCloseCircleOutline"
+              :component="CloseOutline"
             />
           </div>
         </li>
@@ -63,7 +65,7 @@
 
 <script lang="ts" setup>
 
-import { IosCloseCircleOutline } from '@vicons/ionicons4'
+import { CloseOutline } from '@vicons/ionicons5'
 import { KeyboardDoubleArrowDownFilled } from '@vicons/material'
 import useWorkTabsStore from './store'
 import type { WorkTab } from './types'
@@ -128,12 +130,22 @@ const isKeepHover = ref(false)
     display: flex;
     align-items: center;
     font-size: 14px;
+    border-radius: 50%;
+    padding: 2px;
+    font-weight: bolder;
+    transition: background .3s;
     cursor: pointer;
 
-    --at-apply: c-#bbb dark:c-#aaa;
 
-    &:hover {
-      --at-apply: c-#909399 dark:c-#ddd;
+
+    --at-apply: c-#5a5a5a dark:c-#e6e6e6;
+
+    &.right:hover {
+      --at-apply: bg-#fff dark:bg-#302f2f;
+    }
+
+    &.focus {
+      --at-apply: bg-#e6e6e6 dark:bg-#666;
     }
   }
 

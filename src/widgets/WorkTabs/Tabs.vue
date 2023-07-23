@@ -33,7 +33,7 @@
           class="tab-item-icon flex items-center"
           @click.stop="handleCloseTab(tabItem)"
         >
-          <n-icon :component="IosCloseCircleOutline" />
+          <n-icon :component="CloseOutline" />
         </div>
       </li>
     </ul>
@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts" setup>
-import { IosCloseCircleOutline } from '@vicons/ionicons4'
+import { CloseOutline } from '@vicons/ionicons5'
 import useWorkTabsStore from './store'
 import type { WorkTab } from './types'
 
@@ -223,7 +223,16 @@ onUnmounted(async() => {
       .tab-item-icon {
         margin-left: 14px;
         border-radius: 50%;
-        color: #b6b9c1;
+
+        --at-apply: c-#5a5a5a dark:c-#e6e6e6;
+
+        padding: 2px;
+        font-weight: bolder;
+        transition: background .3s;
+
+        &:hover {
+          --at-apply: bg-#e6e6e6 dark:bg-#302f2f;
+        }
       }
 
       .tab-item-label {
@@ -243,7 +252,7 @@ onUnmounted(async() => {
         --at-apply: bg-#f5f7f9 dark:bg-#3e3e3e;
 
         & > .tab-item-icon {
-          color: #909399;
+          // color: #909399;
         }
       }
 
@@ -255,14 +264,14 @@ onUnmounted(async() => {
         }
 
         & > .tab-item-icon {
-          color: transparent;
+          // color: transparent;
         }
 
         &:hover {
           --at-apply: dark:bg-#1e1e20;
 
           & > .tab-item-icon {
-            --at-apply: c-#909399 dark:c-#b6b9c1;
+            // --at-apply: c-#909399 dark:c-#b6b9c1;
           }
         }
       }

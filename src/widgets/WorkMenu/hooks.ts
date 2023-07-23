@@ -65,8 +65,10 @@ export const useMenuHook = () => {
   )
 
   let lockPush = false
+  let isMounted = false
   const handleSelect = (key: string) => {
     lockPush = true
+    isMounted = true
     router.push({
       name: key
     }).finally(() => {
@@ -77,6 +79,7 @@ export const useMenuHook = () => {
 
   const setActiveKey = async (key: string) => {
     activeKey.value = key
+    if (isMounted) return
     await nextTick()
 
     const selectedClassName = '.n-menu-item-content--selected'
