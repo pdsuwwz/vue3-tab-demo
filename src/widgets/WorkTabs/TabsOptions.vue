@@ -27,7 +27,10 @@
         }"
         @click="handleCloseOtherTabs()"
       >
-        <span class="close-icon focus">
+        <span
+          v-if="!isOnlyOneTab"
+          class="close-icon focus"
+        >
           <n-icon
             :component="CloseOutline"
           />
