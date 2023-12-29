@@ -16,7 +16,7 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 ## 🌱 技术栈
 
 * Naive UI 2.x
-* Vue 3.3.x
+* Vue 3.4.x
 * Vite 5.x
 * Pinia 2.x
 * TypeScript 5.x 
@@ -108,7 +108,7 @@ router.pushMultiple(
 
 ## 前置条件
 
-* Vue 3.3.x
+* Vue 3.4.x
 * Node >= 16.15.x
 * Pnpm 8.x
 
@@ -230,7 +230,7 @@ export interface WorkTab {
 ## 💡 注意事项
 
 * Vue 组件名称需要与对应路由名称保持一致，否则 Keep Alive 将会失效
-* 由于 Tab 组件自身解耦了所有的业务逻辑，所以涉及到路由一级动态 ID 这种跟业务路有强耦合的地方都需要再自行传入，嫌麻烦的可以直接修改源码中的所有 `dynamicCacheSpacePrefixKey` 字段或将相关 hook 二次封装一下。具体参考这两个位置：[源码1](src/widgets/WorkTabs/store.ts#L142) 和 [源码2](src/hooks/useTabRouter.ts#L50) 
+* 由于 Tab 组件自身解耦了所有的业务逻辑，所以涉及到路由一级动态 ID 这种跟业务路由强耦合的地方都需要再自行传入，嫌麻烦的可以直接修改源码中的所有 `dynamicCacheSpacePrefixKey` 字段或将相关 hook 二次封装一下。具体参考这两个位置：[源码1](src/widgets/WorkTabs/store.ts#L142) 和 [源码2](src/hooks/useTabRouter.ts#L50) 
 * 推荐使用本项目进行二次改造和开发实际的业务项目
 
 
@@ -238,15 +238,15 @@ export interface WorkTab {
 
 * 如果此开源对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^ 🌹
 
-* 或者您可以 "follow" 一下, 我会不断开源更多的有趣的项目
+* 或者您可以 "follow" 一下, 我会不断开源更多有趣和实用的项目
 
-* 开发环境 macOS Ventura, VSCode
+* 开发环境 MacOS Ventura, VSCode
 
 * 如有问题请直接在 Issues 中提, 或者您发现问题并有非常好的解决方案, 欢迎 PR 👍
 
 * 推荐一个 Vue3 + TS + Element Plus 开源入门项目, 对 Element Plus UI 库感兴趣的朋友可以去看看。[地址在这里](https://github.com/pdsuwwz/vite-ts-starter)
 
-* 另外一个 Vue3 + Naive UI + TS 的入门项目, 比当前项目简洁很多, 非常适合入门练习和二次开发。[地址在这里](https://github.com/pdsuwwz/naive-ts-starter)
+* 另外一个 Vue3 + Naive UI + TS 的入门项目, 比当前项目简洁很多, 非常适合入门练习和二次开发。[地址在这里](https://github.com/pdsuwwz/vite-naive-template)
 
 
 ## License
