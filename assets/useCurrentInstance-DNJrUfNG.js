@@ -1,0 +1,1 @@
+import{V as r}from"./index-DGA7EaGb.js";function e(){const{proxy:n}=r();return{proxy:n}}export{e as u};
