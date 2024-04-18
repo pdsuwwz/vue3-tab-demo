@@ -32,16 +32,15 @@
 
 <script lang="ts" setup>
 import {
+  Components as IconComponents,
   Dashboard as IconDashboard,
-  ReportMoney as IconReportMoney,
-  Components as IconComponents
+  ReportMoney as IconReportMoney
 } from '@vicons/tabler'
 import {
-  TeamOutlined as IconTeamOutlined,
+  MenuOutlined as IconMenuOutlined,
   ProfileOutlined as IconProfileOutlined,
-  MenuOutlined as IconMenuOutlined
+  TeamOutlined as IconTeamOutlined
 } from '@vicons/antd'
-
 
 
 defineOptions({

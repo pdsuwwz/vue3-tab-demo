@@ -97,7 +97,6 @@ const configTechStack = shallowRef([
 ])
 
 
-
 const handleToLink = (techItem) => {
   window.open(techItem.link, '_blank')
 }

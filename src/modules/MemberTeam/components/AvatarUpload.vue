@@ -72,8 +72,8 @@ defineOptions({
   name: 'AvatarUpload'
 })
 
-import { NSpace, NButton, NIcon, NUpload, NImage } from 'naive-ui'
-import type { UploadFileInfo, PopoverInst } from 'naive-ui'
+import { NButton, NIcon, NImage, NSpace, NUpload } from 'naive-ui'
+import type { PopoverInst, UploadFileInfo } from 'naive-ui'
 
 import { Pencil as IconPencil } from '@vicons/tabler'
 import { UploadOutlined as IconUploadOutlined } from '@vicons/antd'

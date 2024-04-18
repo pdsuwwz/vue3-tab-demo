@@ -8,7 +8,6 @@ export const CacheSpaceKeys = {
   dashboard: 'CacheSpaceKey_Dashboard',
 
 
-
   /**
    * 缓存空间 Key -> 成员管理-团队成员
    */
@@ -20,7 +19,6 @@ export const CacheSpaceKeys = {
    */
   // memberAccess: 'CacheSpaceKey_WorkPlatform_MemberAccess',
   memberAccess: 'CacheSpaceKey_WorkPlatform_Member',
-
 
 
   /**
@@ -37,7 +35,6 @@ export const CacheSpaceKeys = {
    * 缓存空间 Key -> 资料管理-备份与恢复
    */
   materialBackup: 'CacheSpaceKey_WorkPlatform_MaterialBackup',
-
 
 
   /**

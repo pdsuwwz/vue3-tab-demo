@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Search as IconSearch, Add as IconAdd } from '@vicons/carbon'
+import { Add as IconAdd, Search as IconSearch } from '@vicons/carbon'
 import { PaperPlaneRegular as IconPaperPlaneRegular } from '@vicons/fa'
 import { NButton } from 'naive-ui'
 

@@ -3,12 +3,12 @@ import { defineStore } from 'pinia'
 
 import type {
   BaseCacheSpace,
+  BeforeCloseFunction,
   CacheSpace,
   MultipleLinkItem,
   MultipleLinks,
-  WorkTab,
   SubScribingClosedTabOptions,
-  BeforeCloseFunction
+  WorkTab
 } from './types'
 
 const useWorkTabsStore = defineStore('work-tabs',
@@ -439,7 +439,6 @@ const useWorkTabsStore = defineStore('work-tabs',
     // TODO: 待实现，针对右侧关闭其他所有 Tabs 按钮的钩子的处理
 
     /** ---------------------- Closed Tab Hooks | 关闭 Tab 相关钩子 ---------------------- **/
-
 
 
     return {

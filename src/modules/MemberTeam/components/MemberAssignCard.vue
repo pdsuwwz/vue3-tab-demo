@@ -48,7 +48,6 @@
       span="1"
       class="flex flex-col min-h-0"
     >
-
       <div class="flex items-center pl-10px h-34px">
         {{ checkedRowKeysRef.length ? `已选择${checkedRowKeysRef.length}个成员` : `请选择要添加的成员` }}
       </div>
@@ -89,7 +88,6 @@
         </n-list>
       </div>
     </n-gi>
-
   </n-grid>
 </template>
 
@@ -100,8 +98,8 @@ defineOptions({
 })
 
 import {
-  Search as IconSearch,
-  Close as IconClose
+  Close as IconClose,
+  Search as IconSearch
 } from '@vicons/carbon'
 
 import type { TypesMemberTeam } from '@/modules/MemberTeam/types'

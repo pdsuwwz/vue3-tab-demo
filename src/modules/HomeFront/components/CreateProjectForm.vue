@@ -111,15 +111,14 @@
     </n-list>
     <pre>{{ JSON.stringify(projectFormModel, null, 2) }}</pre>
   </n-form>
-
 </template>
 
 
 <script lang="ts" setup>
 import {
-  NSelect,
+  NDatePicker,
   NInput,
-  NDatePicker
+  NSelect
 } from 'naive-ui'
 import {
   BookInformation24Regular as IconBookInformation24Regular
@@ -143,7 +142,6 @@ import MemberAssignCard from '@/modules/MemberTeam/components/MemberAssignCard.v
 defineOptions({
   name: 'CreateProjectForm'
 })
-
 
 
 const projectFormModel = ref<TypesHomeFront.TypeCreateProjectInfo>({

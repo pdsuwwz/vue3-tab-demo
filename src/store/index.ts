@@ -1,7 +1,7 @@
 import { createPinia } from 'pinia'
 import {
-  pluginExternalProperties,
-  pluginDebounceAction
+  pluginDebounceAction,
+  pluginExternalProperties
 } from '@/store/plugins'
 
 const store = createPinia()
