@@ -184,7 +184,7 @@ export const _menuOptions: MenuOption[] = [
                   },
                   {
                     label: '4-2',
-                    key: 'NestedLevel41',
+                    key: 'NestedLevel42',
                     icon: renderIcon(IconMenu)
                   }
                 ]
