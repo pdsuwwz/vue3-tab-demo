@@ -1,0 +1,1 @@
+import{bp as s,aC as r}from"./index-YuIWdtd5.js";const o={title:"测试标题总览",content:"测试内容 overview"},n=s("Result",{state:()=>({demoList:{},overviewData:{title:"",content:""}}),getters:{},actions:{async getResultOverview(a){await r(800);const e={msg:"ok",error:0,data:o};return this.filterResponse(e,({data:t})=>{this.overviewData=t},()=>{})}}});export{n as u};
