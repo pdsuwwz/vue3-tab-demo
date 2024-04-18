@@ -42,8 +42,8 @@ import {
   ReportMoney as IconReportMoney
 } from '@vicons/tabler'
 import {
-  TeamOutlined as IconTeamOutlined,
-  ProfileOutlined as IconProfileOutlined
+  ProfileOutlined as IconProfileOutlined,
+  TeamOutlined as IconTeamOutlined
 } from '@vicons/antd'
 
 

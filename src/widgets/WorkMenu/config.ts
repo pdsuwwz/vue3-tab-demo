@@ -1,22 +1,22 @@
 import { NIcon } from 'naive-ui'
 
 import {
-  TeamOutlined as IconTeamOutlined,
-  MenuOutlined as IconMenuOutlined
+  MenuOutlined as IconMenuOutlined,
+  TeamOutlined as IconTeamOutlined
 } from '@vicons/antd'
 import {
-  ReportMoney as IconReportMoney,
   Components as IconComponents,
   Menu as IconMenu,
+  ReportMoney as IconReportMoney,
   UserCheck as IconUserCheck
 } from '@vicons/tabler'
 import {
-  DataCheck as IconDataCheck,
-  DataViewAlt as IconDataViewAlt,
   DataBackup as IconDataBackup,
+  DataCheck as IconDataCheck,
+  DataCollection as IconDataCollection,
+  DataViewAlt as IconDataViewAlt,
   Report as IconReport,
   TableSplit as IconTableSplit,
-  DataCollection as IconDataCollection,
   TextLinkAnalysis as IconTextLinkAnalysis
 } from '@vicons/carbon'
 import {
@@ -46,7 +46,6 @@ function renderLink (labelText: string, routeName: RouteRecordName) {
     { default: () => labelText }
   )
 }
-
 
 
 export const _menuOptions: MenuOption[] = [

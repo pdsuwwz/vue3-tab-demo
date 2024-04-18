@@ -34,10 +34,10 @@
 
 <script lang="ts" setup>
 import {
-  NTag,
-  NIcon,
   NButton,
-  NDropdown
+  NDropdown,
+  NIcon,
+  NTag
 } from 'naive-ui'
 import { sleep } from '@/utils/request'
 
@@ -50,8 +50,8 @@ import {
 import {
   MoreVertical20Regular as IconMoreVertical20Regular,
   NotepadPerson24Regular as IconNotepadPerson24Regular,
-  PersonEdit24Regular as IconPersonEdit24Regular,
-  PersonDelete16Regular as IconPersonDelete16Regular
+  PersonDelete16Regular as IconPersonDelete16Regular,
+  PersonEdit24Regular as IconPersonEdit24Regular
 } from '@vicons/fluent'
 
 
@@ -116,7 +116,6 @@ const handleOpenTabs = () => {
   })
 
 }
-
 
 
 const pagination = reactive({

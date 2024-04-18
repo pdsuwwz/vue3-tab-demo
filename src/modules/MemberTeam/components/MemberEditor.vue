@@ -75,22 +75,21 @@
 import { sleep } from '@/utils/request'
 
 import {
-  NRadioGroup,
+  NButton,
   NRadio,
-  NSelect,
-  NButton
+  NRadioGroup,
+  NSelect
 } from 'naive-ui'
 
 import AvatarUpload from '@/modules/MemberTeam/components/AvatarUpload.vue'
 
 import {
-  userRoleMap,
-  userRankMap,
   findMemberInfoById,
+  userRankMap,
+  userRoleMap,
   userStatusMap
 } from '@/modules/MemberTeam/data'
 import type { TypesMemberTeam } from '@/modules/MemberTeam/types'
-
 
 
 /**
@@ -211,7 +210,6 @@ const memberInfoMap = [
 ]
 
 
-
 const refForm = ref<FormInst>()
 
 const validateRules = async () => {
@@ -233,7 +231,6 @@ const handleSubmit = async () => {
   loadingSubmit.value = false
   window.$ModalMessage.success('更新成功')
 }
-
 
 
 </script>

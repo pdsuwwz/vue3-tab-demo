@@ -34,5 +34,5 @@ export const base64UrlToFile = async (url: string, filename: string, mimeType?: 
 
   return fetch(url)
     .then(res => res.arrayBuffer())
-    .then(buf => new File([buf], filename,{type:mimeType}))
+    .then(buf => new File([buf], filename, {type:mimeType}))
 }

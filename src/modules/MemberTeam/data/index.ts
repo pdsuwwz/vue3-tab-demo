@@ -17,7 +17,6 @@ function getRandomValueFromArray<T>(arr: Array<T>): T {
 }
 
 
-
 /**
  * 级别映射表
  */
@@ -90,7 +89,6 @@ export const findUserRoleMapByRankName = (targetRole) => {
 }
 
 
-
 /**
  * 状态映射表
  */
@@ -125,7 +123,7 @@ export const findUserStatusMapByRankName = (targetStatus) => {
 export const memberTeamList = Array.from({ length: 100 }).map((_, index) => {
   const _index = index + 1
 
-  const userId = `BJ${(_index + '').padStart(4, '0')}`
+  const userId = `BJ${(`${_index }`).padStart(4, '0')}`
   const rankItem = getRandomValueFromArray(userRankMap)
   const roleItem = getRandomValueFromArray(userRoleMap)
   return {
@@ -133,7 +131,7 @@ export const memberTeamList = Array.from({ length: 100 }).map((_, index) => {
     userId,
     roleId: roleItem.value,
     rank: rankItem.value,
-    phone: 10000000000 + _index + '',
+    phone: `${10000000000 + _index }`,
     avatar: memberAvatar,
     email: `${userId}@admin.com`,
     memberStatus: Math.random() > 0.5 ? 0 : 1

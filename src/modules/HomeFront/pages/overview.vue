@@ -65,7 +65,6 @@
 </template>
 
 
-
 <script lang="ts" setup>
 import TechStack from '@/modules/HomeFront/components/TechStack.vue'
 import QuickStart from '@/modules/HomeFront/components/QuickStart.vue'
@@ -90,7 +89,6 @@ const handlerPreviewDetail = () => {
     name: 'GroupProjectList'
   })
 }
-
 
 
 </script>
