@@ -1,6 +1,6 @@
 {
   "name": "vue3-tab-demo",
-  "description": "Template using Vite + Pinia + TypeScript + NaiveUI to fast build a prototyping",
+  "description": "A Tab Switching Demo project based on Vite5 + Vue3 + Naive UI + TS + ESLint(v9)",
   "version": "0.0.1",
   "author": "Wisdom <pdsu.wwz@foxmail.com>",
   "license": "MIT",
