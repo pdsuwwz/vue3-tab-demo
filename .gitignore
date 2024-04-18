@@ -9,8 +9,10 @@
 /coverage
 
 # production
+.DS_Store
 /dist
 /dist-ssr
+temp
 
 # misc
 .DS_Store

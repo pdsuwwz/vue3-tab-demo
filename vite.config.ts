@@ -15,7 +15,7 @@ const htmlPlugin = () => {
     transformIndexHtml (html) {
       return html.replace(
         /<title>(.*?)<\/title>/,
-        '<title>Vite Naive Template</title>'
+        '<title>Vue3 Tab Demo</title>'
       )
     }
   }
