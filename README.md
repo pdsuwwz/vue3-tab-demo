@@ -1,9 +1,13 @@
 # vue3-tab-demo
 
-[![Deploy](https://github.com/pdsuwwz/vue3-tab-demo/workflows/gh-pages/badge.svg)](https://github.com/pdsuwwz/vue3-tab-demo/actions/workflows/deploy.yml)
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/pdsuwwz/vue3-tab-demo/deploy.yml?branch=main)](https://github.com/pdsuwwz/vue3-tab-demo/deployments/activity_log?environment=github-pages)
 [![thanks](https://badgen.net/badge/thanks/♥/pink)](https://github.com/pdsuwwz)
+
 [![License](https://img.shields.io/github/license/pdsuwwz/vue3-tab-demo?color=blue)](https://github.com/pdsuwwz/vue3-tab-demo/blob/main/LICENSE)
+[![NaiveUI Version](https://img.shields.io/github/package-json/dependency-version/pdsuwwz/vue3-tab-demo/naive-ui?color=18a058)](https://github.com/pdsuwwz/vue3-tab-demo)
+[![Vue Version](https://img.shields.io/github/package-json/dependency-version/pdsuwwz/vue3-tab-demo/vue?color=42b883)](https://github.com/pdsuwwz/vue3-tab-demo)
+[![Vite Version](https://img.shields.io/github/package-json/dependency-version/pdsuwwz/vue3-tab-demo/dev/vite?color=ffd932)](https://github.com/pdsuwwz/vue3-tab-demo)
+
 
 ## 简介
 
@@ -20,7 +24,7 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 * Vite 5.x
 * Pinia 2.x
 * TypeScript 5.x 
-* ESLint 9.x
+* ESLint 9.x + Stylistic
 * VueUse
 * Unplugin + UnoCSS
 
@@ -36,6 +40,28 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 - [x] 支持同时打开多个 Tab
 - [x] 支持 Tab 打开时自定义命名
 - [x] 支持 Pinia 统一数据管理和本地 Session 存储 (可自由改造为 LocalStorage)
+
+
+## 前置条件
+
+* Vue 3.4.x
+* Node >= 16.15.x
+* Pnpm 8.x
+* **VS Code 插件 `dbaeumer.vscode-eslint` >= v3.0.5 (pre-release)**
+
+## 安装和运行
+
+* 安装依赖
+
+```bash
+pnpm i
+```
+
+* 本地开发
+
+```bash
+pnpm dev
+```
 
 
 ## 项目示例图
@@ -61,7 +87,7 @@ router.push({
 ```
 
 
-* 打开多个 Tab
+* 同时打开多个 Tab
 
 ```ts
 const router = useTabRouter()
@@ -105,30 +131,6 @@ router.pushMultiple(
   ]
 )
 ```
-
-
-## 前置条件
-
-* Vue 3.4.x
-* Node >= 16.15.x
-* Pnpm 8.x
-
-## 安装和运行
-
-* Run `pnpm i` to install the dependencies.
-
-```bash
-pnpm i
-```
-
-* Run
-
-Run `pnpm dev` to start the frontend dev server.
-
-```bash
-pnpm dev
-```
-
 
 
 ## 🛠️ 缓存空间设计
@@ -231,7 +233,7 @@ export interface WorkTab {
 ## 💡 注意事项
 
 * Vue 组件名称需要与对应路由名称保持一致，否则 Keep Alive 将会失效
-* 由于 Tab 组件自身解耦了所有的业务逻辑，所以涉及到路由一级动态 ID 这种跟业务路由强耦合的地方都需要再自行传入，嫌麻烦的可以直接修改源码中的所有 `dynamicCacheSpacePrefixKey` 字段或将相关 hook 二次封装一下。具体参考这两个位置：[源码1](src/widgets/WorkTabs/store.ts#L142) 和 [源码2](src/hooks/useTabRouter.ts#L50) 
+* 由于 Tab 组件自身解耦了所有的业务逻辑，所以涉及到路由一级动态 ID 这种跟业务路由强耦合的地方都需要再自行传入，嫌麻烦的可以直接修改源码中的所有 `dynamicCacheSpacePrefixKey` 字段或将相关 hook 二次封装一下。具体参考这两个位置：[源码1](src/widgets/WorkTabs/store.ts#L85) 和 [源码2](src/hooks/useTabRouter.ts#L50) 
 * 推荐使用本项目进行二次改造和开发实际的业务项目
 
 
