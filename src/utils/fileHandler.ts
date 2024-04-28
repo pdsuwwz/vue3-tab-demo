@@ -28,11 +28,11 @@ export const base64UrlToFile = async (url: string, filename: string, mimeType?: 
     while(n--){
       u8arr[n] = bstr.charCodeAt(n)
     }
-    const file = new File([u8arr], filename, {type:mime || mimeType})
+    const file = new File([u8arr], filename, { type: mime || mimeType })
     return Promise.resolve(file)
   }
 
   return fetch(url)
     .then(res => res.arrayBuffer())
-    .then(buf => new File([buf], filename, {type:mimeType}))
+    .then(buf => new File([buf], filename, { type: mimeType }))
 }

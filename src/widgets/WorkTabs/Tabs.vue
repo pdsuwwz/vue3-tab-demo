@@ -88,6 +88,9 @@ const updateFocusActiveTab = () => {
   })
 }
 
+
+const hasBothShadow = ref(false)
+
 // 更新两端阴影
 const updateShadow = useDebounceFn(() => {
   const { clientWidth, scrollWidth } = refTabList.value!
@@ -110,7 +113,6 @@ watch(
   }
 )
 
-const hasBothShadow = ref(false)
 useMutationObserver(refTabList, () => {
   updateShadow()
 }, {

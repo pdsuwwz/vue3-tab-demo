@@ -123,6 +123,12 @@ const props = defineProps({
 const selectedMembers = props.modelValue.slice()
 
 /**
+ * 左侧多选表格-选中行
+ */
+const checkedRowKeysRef = ref<Array<DataTableRowKey>>([])
+const checkedRowsRef = ref<Array<TypesMemberTeam.TypeMemberPerson>>([])
+
+/**
  * 初始化已经勾选过的行状态
  */
 const initSelectedMembers = () => {
@@ -138,11 +144,6 @@ initSelectedMembers()
  */
 const getRowKey = (row: TypesMemberTeam.TypeMemberPerson) => row.userId
 
-/**
- * 左侧多选表格-选中行
- */
-const checkedRowKeysRef = ref<Array<DataTableRowKey>>([])
-const checkedRowsRef = ref<Array<TypesMemberTeam.TypeMemberPerson>>([])
 
 const handleUpdateCheckedRows = (keys, rows: Array<object>, meta) => {
   const isChecked = meta.action === 'check'

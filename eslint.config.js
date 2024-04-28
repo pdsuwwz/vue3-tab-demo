@@ -2,31 +2,52 @@
 // export default antfu()
 
 import globals from 'globals'
-import { defineFlatConfig } from 'eslint-define-config';
+import { defineFlatConfig } from 'eslint-define-config'
 
-import * as parserTypeScript from '@typescript-eslint/parser';
-import pluginTypeScript from '@typescript-eslint/eslint-plugin';
+import * as parserTypeScript from '@typescript-eslint/parser'
+import pluginTypeScript from '@typescript-eslint/eslint-plugin'
 
-import * as parserVue from 'vue-eslint-parser';
-import pluginVue from 'eslint-plugin-vue';
-import js from '@eslint/js';
+import * as parserVue from 'vue-eslint-parser'
+import pluginVue from 'eslint-plugin-vue'
+import js from '@eslint/js'
+
+import stylistic from '@stylistic/eslint-plugin'
+
 
 function renameRules(rules, map) {
   return Object.fromEntries(
     Object.entries(rules).map(([key, value]) => {
       for (const [from, to] of Object.entries(map)) {
         if (key.startsWith(`${from}/`))
-          return [to + key.slice(from.length), value];
+          return [to + key.slice(from.length), value]
       }
-      return [key, value];
+      return [key, value]
     })
-  );
+  )
 }
 
 export default defineFlatConfig([
   {
+    ignores: [
+      'public',
+      'build',
+      'dist',
+      'node_modules',
+      'coverage',
+      'src/assets/**'
+    ]
+  },
+  {
+    plugins: {
+      '@stylistic': stylistic
+    },
+    rules: {
+      '@stylistic/semi': ['error', 'never'],
+      '@stylistic/no-extra-semi': 'error'
+    }
+  },
+  {
     ...js.configs.recommended,
-    ignores: ['public', 'build', 'dist', 'node_modules', 'coverage', 'src/assets/**'],
     languageOptions: {
       ecmaVersion: 2022,
       globals: {
@@ -54,7 +75,7 @@ export default defineFlatConfig([
       'constructor-super': 'error',
       'default-case-last': 'error',
       'dot-notation': ['error', { allowKeywords: true }],
-      'eqeqeq': ['error', 'smart'],
+      'eqeqeq': ['error', 'always'],
       'new-cap': ['error', { capIsNew: false, newIsCap: true, properties: true }],
       'no-alert': 'error',
       'no-array-constructor': 'error',
@@ -164,6 +185,9 @@ export default defineFlatConfig([
       'no-useless-return': 'error',
       'no-var': 'error',
       'no-with': 'error',
+      'key-spacing': 'error',
+      'space-infix-ops': 'error',
+      'object-curly-spacing': ['error', 'always'],
       'object-shorthand': [
         'error',
         'always',
@@ -239,6 +263,11 @@ export default defineFlatConfig([
         }
       }
     },
+    settings: {
+      'import/core-modules': [
+        'uno.css'
+      ]
+    },
     plugins: {
       '@typescript-eslint': pluginTypeScript
     },
@@ -252,6 +281,7 @@ export default defineFlatConfig([
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': 1,
+      '@typescript-eslint/no-namespace': 0,
       '@typescript-eslint/member-delimiter-style': [
         'error',
         {
@@ -266,8 +296,7 @@ export default defineFlatConfig([
         }
       ],
       '@typescript-eslint/no-empty-function': 0,
-      '@typescript-eslint/no-non-null-assertion': 0,
-      '@typescript-eslint/semi': ['error', 'never']
+      '@typescript-eslint/no-non-null-assertion': 0
     }
   },
   {
@@ -325,4 +354,4 @@ export default defineFlatConfig([
       }]
     }
   }
-]);
+])

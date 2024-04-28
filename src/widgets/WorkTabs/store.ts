@@ -79,6 +79,15 @@ const useWorkTabsStore = defineStore('work-tabs',
     )
 
     /**
+     * TODO: 可能由多个值组合生成 key
+     * 项目 ID + baseKey
+     */
+    const createNewCacheSpaceKey = (dynamicCacheSpacePrefixKey: string, baseKey: string) => {
+      // '项目ID: projectId' + baseKey
+      return dynamicCacheSpacePrefixKey + baseKey
+    }
+
+    /**
      * 查询某个缓存空间中是否存在目标 tab，若存在则返回 tab 数据
      */
     const findTabByCacheSpaceKey = (dynamicCacheSpacePrefixKey: string, cacheSpaceKey: string, tabRouteName: RouteRecordName | undefined): WorkTab | undefined => {
@@ -134,15 +143,60 @@ const useWorkTabsStore = defineStore('work-tabs',
       return tabData1.tabKey === tabData2.tabKey
     }
 
+    /**
+     * 构造一个 tab 页签数据
+     */
+    const createFactoryTabData = (
+      {
+        label,
+        customLabel,
+        route
+      }: {
+        label: string
+        customLabel?: string | null | undefined
+        route: RouteLocationNormalizedLoaded
+      }
+    ): WorkTab => {
+      return {
+        label: label ?? '',
+        customLabel: customLabel ?? '',
+        tabKey: route.path,
+        link: route.fullPath,
+        routeName: route.name!
+      }
+    }
 
     /**
-     * TODO: 可能由多个值组合生成 key
-     * 项目 ID + baseKey
+     * 切换缓存空间
      */
-    const createNewCacheSpaceKey = (dynamicCacheSpacePrefixKey: string, baseKey: string) => {
-    // '项目ID: projectId' + baseKey
-      return dynamicCacheSpacePrefixKey + baseKey
+    const changeOtherCacheSpace = (targetCacheSpace: CacheSpace) => {
+      activeCacheSpaceKey.value = targetCacheSpace.cacheSpaceKey
     }
+
+    /**
+     * 在缓存空间内切换 tab 页签
+     */
+    const changeTabByCacheSpace = (tabData: WorkTab) => {
+      const cacheSpace = currentCacheSpace.value!
+      cacheSpace.activeTabKey = tabData.tabKey
+      router.push(tabData.link)
+    }
+
+    /**
+     * 初始化构造一个缓存空间数据
+     */
+    const createFactoryCacheSpace = (dynamicCacheSpacePrefixKey: string, targetCacheSpace: BaseCacheSpace): CacheSpace => {
+      return {
+
+        cacheSpaceKey: createNewCacheSpaceKey(
+          dynamicCacheSpacePrefixKey,
+          targetCacheSpace.cacheSpaceKey
+        ),
+        activeTabKey: null,
+        tabs: []
+      }
+    }
+
 
     /**
      * 添加一个新的缓存空间
@@ -163,12 +217,6 @@ const useWorkTabsStore = defineStore('work-tabs',
       return cacheSpace
     }
 
-    /**
-     * 切换缓存空间
-     */
-    const changeOtherCacheSpace = (targetCacheSpace: CacheSpace) => {
-      activeCacheSpaceKey.value = targetCacheSpace.cacheSpaceKey
-    }
 
     /**
      * 将一个新的 tab 页签绑定到缓存空间中
@@ -252,127 +300,6 @@ const useWorkTabsStore = defineStore('work-tabs',
       changeTabByCacheSpace(_tabsMap[_tabsMap.length - 1])
     }
 
-    /**
-     * 在缓存空间中移除某个 tab 页签
-     */
-    const removeTabFromCacheSpace = async(tabData: WorkTab) => {
-      await notifyBeforeCloseTabEvent(tabData)
-
-      const tabs = currentTabsInCacheSpace.value
-
-      const _index = tabs.findIndex(
-        tabItem => isEqualTab(tabItem, tabData)
-      )
-      const discardedTab = tabs.splice(_index, 1)[0]
-
-      // 若存在同路由的页面，则不清除缓存
-      const hasSameRoutePage = tabs.some(tabItem => (
-        tabItem.routeName === discardedTab.routeName
-      ))
-      if (!hasSameRoutePage) {
-        removeCacheFromKeepAlive(discardedTab)
-      }
-
-      // 删除 tab 后将 active 值更新为最后一个
-      if (tabs.length !== 0) {
-        changeTabByCacheSpace(lastTabInCurrentCacheSpace.value)
-      }
-
-      return discardedTab
-    }
-
-    /**
-     * 在缓存空间中移除非当前 active 的其他所有 tab 页签
-     */
-    const removeOtherTabsFromCacheSpace = () => {
-      const tabs = currentTabsInCacheSpace.value
-
-      const activeTabKey = currentCacheSpace.value!.activeTabKey
-
-      if (tabs.length <= 1) return
-
-      const onlyOneTab = tabs.find(
-        tabItem => tabItem.tabKey === activeTabKey
-      )!
-
-      tabs.forEach((tabData) => {
-        if (isEqualTab(onlyOneTab, tabData)) {
-          return
-        }
-        removeCacheFromKeepAlive(tabData)
-      })
-
-      tabs.splice(0, tabs.length, onlyOneTab)
-    }
-
-    /**
-     * 在缓存空间内切换 tab 页签
-     */
-    const changeTabByCacheSpace = (tabData: WorkTab) => {
-      const cacheSpace = currentCacheSpace.value!
-      cacheSpace.activeTabKey = tabData.tabKey
-      router.push(tabData.link)
-    }
-
-    /**
-     * 初始化构造一个缓存空间数据
-     */
-    const createFactoryCacheSpace = (dynamicCacheSpacePrefixKey: string, targetCacheSpace: BaseCacheSpace): CacheSpace => {
-      return {
-
-        cacheSpaceKey: createNewCacheSpaceKey(
-          dynamicCacheSpacePrefixKey,
-          targetCacheSpace.cacheSpaceKey
-        ),
-        activeTabKey: null,
-        tabs: []
-      }
-    }
-
-    /**
-     * 构造一个 tab 页签数据
-     */
-    const createFactoryTabData = (
-      {
-        label,
-        customLabel,
-        route
-      }: {
-        label: string
-        customLabel?: string | null | undefined
-        route: RouteLocationNormalizedLoaded
-      }
-    ): WorkTab => {
-      return {
-        label: label ?? '',
-        customLabel: customLabel ?? '',
-        tabKey: route.path,
-        link: route.fullPath,
-        routeName: route.name!
-      }
-    }
-
-
-    /** ---------------------- Closed Tab Hooks | 关闭 Tab 相关钩子 ---------------------- **/
-
-    /**
-      使用示例:
-
-      import useWorkTabsStore from '@/widgets/WorkTabs/store'
-      const workTabsStore = useWorkTabsStore()
-
-      workTabsStore.registerCloseTabEvent(
-        async() => {
-          const rr = Math.random()
-          await sleep(2000)
-
-          if (rr > 0.5) return Promise.resolve()
-
-          return Promise.reject(new Error('xxxxx'))
-        }
-      )
-     */
-
     const __subscribingClosedTab = ref<Array<SubScribingClosedTabOptions>>([])
 
     /**
@@ -435,6 +362,80 @@ const useWorkTabsStore = defineStore('work-tabs',
         )
       })
     }
+
+    /**
+     * 在缓存空间中移除某个 tab 页签
+     */
+    const removeTabFromCacheSpace = async(tabData: WorkTab) => {
+      await notifyBeforeCloseTabEvent(tabData)
+
+      const tabs = currentTabsInCacheSpace.value
+
+      const _index = tabs.findIndex(
+        tabItem => isEqualTab(tabItem, tabData)
+      )
+      const discardedTab = tabs.splice(_index, 1)[0]
+
+      // 若存在同路由的页面，则不清除缓存
+      const hasSameRoutePage = tabs.some(tabItem => (
+        tabItem.routeName === discardedTab.routeName
+      ))
+      if (!hasSameRoutePage) {
+        removeCacheFromKeepAlive(discardedTab)
+      }
+
+      // 删除 tab 后将 active 值更新为最后一个
+      if (tabs.length !== 0) {
+        changeTabByCacheSpace(lastTabInCurrentCacheSpace.value)
+      }
+
+      return discardedTab
+    }
+
+    /**
+     * 在缓存空间中移除非当前 active 的其他所有 tab 页签
+     */
+    const removeOtherTabsFromCacheSpace = () => {
+      const tabs = currentTabsInCacheSpace.value
+
+      const activeTabKey = currentCacheSpace.value!.activeTabKey
+
+      if (tabs.length <= 1) return
+
+      const onlyOneTab = tabs.find(
+        tabItem => tabItem.tabKey === activeTabKey
+      )!
+
+      tabs.forEach((tabData) => {
+        if (isEqualTab(onlyOneTab, tabData)) {
+          return
+        }
+        removeCacheFromKeepAlive(tabData)
+      })
+
+      tabs.splice(0, tabs.length, onlyOneTab)
+    }
+
+
+    /** ---------------------- Closed Tab Hooks | 关闭 Tab 相关钩子 ---------------------- **/
+
+    /**
+      使用示例:
+
+      import useWorkTabsStore from '@/widgets/WorkTabs/store'
+      const workTabsStore = useWorkTabsStore()
+
+      workTabsStore.registerCloseTabEvent(
+        async() => {
+          const rr = Math.random()
+          await sleep(2000)
+
+          if (rr > 0.5) return Promise.resolve()
+
+          return Promise.reject(new Error('xxxxx'))
+        }
+      )
+     */
 
     // TODO: 待实现，针对右侧关闭其他所有 Tabs 按钮的钩子的处理
 
