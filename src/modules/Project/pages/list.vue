@@ -100,7 +100,7 @@ export default defineComponent({
         positiveText: '创建',
         async onPositiveClick () {
           const isValid = await testRef.value.validateRules()
-          if (!isValid) return Promise.reject()
+          if (!isValid) return Promise.reject(new Error('表单校验失败'))
 
           dd.loading = true
           const { error, data } = await projectStore.createProject(formData)
@@ -108,7 +108,7 @@ export default defineComponent({
           dd.loading = false
 
           if (error) {
-            return Promise.reject()
+            return Promise.reject(new Error('创建失败'))
           }
 
           projectStore.getProjectList()

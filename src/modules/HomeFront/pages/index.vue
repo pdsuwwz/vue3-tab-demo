@@ -76,6 +76,15 @@ defineOptions({
 const router = useRouter()
 
 
+const handlerPreviewDetail = (row: ProjectItem) => {
+  router.push({
+    name: 'GroupProjectDetail',
+    params: {
+      projectId: row.id
+    }
+  })
+}
+
 const tableData = ref<Array<ProjectItem>>([])
 
 const createColumns = (): DataTableColumns<ProjectItem> => {
@@ -140,15 +149,6 @@ const createColumns = (): DataTableColumns<ProjectItem> => {
 }
 const tableColumns = createColumns()
 
-const handlerPreviewDetail = (row: ProjectItem) => {
-  router.push({
-    name: 'GroupProjectDetail',
-    params: {
-      projectId: row.id
-    }
-  })
-}
-
 
 const tableLoading = ref(true)
 
@@ -197,7 +197,7 @@ const handleCreateProject = () => {
     async onPositiveClick() {
       const isValid = await instanceRef.value.validateRules()
       if (!isValid) {
-        return Promise.reject()
+        return Promise.reject(new Error('请填写完整'))
       }
 
       dd.loading = true
@@ -206,7 +206,7 @@ const handleCreateProject = () => {
 
       dd.positiveText = _positiveText
       dd.loading = false
-      return Promise.reject()
+      return Promise.reject(new Error('提交失败'))
     }
   })
 }

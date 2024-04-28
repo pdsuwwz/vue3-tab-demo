@@ -37,6 +37,8 @@ export interface MultipleLinkItem {
 
 export type MultipleLinks = Array<MultipleLinkItem | string>
 
+export type BeforeCloseFunction = () => Promise<any>
+
 
 /**
  * Closed Tab Caches | 关闭 Tab 之前的钩子缓存
@@ -45,5 +47,3 @@ export interface SubScribingClosedTabOptions {
   workTab: WorkTab
   beforeCloseFunction: BeforeCloseFunction
 }
-
-export type BeforeCloseFunction = () => Promise<any>
