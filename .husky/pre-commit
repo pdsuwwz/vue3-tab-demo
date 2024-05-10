@@ -31,7 +31,7 @@ fi
 
 
 # 运行 lint-staged
-if pnpm lint-staged; then
+if pnpm lint-staged  --allow-empty; then
   # 检查 Git 暂存区是否有变化
   if [ -z "$(git diff --cached)" ]; then
     # 暂存区为空，输出警告信息
