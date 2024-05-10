@@ -24,7 +24,7 @@ if [ "$IS_AMEND" -eq 0 ] && [ -z "$HAS_DIFF" ]; then
     echo "\n${RED}❗ 代码未添加到暂存区，请先 git add . 添加变更。 ${RESET}\n"
     exit 1
   else
-    echo "\n${RED}❗ 暂存区无任何变更"
+    echo "\n${RED}❗ 暂存区无任何变更${RESET}"
     exit 0
   fi
 fi
