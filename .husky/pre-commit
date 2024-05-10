@@ -20,8 +20,13 @@ HAS_DIFF=$(git diff --cached HEAD)
 
 
 if [ "$IS_AMEND" -eq 0 ] && [ -z "$HAS_DIFF" ]; then
-  echo "可能是 amend 操作"
-  exit 0
+  if ! git diff-index --quiet HEAD --; then
+    echo "\n${RED}❌ 代码未添加到暂存区，请先 git add 添加变更。${RESET}\n"
+    exit 1
+  else
+    echo "可能是 amend 操作"
+    exit 0
+  fi
 fi
 
 
@@ -32,8 +37,7 @@ if pnpm lint-staged; then
     # 暂存区为空，输出警告信息
     echo "\n${RED}❌ Commit 失败，请检查以下可能原因：\n"
     echo "\t1. lint-staged 修复后代码与上次提交一致，无新变更"
-    echo "\t2. 代码未添加到暂存区"
-    echo "\t3. ESLint 插件未生效，请检查插件状态"
+    echo "\t2. ESLint 插件未生效，请检查插件状态"
     echo "\n请检查代码，并重新 add 后再尝试提交。 ${RESET}\n"
     exit 1
   else
