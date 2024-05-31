@@ -1,3 +1,15 @@
+<script lang="ts">
+export default defineComponent({
+  name: 'Octocat',
+  setup() {
+    const link = ref('https://github.com/pdsuwwz/vue3-tab-demo')
+    return {
+      link
+    }
+  }
+})
+</script>
+
 <template>
   <a
     class="octocat-link c-#3f3f46 dark:c-#bbb hover-c-#000 dark:hover-c-#f6f5f7"
@@ -19,17 +31,6 @@
   </a>
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  name: 'Octocat',
-  setup() {
-    const link = ref('https://github.com/pdsuwwz/vue3-tab-demo')
-    return {
-      link
-    }
-  }
-})
-</script>
 <style lang="scss" scoped>
 .octocat-link {
   display: flex;

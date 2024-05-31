@@ -1,50 +1,3 @@
-<template>
-  <LayoutArea>
-    <template #top>
-      <NavigationNavBar
-        :fixed="false"
-      >
-        <NavigationSideLogo />
-      </NavigationNavBar>
-    </template>
-
-    <template #side>
-      <LayoutSection title="项目管理">
-        <n-button
-          type="primary"
-          class="create-action"
-          @click="handleCreateProject()"
-        >
-          <template #icon>
-            <n-icon>
-              <CreateNewFolderOutlined />
-            </n-icon>
-          </template>
-          创建项目
-        </n-button>
-      </LayoutSection>
-    </template>
-
-    <template #content>
-      <LayoutSection
-        has-divider
-        flex-content
-      >
-        <template #head>
-          <n-date-picker type="datetimerange">
-            <template #footer>
-              extra footer
-            </template>
-          </n-date-picker>
-        </template>
-
-        <ProjectTableHeader />
-        <ProjectTableBody />
-      </LayoutSection>
-    </template>
-  </LayoutArea>
-</template>
-
 <script lang="ts">
 
 import NavigationSideLogo from '@/components/Navigation/Side/SideLogo.vue'
@@ -132,6 +85,53 @@ export default defineComponent({
 })
 
 </script>
+
+<template>
+  <LayoutArea>
+    <template #top>
+      <NavigationNavBar
+        :fixed="false"
+      >
+        <NavigationSideLogo />
+      </NavigationNavBar>
+    </template>
+
+    <template #side>
+      <LayoutSection title="项目管理">
+        <n-button
+          type="primary"
+          class="create-action"
+          @click="handleCreateProject()"
+        >
+          <template #icon>
+            <n-icon>
+              <CreateNewFolderOutlined />
+            </n-icon>
+          </template>
+          创建项目
+        </n-button>
+      </LayoutSection>
+    </template>
+
+    <template #content>
+      <LayoutSection
+        has-divider
+        flex-content
+      >
+        <template #head>
+          <n-date-picker type="datetimerange">
+            <template #footer>
+              extra footer
+            </template>
+          </n-date-picker>
+        </template>
+
+        <ProjectTableHeader />
+        <ProjectTableBody />
+      </LayoutSection>
+    </template>
+  </LayoutArea>
+</template>
 
 <style lang="scss" scoped>
 .create-action {

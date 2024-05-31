@@ -1,5 +1,5 @@
 import useWorkTabsStore from '@/widgets/WorkTabs/store'
-import { MultipleLinks } from '@/widgets/WorkTabs/types'
+import type { MultipleLinks } from '@/widgets/WorkTabs/types'
 
 export const useTabRouter = () => {
   const route = useRoute()

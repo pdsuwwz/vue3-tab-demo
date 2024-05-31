@@ -71,8 +71,14 @@ export function useTheme() {
         document.documentElement.classList.remove('dark')
       }
     },
-    { immediate: true }
+    {
+      immediate: true
+    }
   )
 
-  return { isDark, theme, themeOverrides }
+  return {
+    isDark,
+    theme,
+    themeOverrides
+  }
 }

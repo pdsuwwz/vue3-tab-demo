@@ -1,35 +1,3 @@
-<template>
-  <n-grid
-    :x-gap="6"
-    :y-gap="6"
-    cols="xs:2 s:3 m:2"
-    responsive="screen"
-    class="justify-between"
-  >
-    <n-gi
-      v-for="(cardConfigItem, index) in cardConfigOptions"
-      :key="index"
-    >
-      <n-card
-        hoverable
-        class="cursor-pointer"
-        @click="handlePreviewUrl(cardConfigItem)"
-      >
-        <div
-          class="flex flex-col justify-center items-center h-full"
-        >
-          <n-icon
-            :size="30"
-            :component="cardConfigItem.icon"
-          />
-          <span>{{ cardConfigItem.title }}</span>
-        </div>
-      </n-card>
-    </n-gi>
-  </n-grid>
-</template>
-
-
 <script lang="ts" setup>
 import {
   Components as IconComponents,
@@ -97,6 +65,38 @@ const handlePreviewUrl = (cardItem: CardConfig) => {
 }
 
 </script>
+
+
+<template>
+  <n-grid
+    :x-gap="6"
+    :y-gap="6"
+    cols="xs:2 s:3 m:2"
+    responsive="screen"
+    class="justify-between"
+  >
+    <n-gi
+      v-for="(cardConfigItem, index) in cardConfigOptions"
+      :key="index"
+    >
+      <n-card
+        hoverable
+        class="cursor-pointer"
+        @click="handlePreviewUrl(cardConfigItem)"
+      >
+        <div
+          class="flex flex-col justify-center items-center h-full"
+        >
+          <n-icon
+            :size="30"
+            :component="cardConfigItem.icon"
+          />
+          <span>{{ cardConfigItem.title }}</span>
+        </div>
+      </n-card>
+    </n-gi>
+  </n-grid>
+</template>
 
 <style lang="scss" scoped>
 

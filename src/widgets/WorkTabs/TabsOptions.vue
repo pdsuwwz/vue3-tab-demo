@@ -1,3 +1,44 @@
+<script lang="ts" setup>
+
+import { CloseOutline } from '@vicons/ionicons5'
+import { KeyboardDoubleArrowDownFilled } from '@vicons/material'
+import useWorkTabsStore from './store'
+import type { WorkTab } from './types'
+
+
+/**
+ * 最右侧二级 Tabs 控制器
+ */
+defineOptions({
+  name: 'TabsOptions'
+})
+
+const router = useTabRouter()
+const workTabsStore = useWorkTabsStore()
+
+const isOnlyOneTab = computed(() => {
+  return workTabsStore.currentTabsInCacheSpace.length === 1
+})
+
+const handleSwitch = (tabItem: WorkTab) => {
+  router.push(tabItem.link)
+}
+
+const handleCloseTab = (tabItem: WorkTab) => {
+  workTabsStore.removeTabFromCacheSpace(tabItem)
+}
+
+const handleCloseOtherTabs = () => {
+  if (isOnlyOneTab.value) return
+
+  workTabsStore.removeOtherTabsFromCacheSpace()
+}
+
+// 是否保持 action 的 hover 样式状态
+const isKeepHover = ref(false)
+
+</script>
+
 <template>
   <n-popover
     trigger="hover"
@@ -66,47 +107,6 @@
   </n-popover>
 </template>
 
-<script lang="ts" setup>
-
-import { CloseOutline } from '@vicons/ionicons5'
-import { KeyboardDoubleArrowDownFilled } from '@vicons/material'
-import useWorkTabsStore from './store'
-import type { WorkTab } from './types'
-
-
-/**
- * 最右侧二级 Tabs 控制器
- */
-defineOptions({
-  name: 'TabsOptions'
-})
-
-const router = useTabRouter()
-const workTabsStore = useWorkTabsStore()
-
-const isOnlyOneTab = computed(() => {
-  return workTabsStore.currentTabsInCacheSpace.length === 1
-})
-
-const handleSwitch = (tabItem: WorkTab) => {
-  router.push(tabItem.link)
-}
-
-const handleCloseTab = (tabItem: WorkTab) => {
-  workTabsStore.removeTabFromCacheSpace(tabItem)
-}
-
-const handleCloseOtherTabs = () => {
-  if (isOnlyOneTab.value) return
-
-  workTabsStore.removeOtherTabsFromCacheSpace()
-}
-
-// 是否保持 action 的 hover 样式状态
-const isKeepHover = ref(false)
-
-</script>
-
 <style lang="scss">
 .tabs-options-action {
   display: flex;
@@ -140,14 +140,14 @@ const isKeepHover = ref(false)
     cursor: pointer;
 
 
-    --at-apply: c-#5a5a5a dark:c-#e6e6e6;
+    --at-apply: c-#5a5a5a "dark:c-#e6e6e6";
 
     &.right:hover {
-      --at-apply: bg-#fff dark:bg-#302f2f;
+      --at-apply: bg-#fff "dark:bg-#302f2f";
     }
 
     &.focus {
-      --at-apply: bg-#e6e6e6 dark:bg-#666;
+      --at-apply: bg-#e6e6e6 "dark:bg-#666";
     }
   }
 
@@ -203,11 +203,11 @@ const isKeepHover = ref(false)
       }
 
       &.active {
-        --at-apply: bg-#eee dark:bg-#777;
+        --at-apply: bg-#eee "dark:bg-#777";
       }
 
       &:hover {
-        --at-apply: bg-#eff1f4 dark:bg-#666;
+        --at-apply: bg-#eff1f4 "dark:bg-#666";
       }
 
       .tabs-options-label {

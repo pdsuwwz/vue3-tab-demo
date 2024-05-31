@@ -1,3 +1,26 @@
+<script lang="ts">
+import { systemTitleZh } from '@/base'
+
+
+export default defineComponent({
+  name: 'NavigationSideLogo',
+  props: {
+    auth: {
+      type: Boolean,
+      default: true
+    }
+  },
+  setup () {
+
+    const title = computed(() => systemTitleZh)
+
+    return {
+      title
+    }
+  }
+})
+</script>
+
 <template>
   <div
     class="side-logo-container"
@@ -23,28 +46,6 @@
   </div>
 </template>
 
-<script lang="ts">
-import { systemTitleZh } from '@/base'
-
-
-export default defineComponent({
-  name: 'NavigationSideLogo',
-  props: {
-    auth: {
-      type: Boolean,
-      default: true
-    }
-  },
-  setup () {
-
-    const title = computed(() => systemTitleZh)
-
-    return {
-      title
-    }
-  }
-})
-</script>
 <style lang="scss" scoped>
 .side-logo-container {
   position: relative;

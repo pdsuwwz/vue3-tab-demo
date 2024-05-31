@@ -1,37 +1,3 @@
-<template>
-  <LayoutPage>
-    <n-card
-      :bordered="false"
-      title="成员管理-团队成员列表"
-      class="h-full"
-    >
-      <template #header-extra>
-        <n-button
-          type="primary"
-          @click="handleOpenTabs()"
-        >
-          打开
-        </n-button>
-      </template>
-      <n-data-table
-        v-model:checked-row-keys="checkedRowKeysRef"
-        class="h-full"
-        :columns="columns"
-        :data="tableData"
-        :pagination="pagination"
-        :scroll-x="1100"
-        :bordered="false"
-        :single-line="false"
-        flex-height
-        striped
-        :row-key="getRowKey"
-        :loading="tableLoading"
-        @update:checked-row-keys="handleUpdateCheckedRows"
-      />
-    </n-card>
-  </LayoutPage>
-</template>
-
 <script lang="ts" setup>
 import {
   NButton,
@@ -105,7 +71,7 @@ const handleOpenTabs = () => {
           datasetId: rowData.userId
         }
       },
-      tabName: `成员查看-${rowData.username}`
+      tabName: `成员查看-${ rowData.username }`
     } as MultipleLinkItem
   })
 
@@ -135,7 +101,9 @@ const pagination = reactive({
 
 const renderIcon = (icon: Component, className = '') => {
   return () => {
-    return h(NIcon, { class: className }, {
+    return h(NIcon, {
+      class: className
+    }, {
       default: () => h(icon)
     })
   }
@@ -148,7 +116,7 @@ const goToMemberTeamPreview = (row: TypesMemberTeam.TypeMemberPerson) => {
     params: {
       datasetId: row.userId
     }
-  }, `成员查看-${row.username}`)
+  }, `成员查看-${ row.username }`)
 }
 
 const createActionsColumns = (row: TypesMemberTeam.TypeMemberPerson) => {
@@ -177,7 +145,7 @@ const createActionsColumns = (row: TypesMemberTeam.TypeMemberPerson) => {
                 params: {
                   datasetId: row.userId
                 }
-              }, `成员编辑-${row.username}`)
+              }, `成员编辑-${ row.username }`)
             }
           }
         },
@@ -192,13 +160,13 @@ const createActionsColumns = (row: TypesMemberTeam.TypeMemberPerson) => {
 
               const d = window.$ModalDialog.warning({
                 title: '警告',
-                content: `确定删除该成员: " ${row.username} "?`,
+                content: `确定删除该成员: " ${ row.username } "?`,
                 positiveText: '删除',
                 negativeText: '我再想想',
                 onPositiveClick: async () => {
                   d.loading = true
                   await sleep(400)
-                  window.$ModalMessage.success(`假删除成功: ${row.username}`)
+                  window.$ModalMessage.success(`假删除成功: ${ row.username }`)
                 }
               })
             }
@@ -363,4 +331,38 @@ const tableData = computed(() => memberTeamStore.memberTeamList)
 
 
 </script>
+
+<template>
+  <LayoutPage>
+    <n-card
+      :bordered="false"
+      title="成员管理-团队成员列表"
+      class="h-full"
+    >
+      <template #header-extra>
+        <n-button
+          type="primary"
+          @click="handleOpenTabs()"
+        >
+          打开
+        </n-button>
+      </template>
+      <n-data-table
+        v-model:checked-row-keys="checkedRowKeysRef"
+        class="h-full"
+        :columns="columns"
+        :data="tableData"
+        :pagination="pagination"
+        :scroll-x="1100"
+        :bordered="false"
+        :single-line="false"
+        flex-height
+        striped
+        :row-key="getRowKey"
+        :loading="tableLoading"
+        @update:checked-row-keys="handleUpdateCheckedRows"
+      />
+    </n-card>
+  </LayoutPage>
+</template>
 

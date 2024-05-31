@@ -1,17 +1,3 @@
-<template>
-  <!-- <LayoutSection
-    flex-content
-    :title="overviewData.title"
-  >
-    <div class="h-full flex-1 b b-#dcdfe6 dark:b-#444 b-solid">
-      {{ overviewData.content }}
-    </div>
-  </LayoutSection> -->
-  <div class="h-full flex-1 b b-#dcdfe6 dark:b-#444 b-solid">
-    {{ overviewData.content }}
-  </div>
-</template>
-
 <script lang="ts">
 import { useResultStore } from '@/modules/Result/store'
 
@@ -39,6 +25,20 @@ export default defineComponent({
   }
 })
 </script>
+
+<template>
+  <!-- <LayoutSection
+    flex-content
+    :title="overviewData.title"
+  >
+    <div class="h-full flex-1 b b-#dcdfe6 dark:b-#444 b-solid">
+      {{ overviewData.content }}
+    </div>
+  </LayoutSection> -->
+  <div class="h-full flex-1 b b-#dcdfe6 dark:b-#444 b-solid">
+    {{ overviewData.content }}
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .wrap-result-overview-content {

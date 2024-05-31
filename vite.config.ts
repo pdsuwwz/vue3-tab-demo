@@ -1,9 +1,13 @@
 import path from 'path'
 import { defineConfig } from 'vitest/config'
+
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 import SvgLoader from 'vite-svg-loader'
 import UnoCSS from 'unocss/vite'
+import UnpluginIcons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
@@ -34,6 +38,7 @@ export default defineConfig(({ mode }) => {
           defineModel: true
         }
       }),
+      vueJsx(),
       AutoImport({
         include: [
           /\.[tj]sx?$/,
@@ -105,7 +110,8 @@ export default defineConfig(({ mode }) => {
               'DataTableRowKey',
               'DropdownOption',
               'MenuOption',
-              'FormInst'
+              'FormInst',
+              'NotificationPlacement'
             ],
             type: true
           },
@@ -132,11 +138,24 @@ export default defineConfig(({ mode }) => {
         vueTemplate: true
       }),
       Components({
+        directoryAsNamespace: true,
+        collapseSamePrefixes: true,
         resolvers: [
+          IconsResolver({
+            prefix: 'AutoIcon'
+          }),
           NaiveUiResolver()
         ]
       }),
       SvgLoader(),
+      // Auto use Iconify icon
+      UnpluginIcons({
+        autoInstall: true,
+        compiler: 'vue3',
+        scale: 1.2,
+        defaultStyle: '',
+        defaultClass: 'unplugin-icon'
+      }),
       htmlPlugin()
     ],
     // https://esbuild.github.io/api/#drop

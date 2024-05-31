@@ -1,15 +1,3 @@
-<template>
-  <SearchSelect
-    v-model="searchValue"
-    :fetch="handleFetchSearch"
-    placeholder="搜索项目"
-    select-when-unmatched
-    highlight-first-item
-    v-bind="$attrs"
-    @select="handleSelectSearch"
-  />
-</template>
-
 <script lang="ts">
 import SearchSelect from '@/components/SearchSelect/index.vue'
 import { useProjectStore } from '@/modules/Project/store'
@@ -59,6 +47,18 @@ export default defineComponent({
   }
 })
 </script>
+
+<template>
+  <SearchSelect
+    v-model="searchValue"
+    :fetch="handleFetchSearch"
+    placeholder="搜索项目"
+    select-when-unmatched
+    highlight-first-item
+    v-bind="$attrs"
+    @select="handleSelectSearch"
+  />
+</template>
 
 <style>
 

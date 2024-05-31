@@ -86,6 +86,7 @@ declare global {
   const refDefault: typeof import('@vueuse/core')['refDefault']
   const refThrottled: typeof import('@vueuse/core')['refThrottled']
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
+  const reloadRouterViewInjectionKey: typeof import('./src/hooks/useForceReload')['reloadRouterViewInjectionKey']
   const render: typeof import('vue')['render']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
@@ -116,6 +117,7 @@ declare global {
   const until: typeof import('@vueuse/core')['until']
   const useActiveElement: typeof import('@vueuse/core')['useActiveElement']
   const useAnimate: typeof import('@vueuse/core')['useAnimate']
+  const useApplyForceReload: typeof import('./src/hooks/useForceReload')['useApplyForceReload']
   const useArrayDifference: typeof import('@vueuse/core')['useArrayDifference']
   const useArrayEvery: typeof import('@vueuse/core')['useArrayEvery']
   const useArrayFilter: typeof import('@vueuse/core')['useArrayFilter']
@@ -242,6 +244,7 @@ declare global {
   const useProjectStore: typeof import('./src/modules/Project/store/index')['useProjectStore']
   const useRafFn: typeof import('@vueuse/core')['useRafFn']
   const useRefHistory: typeof import('@vueuse/core')['useRefHistory']
+  const useRegisterForceReload: typeof import('./src/hooks/useForceReload')['useRegisterForceReload']
   const useResizeObserver: typeof import('@vueuse/core')['useResizeObserver']
   const useResultStore: typeof import('./src/modules/Result/store/index')['useResultStore']
   const useRoute: typeof import('vue-router')['useRoute']
@@ -326,7 +329,7 @@ declare global {
   export type { RouteRecordRaw, RouteLocationRaw, LocationQuery, NavigationFailure, RouteParams, RouteLocationNormalizedLoaded, RouteRecordName, NavigationGuard } from 'vue-router'
   import('vue-router')
   // @ts-ignore
-  export type { GlobalThemeOverrides, ConfigProviderProps, DataTableColumns, DataTableRowKey, DropdownOption, MenuOption, FormInst } from 'naive-ui'
+  export type { GlobalThemeOverrides, ConfigProviderProps, DataTableColumns, DataTableRowKey, DropdownOption, MenuOption, FormInst, NotificationPlacement } from 'naive-ui'
   import('naive-ui')
   // @ts-ignore
   export type { StoreActions } from 'pinia'
@@ -418,6 +421,7 @@ declare module 'vue' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
+    readonly reloadRouterViewInjectionKey: UnwrapRef<typeof import('./src/hooks/useForceReload')['reloadRouterViewInjectionKey']>
     readonly render: UnwrapRef<typeof import('vue')['render']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
@@ -448,6 +452,7 @@ declare module 'vue' {
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
     readonly useActiveElement: UnwrapRef<typeof import('@vueuse/core')['useActiveElement']>
     readonly useAnimate: UnwrapRef<typeof import('@vueuse/core')['useAnimate']>
+    readonly useApplyForceReload: UnwrapRef<typeof import('./src/hooks/useForceReload')['useApplyForceReload']>
     readonly useArrayDifference: UnwrapRef<typeof import('@vueuse/core')['useArrayDifference']>
     readonly useArrayEvery: UnwrapRef<typeof import('@vueuse/core')['useArrayEvery']>
     readonly useArrayFilter: UnwrapRef<typeof import('@vueuse/core')['useArrayFilter']>
@@ -574,6 +579,7 @@ declare module 'vue' {
     readonly useProjectStore: UnwrapRef<typeof import('./src/modules/Project/store/index')['useProjectStore']>
     readonly useRafFn: UnwrapRef<typeof import('@vueuse/core')['useRafFn']>
     readonly useRefHistory: UnwrapRef<typeof import('@vueuse/core')['useRefHistory']>
+    readonly useRegisterForceReload: UnwrapRef<typeof import('./src/hooks/useForceReload')['useRegisterForceReload']>
     readonly useResizeObserver: UnwrapRef<typeof import('@vueuse/core')['useResizeObserver']>
     readonly useResultStore: UnwrapRef<typeof import('./src/modules/Result/store/index')['useResultStore']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
@@ -734,6 +740,7 @@ declare module '@vue/runtime-core' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
+    readonly reloadRouterViewInjectionKey: UnwrapRef<typeof import('./src/hooks/useForceReload')['reloadRouterViewInjectionKey']>
     readonly render: UnwrapRef<typeof import('vue')['render']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
@@ -764,6 +771,7 @@ declare module '@vue/runtime-core' {
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
     readonly useActiveElement: UnwrapRef<typeof import('@vueuse/core')['useActiveElement']>
     readonly useAnimate: UnwrapRef<typeof import('@vueuse/core')['useAnimate']>
+    readonly useApplyForceReload: UnwrapRef<typeof import('./src/hooks/useForceReload')['useApplyForceReload']>
     readonly useArrayDifference: UnwrapRef<typeof import('@vueuse/core')['useArrayDifference']>
     readonly useArrayEvery: UnwrapRef<typeof import('@vueuse/core')['useArrayEvery']>
     readonly useArrayFilter: UnwrapRef<typeof import('@vueuse/core')['useArrayFilter']>
@@ -890,6 +898,7 @@ declare module '@vue/runtime-core' {
     readonly useProjectStore: UnwrapRef<typeof import('./src/modules/Project/store/index')['useProjectStore']>
     readonly useRafFn: UnwrapRef<typeof import('@vueuse/core')['useRafFn']>
     readonly useRefHistory: UnwrapRef<typeof import('@vueuse/core')['useRefHistory']>
+    readonly useRegisterForceReload: UnwrapRef<typeof import('./src/hooks/useForceReload')['useRegisterForceReload']>
     readonly useResizeObserver: UnwrapRef<typeof import('@vueuse/core')['useResizeObserver']>
     readonly useResultStore: UnwrapRef<typeof import('./src/modules/Result/store/index')['useResultStore']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>

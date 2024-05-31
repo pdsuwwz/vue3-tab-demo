@@ -43,7 +43,9 @@ function renderLink (labelText: string, routeName: RouteRecordName) {
         name: routeName
       }
     },
-    { default: () => labelText }
+    {
+      default: () => labelText
+    }
   )
 }
 

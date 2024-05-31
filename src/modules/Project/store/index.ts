@@ -81,7 +81,7 @@ export const useProjectStore = defineStore('Project', {
           corpName: params.corpName,
           notes: params.notes,
           isPublished: false,
-          createTime: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+          createTime: `${ date.getFullYear() }-${ date.getMonth() + 1 }-${ date.getDate() }`
         })
       })
     },

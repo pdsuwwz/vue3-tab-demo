@@ -29,7 +29,9 @@ export const useMemberTeamStore = defineStore('MemberTeam', {
         this.memberTeamList = data!
       })
     },
-    async fetchAllMemberTeamList(params = { username: '' }) {
+    async fetchAllMemberTeamList(params = {
+      username: ''
+    }) {
       await sleep(130)
       // 模拟远程搜索
       const { username } = params

@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+defineOptions({
+  name: 'NoticeBoard'
+})
+const inputValue = ref('')
+</script>
+
+
 <template>
   <n-carousel
     autoplay
@@ -21,14 +29,6 @@
     >
   </n-carousel>
 </template>
-
-
-<script lang="ts" setup>
-defineOptions({
-  name: 'NoticeBoard'
-})
-const inputValue = ref('')
-</script>
 
 <style lang="scss" scoped>
 .carousel-img {

@@ -1,15 +1,3 @@
-<template>
-  <div
-    class="h-full overflow-y-auto"
-    :class="{
-      'px-10px py-12px': padding
-    }"
-  >
-    <slot></slot>
-  </div>
-</template>
-
-
 <script lang="ts" setup>
 defineOptions({
   name: 'LayoutPage'
@@ -23,6 +11,18 @@ defineProps({
 })
 
 </script>
+
+
+<template>
+  <div
+    class="h-full overflow-y-auto"
+    :class="{
+      'px-10px py-12px': padding
+    }"
+  >
+    <slot></slot>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 

@@ -1,21 +1,3 @@
-<template>
-  <n-dropdown
-    trigger="hover"
-    show-arrow
-    :options="commandList"
-  >
-    <div class="navigation-avatar">
-      <!-- <img
-        src="@/assets/images/navigation-avatar.webp"
-      > -->
-      <n-icon :size="24">
-        <UserAvatar />
-      </n-icon>
-      <span class="px-4px">Wisdom</span>
-    </div>
-  </n-dropdown>
-</template>
-
 <script lang="ts">
 import Cookie from 'js-cookie'
 
@@ -60,6 +42,25 @@ export default defineComponent({
   }
 })
 </script>
+
+<template>
+  <n-dropdown
+    trigger="hover"
+    show-arrow
+    :options="commandList"
+  >
+    <div class="navigation-avatar">
+      <!-- <img
+        src="@/assets/images/navigation-avatar.webp"
+      > -->
+      <n-icon :size="24">
+        <UserAvatar />
+      </n-icon>
+      <span class="px-4px">Wisdom</span>
+    </div>
+  </n-dropdown>
+</template>
+
 <style lang="scss">
 .navigation-avatar {
   display: flex;

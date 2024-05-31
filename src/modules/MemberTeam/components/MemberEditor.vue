@@ -1,76 +1,3 @@
-<template>
-  <n-card
-    :bordered="false"
-    :title="title"
-    class="bg-transparent"
-  >
-    <n-spin :show="loadingForm">
-      <n-form
-        ref="refForm"
-        :model="memberFormModel"
-        label-placement="top"
-        label-width="auto"
-        :disabled="disabledForm"
-      >
-        <n-grid
-          :x-gap="100"
-          cols="xs:1 s:1 m:2 l:2"
-          responsive="screen"
-        >
-          <n-grid-item>
-            <n-grid
-              cols="l:1"
-              responsive="screen"
-            >
-              <n-form-item-gi
-                v-for="(infoItem, index) in memberInfoMap"
-                :key="index"
-                :path="infoItem.path"
-                :label="infoItem.label"
-              >
-                <component
-                  :is="infoItem.render"
-                  v-if="infoItem.render"
-                  v-model:value="memberFormModel[infoItem.path]"
-                />
-
-                <n-input
-                  v-else
-                  v-model:value="memberFormModel[infoItem.path]"
-                />
-              </n-form-item-gi>
-            </n-grid>
-          </n-grid-item>
-          <n-grid-item>
-            <n-form-item
-              path="avatar"
-              label="成员头像"
-            >
-              <AvatarUpload
-                v-model="memberFormModel.avatar"
-                :disabled="disabledForm"
-              />
-            </n-form-item>
-          </n-grid-item>
-        </n-grid>
-
-        <n-form-item v-if="!disabledForm">
-          <n-button
-            type="primary"
-            :loading="loadingSubmit"
-            disabled
-            @click="handleSubmit()"
-          >
-            更新
-          </n-button>
-        </n-form-item>
-      </n-form>
-
-      <pre>{{ JSON.stringify(memberFormModel, null, 2) }}</pre>
-    </n-spin>
-  </n-card>
-</template>
-
 <script lang="ts" setup>
 import { sleep } from '@/utils/request'
 
@@ -234,6 +161,79 @@ const handleSubmit = async () => {
 
 
 </script>
+
+<template>
+  <n-card
+    :bordered="false"
+    :title="title"
+    class="bg-transparent"
+  >
+    <n-spin :show="loadingForm">
+      <n-form
+        ref="refForm"
+        :model="memberFormModel"
+        label-placement="top"
+        label-width="auto"
+        :disabled="disabledForm"
+      >
+        <n-grid
+          :x-gap="100"
+          cols="xs:1 s:1 m:2 l:2"
+          responsive="screen"
+        >
+          <n-grid-item>
+            <n-grid
+              cols="l:1"
+              responsive="screen"
+            >
+              <n-form-item-gi
+                v-for="(infoItem, index) in memberInfoMap"
+                :key="index"
+                :path="infoItem.path"
+                :label="infoItem.label"
+              >
+                <component
+                  :is="infoItem.render"
+                  v-if="infoItem.render"
+                  v-model:value="memberFormModel[infoItem.path]"
+                />
+
+                <n-input
+                  v-else
+                  v-model:value="memberFormModel[infoItem.path]"
+                />
+              </n-form-item-gi>
+            </n-grid>
+          </n-grid-item>
+          <n-grid-item>
+            <n-form-item
+              path="avatar"
+              label="成员头像"
+            >
+              <AvatarUpload
+                v-model="memberFormModel.avatar"
+                :disabled="disabledForm"
+              />
+            </n-form-item>
+          </n-grid-item>
+        </n-grid>
+
+        <n-form-item v-if="!disabledForm">
+          <n-button
+            type="primary"
+            :loading="loadingSubmit"
+            disabled
+            @click="handleSubmit()"
+          >
+            更新
+          </n-button>
+        </n-form-item>
+      </n-form>
+
+      <pre>{{ JSON.stringify(memberFormModel, null, 2) }}</pre>
+    </n-spin>
+  </n-card>
+</template>
 
 <style lang="scss" scoped>
 </style>

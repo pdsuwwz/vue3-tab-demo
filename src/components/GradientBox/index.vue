@@ -1,14 +1,3 @@
-<template>
-  <div
-    class="p-16px rounded-16px text-white"
-    :style="{
-      backgroundImage: gradientStyle
-    }"
-  >
-    <slot></slot>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 
@@ -32,6 +21,17 @@ const props = withDefaults(
 )
 
 const gradientStyle = computed(
-  () => `linear-gradient(to bottom right, ${props.startColor}, ${props.endColor})`
+  () => `linear-gradient(to bottom right, ${ props.startColor }, ${ props.endColor })`
 )
 </script>
+
+<template>
+  <div
+    class="p-16px rounded-16px text-white"
+    :style="{
+      backgroundImage: gradientStyle
+    }"
+  >
+    <slot></slot>
+  </div>
+</template>

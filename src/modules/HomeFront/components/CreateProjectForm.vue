@@ -1,119 +1,3 @@
-<template>
-  <n-form
-    ref="refForm"
-    :model="projectFormModel"
-    label-placement="top"
-    label-width="auto"
-    class="max-h-600px overflow-y-auto"
-  >
-    <n-list>
-      <template #header>
-        <div class="flex items-center">
-          <n-icon
-            class="mr-10px"
-            size="18"
-            :component="IconBookInformation24Regular"
-          />
-          <span class="text-16px font-700">基本信息</span>
-        </div>
-      </template>
-      <n-list-item>
-        <n-form-item
-          path="projectName"
-          label="项目名称"
-          :rule="getRequiredRules({
-            trigger: 'change',
-            message: '请输入项目名称'
-          })"
-        >
-          <n-input
-            v-model:value="projectFormModel.projectName"
-            maxlength="100"
-            show-count
-            placeholder="请输入项目名称"
-          />
-        </n-form-item>
-
-        <n-grid
-          :x-gap="20"
-          cols="2"
-          item-responsive
-          responsive="screen"
-        >
-          <n-form-item-gi
-            v-for="(infoItem, index) in projectBasicMap"
-            :key="index"
-            :path="infoItem.path"
-            :label="infoItem.label"
-            :span="infoItem.span || `xs:2 s:2 m:1`"
-            :rule="getRequiredRules({
-              trigger: 'change',
-              ...infoItem.rule
-            })"
-          >
-            <component
-              :is="infoItem.render"
-              v-if="infoItem.render"
-              v-model:value="projectFormModel[infoItem.path]"
-              class="flex-1"
-            />
-
-            <n-input
-              v-else
-              v-model:value="projectFormModel[infoItem.path]"
-            />
-          </n-form-item-gi>
-        </n-grid>
-      </n-list-item>
-    </n-list>
-
-
-    <n-list>
-      <template #header>
-        <div class="flex items-center">
-          <n-icon
-            class="mr-10px"
-            size="18"
-            :component="IconTeamOutlined"
-          />
-          <span class="text-16px font-700">成员分配</span>
-        </div>
-      </template>
-      <n-list-item>
-        <n-space vertical>
-          <n-form-item
-            v-for="(userRoleItem, index) in userRoleMap"
-            :key="index"
-            label-placement="left"
-            :label="userRoleItem.label + ':'"
-          >
-            <n-space>
-              <n-tag
-                v-for="(memberListRoleItem) in projectFormModel.memberList[userRoleItem.value]"
-                :key="memberListRoleItem.userId"
-                closable
-              >
-                {{ memberListRoleItem.username }}
-              </n-tag>
-              <n-button
-                size="small"
-                type="primary"
-                dashed
-                @click="handleSelectMembers(userRoleItem)"
-              >
-                添加
-              </n-button>
-            </n-space>
-            <!-- <n-button @click="handleSelectMembers()">选择成员</n-button> -->
-          </n-form-item>
-        </n-space>
-      </n-list-item>
-    </n-list>
-    <pre>{{ JSON.stringify(projectFormModel, null, 2) }}</pre>
-  </n-form>
-</template>
-
-
 <script lang="ts" setup>
 import {
   NDatePicker,
@@ -311,6 +195,122 @@ defineExpose({
 })
 
 </script>
+
+
+<template>
+  <n-form
+    ref="refForm"
+    :model="projectFormModel"
+    label-placement="top"
+    label-width="auto"
+    class="max-h-600px overflow-y-auto"
+  >
+    <n-list>
+      <template #header>
+        <div class="flex items-center">
+          <n-icon
+            class="mr-10px"
+            size="18"
+            :component="IconBookInformation24Regular"
+          />
+          <span class="text-16px font-700">基本信息</span>
+        </div>
+      </template>
+      <n-list-item>
+        <n-form-item
+          path="projectName"
+          label="项目名称"
+          :rule="getRequiredRules({
+            trigger: 'change',
+            message: '请输入项目名称'
+          })"
+        >
+          <n-input
+            v-model:value="projectFormModel.projectName"
+            maxlength="100"
+            show-count
+            placeholder="请输入项目名称"
+          />
+        </n-form-item>
+
+        <n-grid
+          :x-gap="20"
+          cols="2"
+          item-responsive
+          responsive="screen"
+        >
+          <n-form-item-gi
+            v-for="(infoItem, index) in projectBasicMap"
+            :key="index"
+            :path="infoItem.path"
+            :label="infoItem.label"
+            :span="infoItem.span || `xs:2 s:2 m:1`"
+            :rule="getRequiredRules({
+              trigger: 'change',
+              ...infoItem.rule
+            })"
+          >
+            <component
+              :is="infoItem.render"
+              v-if="infoItem.render"
+              v-model:value="projectFormModel[infoItem.path]"
+              class="flex-1"
+            />
+
+            <n-input
+              v-else
+              v-model:value="projectFormModel[infoItem.path]"
+            />
+          </n-form-item-gi>
+        </n-grid>
+      </n-list-item>
+    </n-list>
+
+
+    <n-list>
+      <template #header>
+        <div class="flex items-center">
+          <n-icon
+            class="mr-10px"
+            size="18"
+            :component="IconTeamOutlined"
+          />
+          <span class="text-16px font-700">成员分配</span>
+        </div>
+      </template>
+      <n-list-item>
+        <n-space vertical>
+          <n-form-item
+            v-for="(userRoleItem, index) in userRoleMap"
+            :key="index"
+            label-placement="left"
+            :label="userRoleItem.label + ':'"
+          >
+            <n-space>
+              <n-tag
+                v-for="(memberListRoleItem) in projectFormModel.memberList[userRoleItem.value]"
+                :key="memberListRoleItem.userId"
+                closable
+              >
+                {{ memberListRoleItem.username }}
+              </n-tag>
+              <n-button
+                size="small"
+                type="primary"
+                dashed
+                @click="handleSelectMembers(userRoleItem)"
+              >
+                添加
+              </n-button>
+            </n-space>
+            <!-- <n-button @click="handleSelectMembers()">选择成员</n-button> -->
+          </n-form-item>
+        </n-space>
+      </n-list-item>
+    </n-list>
+    <pre>{{ JSON.stringify(projectFormModel, null, 2) }}</pre>
+  </n-form>
+</template>
 
 <style lang="scss" scoped>
 
