@@ -1,47 +1,3 @@
-<template>
-  <n-grid
-    :x-gap="6"
-    :y-gap="6"
-    cols="xs:1 s:2 m:3"
-    item-responsive
-    responsive="screen"
-  >
-    <n-gi
-      v-for="(techItem, index) in configTechStack"
-      :key="index"
-    >
-      <n-card
-        hoverable
-        :bordered="true"
-        class="h-full cursor-pointer"
-        @click="handleToLink(techItem)"
-      >
-        <n-thing>
-          <template
-            #avatar
-          >
-            <n-avatar
-              :style="{
-                '--n-color': 'transparent',
-              }"
-              :src="techItem.icon"
-            >
-              <!-- <img :src="techItem.icon"> -->
-            </n-avatar>
-          </template>
-          <template
-            #header
-          >
-            {{ techItem.title }}
-          </template>
-          {{ techItem.desc }}
-        </n-thing>
-      </n-card>
-    </n-gi>
-  </n-grid>
-</template>
-
-
 <script lang="ts" setup>
 
 import LogoVue from '@/assets/brand/logo-vue.svg?url'
@@ -103,6 +59,50 @@ const handleToLink = (techItem) => {
 
 
 </script>
+
+
+<template>
+  <n-grid
+    :x-gap="6"
+    :y-gap="6"
+    cols="xs:1 s:2 m:3"
+    item-responsive
+    responsive="screen"
+  >
+    <n-gi
+      v-for="(techItem, index) in configTechStack"
+      :key="index"
+    >
+      <n-card
+        hoverable
+        :bordered="true"
+        class="h-full cursor-pointer"
+        @click="handleToLink(techItem)"
+      >
+        <n-thing>
+          <template
+            #avatar
+          >
+            <n-avatar
+              :style="{
+                '--n-color': 'transparent',
+              }"
+              :src="techItem.icon"
+            >
+              <!-- <img :src="techItem.icon"> -->
+            </n-avatar>
+          </template>
+          <template
+            #header
+          >
+            {{ techItem.title }}
+          </template>
+          {{ techItem.desc }}
+        </n-thing>
+      </n-card>
+    </n-gi>
+  </n-grid>
+</template>
 
 <style lang="scss" scoped>
 

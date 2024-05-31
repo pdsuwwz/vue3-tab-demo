@@ -29,6 +29,7 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 * Lodash
 * VueUse
 * Unplugin + UnoCSS
+* Iconify + Unplugin-Icons
 
 
 ## 🎉 Tab 核心特性

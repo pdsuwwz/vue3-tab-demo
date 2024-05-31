@@ -1,22 +1,3 @@
-<template>
-  <n-popover
-    trigger="hover"
-    placement="top-start"
-  >
-    <template #trigger>
-      <div
-        id="tabs-back-box"
-        @click="handleJumpToHome()"
-      >
-        <n-icon
-          :component="ArrowBackUp"
-        />
-      </div>
-    </template>
-    返回首页
-  </n-popover>
-</template>
-
 <script lang="ts" setup>
 import { ArrowBackUp } from '@vicons/tabler'
 
@@ -35,6 +16,25 @@ const handleJumpToHome = () => {
   router.push('/')
 }
 </script>
+
+<template>
+  <n-popover
+    trigger="hover"
+    placement="top-start"
+  >
+    <template #trigger>
+      <div
+        id="tabs-back-box"
+        @click="handleJumpToHome()"
+      >
+        <n-icon
+          :component="ArrowBackUp"
+        />
+      </div>
+    </template>
+    返回首页
+  </n-popover>
+</template>
 
 <style lang="scss" scoped>
 #tabs-back-box {

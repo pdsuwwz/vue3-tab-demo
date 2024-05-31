@@ -1,16 +1,3 @@
-<template>
-  <div
-    v-if="showTabs"
-    class="work-tabs__controller bg-#fff dark:bg-#333333"
-  >
-    <TabsBack v-if="!showOutset" />
-    <TabsOutset v-if="showOutset" />
-    <TabsHeader />
-    <TabsOptions />
-  </div>
-</template>
-
-
 <script lang="ts" setup>
 import TabsBack from './TabsBack.vue'
 import TabsOutset from './TabsOutset.vue'
@@ -26,6 +13,19 @@ const route = useRoute()
 const showTabs = computed(() => route.name !== 'GroupProjectList')
 const showOutset = computed(() => route.name !== 'GroupProjectOverview')
 </script>
+
+
+<template>
+  <div
+    v-if="showTabs"
+    class="work-tabs__controller bg-#fff dark:bg-#333333"
+  >
+    <TabsBack v-if="!showOutset" />
+    <TabsOutset v-if="showOutset" />
+    <TabsHeader />
+    <TabsOptions />
+  </div>
+</template>
 
 <style lang="scss" scoped>
 

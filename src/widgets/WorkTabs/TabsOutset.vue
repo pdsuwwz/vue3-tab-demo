@@ -1,18 +1,3 @@
-<template>
-  <div
-    id="tabs-outset-box"
-    @click="handleJumpToOverview()"
-  >
-    <n-icon
-      :component="AppFolder20Regular"
-    />
-    <span
-      v-if="false"
-      class="tabs-outset-box-label"
-    >驾</span>
-  </div>
-</template>
-
 <script lang="ts" setup>
 import { AppFolder20Regular } from '@vicons/fluent'
 
@@ -33,6 +18,21 @@ const handleJumpToOverview = () => {
   })
 }
 </script>
+
+<template>
+  <div
+    id="tabs-outset-box"
+    @click="handleJumpToOverview()"
+  >
+    <n-icon
+      :component="AppFolder20Regular"
+    />
+    <span
+      v-if="false"
+      class="tabs-outset-box-label"
+    >驾</span>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 #tabs-outset-box {

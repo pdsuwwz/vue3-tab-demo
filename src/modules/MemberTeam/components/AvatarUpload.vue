@@ -1,3 +1,83 @@
+<script lang="ts" setup>
+defineOptions({
+  name: 'AvatarUpload'
+})
+
+import { NButton, NIcon, NImage, NSpace, NUpload } from 'naive-ui'
+import type { PopoverInst, UploadFileInfo } from 'naive-ui'
+
+import { Pencil as IconPencil } from '@vicons/tabler'
+import { UploadOutlined as IconUploadOutlined } from '@vicons/antd'
+import { ArrowReset24Regular as IconArrowReset24Regular } from '@vicons/fluent'
+
+import memberAvatar from '@/assets/images/member-avatar.png'
+
+import * as FileHandler from '@/utils/fileHandler'
+
+const refPopover = ref<PopoverInst>()
+const avatarRef = ref<UploadFileInfo>()
+
+
+const props = defineProps({
+  disabled: {
+    type: Boolean,
+    default: false
+  }
+})
+const avatarSource = defineModel<string>()
+
+/**
+ * 选择文件更新回调
+ */
+const handleChangeFile = async (options: { fileList: UploadFileInfo[]; }) => {
+  refPopover.value!.setShow(false)
+  avatarRef.value = options.fileList[0]
+
+  FileHandler.fileToBase64Url(avatarRef.value.file)
+    .then((url) => {
+      avatarSource.value = url as string
+    })
+    .catch(() => {
+      avatarSource.value = memberAvatar
+    })
+}
+
+const handleResetDefault = () => {
+  refPopover.value!.setShow(false)
+
+  window.$ModalDialog.create({
+    title: '恢复默认头像',
+    closable: true,
+    content: () => h(
+      NSpace,
+      {
+        align: 'center',
+        justify: 'center'
+      },
+      () => [
+        '将',
+        h(NImage, {
+          width: 80,
+          src: avatarSource.value
+        }),
+        '替换为 ➔',
+        h(NImage, {
+          width: 80,
+          src: memberAvatar
+        })
+      ]
+    ),
+    positiveText: '确认恢复',
+    async onPositiveClick () {
+      avatarSource.value = memberAvatar
+    }
+  })
+}
+
+
+</script>
+
+
 <template>
   <div class="avatar-upload-box relative">
     <n-avatar
@@ -65,80 +145,6 @@
     </n-popover>
   </div>
 </template>
-
-
-<script lang="ts" setup>
-defineOptions({
-  name: 'AvatarUpload'
-})
-
-import { NButton, NIcon, NImage, NSpace, NUpload } from 'naive-ui'
-import type { PopoverInst, UploadFileInfo } from 'naive-ui'
-
-import { Pencil as IconPencil } from '@vicons/tabler'
-import { UploadOutlined as IconUploadOutlined } from '@vicons/antd'
-import { ArrowReset24Regular as IconArrowReset24Regular } from '@vicons/fluent'
-
-import memberAvatar from '@/assets/images/member-avatar.png'
-
-import * as FileHandler from '@/utils/fileHandler'
-
-const refPopover = ref<PopoverInst>()
-const avatarRef = ref<UploadFileInfo>()
-
-
-const props = defineProps({
-  disabled: {
-    type: Boolean,
-    default: false
-  }
-})
-const avatarSource = defineModel<string>()
-
-/**
- * 选择文件更新回调
- */
-const handleChangeFile = async (options: { fileList: UploadFileInfo[]; }) => {
-  refPopover.value!.setShow(false)
-  avatarRef.value = options.fileList[0]
-
-  FileHandler.fileToBase64Url(avatarRef.value.file)
-    .then((url) => {
-      avatarSource.value = url as string
-    })
-    .catch(() => {
-      avatarSource.value = memberAvatar
-    })
-}
-
-const handleResetDefault = () => {
-  refPopover.value!.setShow(false)
-
-  window.$ModalDialog.create({
-    title: '恢复默认头像',
-    closable: true,
-    content: () => h(
-      NSpace,
-      {
-        align: 'center',
-        justify: 'center'
-      },
-      () => [
-        '将',
-        h(NImage, { width: 80, src: avatarSource.value }),
-        '替换为 ➔',
-        h(NImage, { width: 80, src: memberAvatar })
-      ]
-    ),
-    positiveText: '确认恢复',
-    async onPositiveClick () {
-      avatarSource.value = memberAvatar
-    }
-  })
-}
-
-
-</script>
 
 <style lang="scss" scoped>
 .avatar-upload-box {

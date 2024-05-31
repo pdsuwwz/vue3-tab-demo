@@ -1,3 +1,24 @@
+<script lang="ts" setup>
+import TabsController from '@/widgets/WorkTabs/TabsController.vue'
+
+/**
+ * 上下左右布局，顶部导航 + (底部左侧侧边栏 + 底部右侧内容区域)
+ */
+defineOptions({
+  name: 'LayoutArea'
+})
+
+defineProps({
+  /**
+   * 开启后，子内容高度扩大后不会撑开父容器高度
+   */
+  minHeight: {
+    type: Boolean,
+    default: false
+  }
+})
+</script>
+
 <template>
   <div class="layout-area-container bg-#fff dark:bg-#1e1e20">
     <div class="layout-area-container__top">
@@ -31,27 +52,6 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import TabsController from '@/widgets/WorkTabs/TabsController.vue'
-
-/**
- * 上下左右布局，顶部导航 + (底部左侧侧边栏 + 底部右侧内容区域)
- */
-defineOptions({
-  name: 'LayoutArea'
-})
-
-defineProps({
-  /**
-   * 开启后，子内容高度扩大后不会撑开父容器高度
-   */
-  minHeight: {
-    type: Boolean,
-    default: false
-  }
-})
-</script>
-
 <style lang="scss" scoped>
 $headerHeight: 48px;
 
@@ -82,8 +82,7 @@ $headerHeight: 48px;
       .layout-area-menu-bar__inner {
         position: absolute;
         inset: 0;
-        overflow-x: hidden;
-        overflow-y: auto;
+        overflow: hidden auto;
         padding: 24px;
         scroll-behavior: smooth;
       }

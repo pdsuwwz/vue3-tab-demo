@@ -120,20 +120,22 @@ export const findUserStatusMapByRankName = (targetStatus) => {
 /**
  * 构造一份成员列表的假数据
  */
-export const memberTeamList = Array.from({ length: 100 }).map((_, index) => {
+export const memberTeamList = Array.from({
+  length: 100
+}).map((_, index) => {
   const _index = index + 1
 
-  const userId = `BJ${(`${_index }`).padStart(4, '0')}`
+  const userId = `BJ${ (`${ _index }`).padStart(4, '0') }`
   const rankItem = getRandomValueFromArray(userRankMap)
   const roleItem = getRandomValueFromArray(userRoleMap)
   return {
-    username: `Tom${_index}`,
+    username: `Tom${ _index }`,
     userId,
     roleId: roleItem.value,
     rank: rankItem.value,
-    phone: `${10000000000 + _index }`,
+    phone: `${ 10000000000 + _index }`,
     avatar: memberAvatar,
-    email: `${userId}@admin.com`,
+    email: `${ userId }@admin.com`,
     memberStatus: Math.random() > 0.5 ? 0 : 1
   } as TypesMemberTeam.TypeMemberPerson
 })

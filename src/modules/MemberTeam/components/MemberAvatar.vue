@@ -1,25 +1,3 @@
-<template>
-  <div
-    class="flex items-center"
-  >
-    <n-avatar
-      :src="avatar"
-      round
-      :size="size"
-    />
-    <div class="pl-12px">
-      <div>{{ title }}</div>
-      <n-text
-        depth="3"
-        tag="div"
-      >
-        {{ subTitle }}
-      </n-text>
-    </div>
-  </div>
-</template>
-
-
 <script lang="ts" setup>
 import type { Size } from 'naive-ui/es/avatar/src/interface'
 
@@ -47,6 +25,28 @@ defineProps({
 })
 
 </script>
+
+
+<template>
+  <div
+    class="flex items-center"
+  >
+    <n-avatar
+      :src="avatar"
+      round
+      :size="size"
+    />
+    <div class="pl-12px">
+      <div>{{ title }}</div>
+      <n-text
+        depth="3"
+        tag="div"
+      >
+        {{ subTitle }}
+      </n-text>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 

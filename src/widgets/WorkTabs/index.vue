@@ -1,14 +1,3 @@
-<template>
-  <div class="work-tabs-container">
-    <!-- <TabsController /> -->
-
-    <div class="work-tabs__content">
-      <TabContent />
-    </div>
-  </div>
-</template>
-
-
 <script lang="ts" setup>
 
 import TabsController from './TabsController.vue'
@@ -21,6 +10,17 @@ defineOptions({
 const route = useRoute()
 
 </script>
+
+
+<template>
+  <div class="work-tabs-container">
+    <!-- <TabsController /> -->
+
+    <div class="work-tabs__content">
+      <TabContent />
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .work-tabs-container {

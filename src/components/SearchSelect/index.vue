@@ -1,44 +1,3 @@
-<template>
-  <el-autocomplete
-    v-model.trim="searchValue"
-    v-bind="$attrs"
-    class="search-input-container"
-    popper-class="search-select-container"
-    :trigger-on-focus="false"
-    :fetch-suggestions="handleSearch"
-    :placeholder="placeholder"
-    @select="handleSelect"
-    @keydown.capture="keydown($event)"
-  >
-    <template
-      v-if="loading"
-      #suffix
-    >
-      <el-icon class="search-loading-icon">
-        <SpinnerIos20Regular />
-      </el-icon>
-    </template>
-    <template
-      v-else
-      #suffix
-    >
-      <i
-        class="search-icon"
-      >
-        <IconFont
-          icon="iconsearch"
-        />
-      </i>
-    </template>
-    <template #default="{ item }">
-      <span
-        :title="getExecText(item.label)"
-        v-html="item.label"
-      ></span>
-    </template>
-  </el-autocomplete>
-</template>
-
 <script lang="ts">
 import { SpinnerIos20Regular } from '@vicons/fluent'
 
@@ -143,7 +102,7 @@ export default defineComponent({
           .replace(
             new RegExp(query, 'gi'),
             (match: string) => {
-              return `<span class="search-select-highlight">${match}</span>`
+              return `<span class="search-select-highlight">${ match }</span>`
             }
           )
       })
@@ -157,6 +116,47 @@ export default defineComponent({
   }
 })
 </script>
+
+<template>
+  <el-autocomplete
+    v-model.trim="searchValue"
+    v-bind="$attrs"
+    class="search-input-container"
+    popper-class="search-select-container"
+    :trigger-on-focus="false"
+    :fetch-suggestions="handleSearch"
+    :placeholder="placeholder"
+    @select="handleSelect"
+    @keydown.capture="keydown($event)"
+  >
+    <template
+      v-if="loading"
+      #suffix
+    >
+      <el-icon class="search-loading-icon">
+        <SpinnerIos20Regular />
+      </el-icon>
+    </template>
+    <template
+      v-else
+      #suffix
+    >
+      <i
+        class="search-icon"
+      >
+        <IconFont
+          icon="iconsearch"
+        />
+      </i>
+    </template>
+    <template #default="{ item }">
+      <span
+        :title="getExecText(item.label)"
+        v-html="item.label"
+      ></span>
+    </template>
+  </el-autocomplete>
+</template>
 
 <style lang="scss">
 .search-input-container {

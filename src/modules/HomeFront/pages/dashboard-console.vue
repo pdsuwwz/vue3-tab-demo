@@ -1,39 +1,4 @@
 
-<template>
-  <div class="h-full flex-1 b b-#dcdfe6 dark:b-#444 b-solid">
-    <n-grid
-      :x-gap="6"
-      :y-gap="6"
-      cols="xs:1 s:2 m:3 l:4"
-      responsive="screen"
-    >
-      <n-gi
-        v-for="(cardConfigItem, index) in cardConfigOptions"
-        :key="index"
-      >
-        <n-card
-          hoverable
-          :bordered="false"
-          class="cursor-pointer"
-          @click="handlePreviewUrl(cardConfigItem)"
-        >
-          <template #header>
-            <n-icon
-              :size="30"
-              :component="cardConfigItem.icon"
-            />
-          </template>
-          {{ cardConfigItem.title }}
-        </n-card>
-      </n-gi>
-    </n-grid>
-
-    <div>
-      {{ overviewData.content }}
-    </div>
-  </div>
-</template>
-
 <script lang="ts" setup>
 import { useResultStore } from '@/modules/Result/store'
 
@@ -110,6 +75,41 @@ const handlePreviewUrl = (cardItem: CardConfig) => {
 
 
 </script>
+
+<template>
+  <div class="h-full flex-1 b b-#dcdfe6 dark:b-#444 b-solid">
+    <n-grid
+      :x-gap="6"
+      :y-gap="6"
+      cols="xs:1 s:2 m:3 l:4"
+      responsive="screen"
+    >
+      <n-gi
+        v-for="(cardConfigItem, index) in cardConfigOptions"
+        :key="index"
+      >
+        <n-card
+          hoverable
+          :bordered="false"
+          class="cursor-pointer"
+          @click="handlePreviewUrl(cardConfigItem)"
+        >
+          <template #header>
+            <n-icon
+              :size="30"
+              :component="cardConfigItem.icon"
+            />
+          </template>
+          {{ cardConfigItem.title }}
+        </n-card>
+      </n-gi>
+    </n-grid>
+
+    <div>
+      {{ overviewData.content }}
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .wrap-result-overview-content {

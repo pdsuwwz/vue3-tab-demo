@@ -3,4 +3,5 @@ interface Window {
   $ModalNotification: import('naive-ui').NotificationProviderInst
   $ModalDialog: import('naive-ui').DialogProviderInst
   $ModalLoadingBar: import('naive-ui').LoadingBarProviderInst
+  $ModalDrawer: import('@/components/Drawer/type').DrawerApiInjection
 }

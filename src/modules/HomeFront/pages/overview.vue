@@ -1,3 +1,32 @@
+<script lang="ts" setup>
+import TechStack from '@/modules/HomeFront/components/TechStack.vue'
+import QuickStart from '@/modules/HomeFront/components/QuickStart.vue'
+import DynamicActivity from '@/modules/HomeFront/components/DynamicActivity.vue'
+import NoticeBoard from '@/modules/HomeFront/components/NoticeBoard.vue'
+
+/**
+ * Dashboard Console 主控制台
+ */
+defineOptions({
+  name: 'DashboardConsole'
+})
+
+const route = useRoute()
+const router = useRouter()
+
+const pageTitle = ref('Dashboard Console 主控制台')
+
+
+const handlerPreviewDetail = () => {
+  router.push({
+    name: 'GroupProjectList'
+  })
+}
+
+
+</script>
+
+
 <template>
   <LayoutSection class="p-16px">
     <n-grid
@@ -63,35 +92,6 @@
     </n-grid>
   </LayoutSection>
 </template>
-
-
-<script lang="ts" setup>
-import TechStack from '@/modules/HomeFront/components/TechStack.vue'
-import QuickStart from '@/modules/HomeFront/components/QuickStart.vue'
-import DynamicActivity from '@/modules/HomeFront/components/DynamicActivity.vue'
-import NoticeBoard from '@/modules/HomeFront/components/NoticeBoard.vue'
-
-/**
- * Dashboard Console 主控制台
- */
-defineOptions({
-  name: 'DashboardConsole'
-})
-
-const route = useRoute()
-const router = useRouter()
-
-const pageTitle = ref('Dashboard Console 主控制台')
-
-
-const handlerPreviewDetail = () => {
-  router.push({
-    name: 'GroupProjectList'
-  })
-}
-
-
-</script>
 
 <style lang="scss" scoped>
 </style>

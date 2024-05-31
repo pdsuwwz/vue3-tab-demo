@@ -1,3 +1,32 @@
+<script lang="ts" setup>
+import NavigationSideAction from '@/components/Navigation/Side/SideAction.vue'
+import NavigationAvatar from '@/components/Navigation/Avatar.vue'
+import NavigationChangeTheme from '@/components/Navigation/ChangeTheme.vue'
+import NavigationFullScreen from '@/components/Navigation/FullScreen.vue'
+import NavigationSideLogo from '@/components/Navigation/Side/SideLogo.vue'
+
+import Octocat from '@/components/Octocat.vue'
+
+defineOptions({
+  name: 'NavigationNavBar'
+})
+
+const props = defineProps({
+  fixed: {
+    type: Boolean,
+    default: false
+  }
+})
+const { reloadRouterView } = useApplyForceReload()
+
+const route = useRoute()
+
+const isAuth = computed(() => {
+  return route.name !== 'UserLogin'
+})
+
+</script>
+
 <template>
   <header
     class="navigation-navbar-header-container"
@@ -19,6 +48,18 @@
       />
       <div style="flex: 1;"></div>
       <NavigationSideAction v-if="isAuth" />
+      <n-tooltip>
+        强制刷新路由
+        <template #trigger>
+          <div
+            class="h-full text-1.5em i-material-symbols:refresh"
+            flex="~ items-center"
+            cursor-pointer
+            @click="reloadRouterView()"
+          >
+          </div>
+        </template>
+      </n-tooltip>
       <NavigationChangeTheme />
       <Octocat />
       <NavigationFullScreen />
@@ -27,33 +68,6 @@
   </header>
 </template>
 
-<script lang="ts" setup>
-import NavigationSideAction from '@/components/Navigation/Side/SideAction.vue'
-import NavigationAvatar from '@/components/Navigation/Avatar.vue'
-import NavigationChangeTheme from '@/components/Navigation/ChangeTheme.vue'
-import NavigationFullScreen from '@/components/Navigation/FullScreen.vue'
-import NavigationSideLogo from '@/components/Navigation/Side/SideLogo.vue'
-
-import Octocat from '@/components/Octocat.vue'
-
-defineOptions({
-  name: 'NavigationNavBar'
-})
-
-const props = defineProps({
-  fixed: {
-    type: Boolean,
-    default: false
-  }
-})
-
-const route = useRoute()
-
-const isAuth = computed(() => {
-  return route.name !== 'UserLogin'
-})
-
-</script>
 <style lang="scss" scoped>
 $headerHeight: 48px;
 

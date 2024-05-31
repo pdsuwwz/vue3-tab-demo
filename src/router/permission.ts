@@ -5,7 +5,7 @@ import { allowlist } from '@/router/auth-list'
 import { systemTitleEn } from '@/base'
 
 import NProgress from 'nprogress'
-import { Router } from 'vue-router'
+import type { Router } from 'vue-router'
 
 NProgress.configure({
   showSpinner: false
@@ -17,7 +17,7 @@ export function createRouterGuards(router: Router) {
 
     NProgress.start()
 
-    document.title = `${to.meta.title || ''} - ${ systemTitleEn }`
+    document.title = `${ to.meta.title || '' } - ${ systemTitleEn }`
 
     console.log('😄😄😄 ', to)
 

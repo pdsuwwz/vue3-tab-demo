@@ -1,14 +1,3 @@
-<template>
-  <n-menu
-    v-model:value="activeKey"
-    class="work-menu select-none"
-    :options="menuOptions"
-    default-expand-all
-    @update:value="handleSelect"
-  />
-</template>
-
-
 <script lang="ts" setup>
 import { useMenuHook } from './hooks'
 
@@ -24,6 +13,17 @@ const {
 } = useMenuHook()
 
 </script>
+
+
+<template>
+  <n-menu
+    v-model:value="activeKey"
+    class="work-menu select-none"
+    :options="menuOptions"
+    default-expand-all
+    @update:value="handleSelect"
+  />
+</template>
 
 <style lang="scss">
 .work-menu {

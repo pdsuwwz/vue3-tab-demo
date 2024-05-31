@@ -1,3 +1,26 @@
+<script lang="ts">
+import Octocat from '@/components/Octocat.vue'
+
+export default defineComponent({
+  name: 'CustomFooter',
+  components: {
+    Octocat
+  },
+  props: {
+    showBorder: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup() {
+    const link = ref('https://github.com/pdsuwwz')
+    return {
+      link
+    }
+  }
+})
+</script>
+
 <template>
   <footer
     class="footer"
@@ -23,28 +46,7 @@
     </div>
   </footer>
 </template>
-<script lang="ts">
-import Octocat from '@/components/Octocat.vue'
 
-export default defineComponent({
-  name: 'MyFooter',
-  components: {
-    Octocat
-  },
-  props: {
-    showBorder: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup() {
-    const link = ref('https://github.com/pdsuwwz')
-    return {
-      link
-    }
-  }
-})
-</script>
 <style lang="scss" scoped>
 .footer {
   margin: 0 auto;

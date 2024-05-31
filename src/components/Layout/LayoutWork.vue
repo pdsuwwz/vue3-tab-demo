@@ -1,3 +1,21 @@
+<script lang="ts">
+export default defineComponent({
+  name: 'LayoutWork'
+})
+</script>
+
+
+<script lang="ts" setup>
+import WorkMenu from '@/widgets/WorkMenu/index.vue'
+import WorkTabs from '@/widgets/WorkTabs/index.vue'
+
+
+const refSidebar = ref<HTMLElement>()
+const hasBorder = ref(false)
+
+
+</script>
+
 <template>
   <div class="wrap-layout__work">
     <div
@@ -33,24 +51,6 @@
   </div>
 </template>
 
-
-<script lang="ts">
-export default defineComponent({
-  name: 'LayoutWork'
-})
-</script>
-
-<script lang="ts" setup>
-import WorkMenu from '@/widgets/WorkMenu/index.vue'
-import WorkTabs from '@/widgets/WorkTabs/index.vue'
-
-
-const refSidebar = ref<HTMLElement>()
-const hasBorder = ref(false)
-
-
-</script>
-
 <style lang="scss" scoped>
 .wrap-layout__work {
   display: flex;
@@ -60,7 +60,7 @@ const hasBorder = ref(false)
     position: relative;
     height: inherit;
 
-    --at-apply: sidebar-shadow dark:dark-sidebar-shadow;
+    --at-apply: sidebar-shadow "dark:dark-sidebar-shadow";
 
     .resizable {
       overflow: scroll;
@@ -110,7 +110,7 @@ const hasBorder = ref(false)
       &.has-border {
         // border-right: 1px solid #d3d7df;
 
-        --at-apply: b-r b-r-solid b-r-#d3d7df dark:b-r-#444;
+        --at-apply: b-r b-r-solid b-r-#d3d7df "dark:b-r-#444";
       }
     }
   }

@@ -1,13 +1,3 @@
-<template>
-  <LayoutPage>
-    <MemberEditor
-      title="成员管理-成员信息查看"
-      :user-id="userId"
-      readonly
-    />
-  </LayoutPage>
-</template>
-
 <script lang="ts" setup>
 
 /**
@@ -24,6 +14,16 @@ const route = useRoute()
 const userId = ref(route.params.datasetId as string)
 
 </script>
+
+<template>
+  <LayoutPage>
+    <MemberEditor
+      title="成员管理-成员信息查看"
+      :user-id="userId"
+      readonly
+    />
+  </LayoutPage>
+</template>
 
 <style lang="scss" scoped>
 </style>

@@ -1,97 +1,3 @@
-<template>
-  <n-grid
-    cols="2"
-    :x-gap="10"
-    item-responsive
-    responsive="screen"
-    class="member-assign-card-box h-500px overflow-hidden"
-  >
-    <n-gi
-      span="1"
-      class="flex flex-col min-h-0"
-    >
-      <n-input
-        v-model:value="searchValue"
-        placeholder="输入成员名称，模拟远程搜索"
-        clearable
-        @update:value="handleChangeSearch"
-      >
-        <template #prefix>
-          <n-icon :component="IconSearch" />
-        </template>
-      </n-input>
-      <div class="py-10px"><!-- 分割线 --></div>
-      <div
-        class="flex-1 overflow-y-auto"
-      >
-        <!-- 内容区域 -->
-        <n-data-table
-          v-model:checked-row-keys="checkedRowKeysRef"
-          :style="{
-            height: `100%`,
-          }"
-          flex-height
-          :bordered="true"
-          :single-line="false"
-          size="small"
-          :columns="leftTableColumns"
-          :data="leftTableData"
-          :loading="leftTableLoading"
-          :row-key="getRowKey"
-          @update:checked-row-keys="handleUpdateCheckedRows"
-        />
-      </div>
-    </n-gi>
-
-
-    <n-gi
-      span="1"
-      class="flex flex-col min-h-0"
-    >
-      <div class="flex items-center pl-10px h-34px">
-        {{ checkedRowKeysRef.length ? `已选择${checkedRowKeysRef.length}个成员` : `请选择要添加的成员` }}
-      </div>
-      <div class="py-10px"><!-- 分割线 --></div>
-      <div
-        class="flex-1 overflow-y-auto"
-      >
-        <!-- 内容区域 -->
-        <n-list
-          hoverable
-          :show-divider="false"
-        >
-          <n-list-item
-            v-for="(checkedRowItem) in checkedRowsRef"
-            :key="checkedRowItem.userId"
-          >
-            <n-space
-              justify="space-between"
-              align="center"
-            >
-              <MemberAvatar
-                :size="26"
-                :avatar="checkedRowItem.avatar"
-                :title="checkedRowItem.username"
-                :sub-title="checkedRowItem.userId"
-              />
-              <n-button
-                text
-                @click="handleRemoveMember(checkedRowItem)"
-              >
-                <n-icon
-                  size="20"
-                  :component="IconClose"
-                />
-              </n-button>
-            </n-space>
-          </n-list-item>
-        </n-list>
-      </div>
-    </n-gi>
-  </n-grid>
-</template>
-
-
 <script lang="ts" setup>
 defineOptions({
   name: 'MemberAssignCard'
@@ -197,7 +103,9 @@ const leftTableColumns: DataTableColumns<TypesMemberTeam.TypeMemberPerson> = [
  */
 const leftTableLoading = ref(true)
 const leftTableData = ref<Array<TypesMemberTeam.TypeMemberPerson>>([])
-const initLeftTableList = async (params = { username: '' }) => {
+const initLeftTableList = async (params = {
+  username: ''
+}) => {
   leftTableLoading.value = true
   const { error, data } = await memberTeamStore.fetchAllMemberTeamList(params)
   leftTableLoading.value = false
@@ -227,6 +135,100 @@ defineExpose({
 })
 
 </script>
+
+
+<template>
+  <n-grid
+    cols="2"
+    :x-gap="10"
+    item-responsive
+    responsive="screen"
+    class="member-assign-card-box h-500px overflow-hidden"
+  >
+    <n-gi
+      span="1"
+      class="flex flex-col min-h-0"
+    >
+      <n-input
+        v-model:value="searchValue"
+        placeholder="输入成员名称，模拟远程搜索"
+        clearable
+        @update:value="handleChangeSearch"
+      >
+        <template #prefix>
+          <n-icon :component="IconSearch" />
+        </template>
+      </n-input>
+      <div class="py-10px"><!-- 分割线 --></div>
+      <div
+        class="flex-1 overflow-y-auto"
+      >
+        <!-- 内容区域 -->
+        <n-data-table
+          v-model:checked-row-keys="checkedRowKeysRef"
+          :style="{
+            height: `100%`,
+          }"
+          flex-height
+          :bordered="true"
+          :single-line="false"
+          size="small"
+          :columns="leftTableColumns"
+          :data="leftTableData"
+          :loading="leftTableLoading"
+          :row-key="getRowKey"
+          @update:checked-row-keys="handleUpdateCheckedRows"
+        />
+      </div>
+    </n-gi>
+
+
+    <n-gi
+      span="1"
+      class="flex flex-col min-h-0"
+    >
+      <div class="flex items-center pl-10px h-34px">
+        {{ checkedRowKeysRef.length ? `已选择${checkedRowKeysRef.length}个成员` : `请选择要添加的成员` }}
+      </div>
+      <div class="py-10px"><!-- 分割线 --></div>
+      <div
+        class="flex-1 overflow-y-auto"
+      >
+        <!-- 内容区域 -->
+        <n-list
+          hoverable
+          :show-divider="false"
+        >
+          <n-list-item
+            v-for="(checkedRowItem) in checkedRowsRef"
+            :key="checkedRowItem.userId"
+          >
+            <n-space
+              justify="space-between"
+              align="center"
+            >
+              <MemberAvatar
+                :size="26"
+                :avatar="checkedRowItem.avatar"
+                :title="checkedRowItem.username"
+                :sub-title="checkedRowItem.userId"
+              />
+              <n-button
+                text
+                @click="handleRemoveMember(checkedRowItem)"
+              >
+                <n-icon
+                  size="20"
+                  :component="IconClose"
+                />
+              </n-button>
+            </n-space>
+          </n-list-item>
+        </n-list>
+      </div>
+    </n-gi>
+  </n-grid>
+</template>
 
 <style lang="scss">
 .member-assign-card-box {

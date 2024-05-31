@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import NaiveProvider from '@/provider/NaiveProvider.vue'
+import { dateZhCN, zhCN } from 'naive-ui'
+
+const { theme, themeOverrides } = useTheme()
+
+defineOptions({
+  name: 'App'
+})
+
+const route = useRoute()
+
+</script>
+
 <template>
   <NConfigProvider
     class="h-full"
@@ -11,20 +25,6 @@
     </NaiveProvider>
   </NConfigProvider>
 </template>
-
-<script lang="ts" setup>
-import NaiveProvider from './NaiveProvider.vue'
-import { dateZhCN, zhCN } from 'naive-ui'
-
-const { theme, themeOverrides } = useTheme()
-
-defineOptions({
-  name: 'App'
-})
-
-const route = useRoute()
-
-</script>
 
 <style lang="scss">
 @use "@/styles/index.scss";

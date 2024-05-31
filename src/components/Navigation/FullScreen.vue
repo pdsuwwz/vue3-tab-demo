@@ -1,3 +1,15 @@
+<script lang="ts" setup>
+import { FullScreenMaximize24Regular, FullScreenMinimize24Filled } from '@vicons/fluent'
+
+defineOptions({
+  name: 'NavigationFullScreen'
+})
+
+const { isFullscreen, toggle } = useFullscreen()
+
+</script>
+
+
 <template>
   <div class="flex items-center h-full cursor-pointer">
     <n-icon
@@ -9,18 +21,6 @@
     />
   </div>
 </template>
-
-
-<script lang="ts" setup>
-import { FullScreenMaximize24Regular, FullScreenMinimize24Filled } from '@vicons/fluent'
-
-defineOptions({
-  name: 'NavigationFullScreen'
-})
-
-const { isFullscreen, toggle } = useFullscreen()
-
-</script>
 
 <style lang="scss" scoped>
 

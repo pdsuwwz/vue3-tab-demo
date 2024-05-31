@@ -1,35 +1,7 @@
-<template>
-  <div class="navigation-change-theme">
-    <n-switch
-      v-model:value="active"
-      checked-value="dark"
-      unchecked-value="light"
-      :rail-style="railStyle"
-      :style="{
-        '--n-icon-color': isDark ? '#fff' : '#000',
-        '--n-button-color': isDark ? '#000' : '#fff',
-        '--n-button-box-shadow': 'none',
-      }"
-      @update:value="handleChange"
-    >
-      <template #checked-icon>
-        <n-icon
-          :component="DarkModeOutlined"
-        />
-      </template>
-      <template #unchecked-icon>
-        <n-icon
-          :component="LightModeOutlined"
-        />
-      </template>
-    </n-switch>
-  </div>
-</template>
-
 <script lang="ts" setup>
 import { useAppStore } from '@/store/hooks/useAppStore'
 import { DarkModeOutlined, LightModeOutlined } from '@vicons/material'
-import { CSSProperties } from 'vue'
+import type { CSSProperties } from 'vue'
 
 const appStore = useAppStore()
 const { isDark } = useTheme()
@@ -64,6 +36,34 @@ const handleChange = (_theme) => {
 }
 
 </script>
+
+<template>
+  <div class="navigation-change-theme">
+    <n-switch
+      v-model:value="active"
+      checked-value="dark"
+      unchecked-value="light"
+      :rail-style="railStyle"
+      :style="{
+        '--n-icon-color': isDark ? '#fff' : '#000',
+        '--n-button-color': isDark ? '#000' : '#fff',
+        '--n-button-box-shadow': 'none',
+      }"
+      @update:value="handleChange"
+    >
+      <template #checked-icon>
+        <n-icon
+          :component="DarkModeOutlined"
+        />
+      </template>
+      <template #unchecked-icon>
+        <n-icon
+          :component="LightModeOutlined"
+        />
+      </template>
+    </n-switch>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .navigation-change-theme {

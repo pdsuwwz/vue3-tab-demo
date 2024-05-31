@@ -1,59 +1,3 @@
-<template>
-  <LayoutSection
-    flex-content
-  >
-    <template #title>
-      <n-icon
-        :size="22"
-        class="flex items-center"
-      >
-        <IconPaperPlaneRegular />
-      </n-icon>
-      <h3>项目列表</h3>
-    </template>
-    <template #action>
-      <div class="w-320px">
-        <n-input
-          v-model:value="searchValue"
-          placeholder="请输入项目名称搜索"
-          clearable
-          @update:value="handleChangeTableData"
-        >
-          <template #prefix>
-            <n-icon
-              :component="IconSearch"
-            />
-          </template>
-        </n-input>
-      </div>
-      <n-button
-        type="primary"
-        @click="handleCreateProject()"
-      >
-        <template #icon>
-          <n-icon :component="IconAdd" />
-        </template>
-        添加项目
-      </n-button>
-    </template>
-
-    <n-data-table
-      :columns="tableColumns"
-      :data="filterTableData"
-      :style="{
-        height: `100%`,
-      }"
-      striped
-      flex-height
-      :loading="tableLoading"
-      :bordered="false"
-    />
-    <MyFooter
-      show-border
-    />
-  </LayoutSection>
-</template>
-
 <script lang="ts" setup>
 import { Add as IconAdd, Search as IconSearch } from '@vicons/carbon'
 import { PaperPlaneRegular as IconPaperPlaneRegular } from '@vicons/fa'
@@ -108,7 +52,9 @@ const createColumns = (): DataTableColumns<ProjectItem> => {
             strong: true,
             onClick: () => handlerPreviewDetail(row)
           },
-          { default: () => row.projectName }
+          {
+            default: () => row.projectName
+          }
         )
       }
     },
@@ -141,7 +87,9 @@ const createColumns = (): DataTableColumns<ProjectItem> => {
             strong: true,
             onClick: () => handlerPreviewDetail(row)
           },
-          { default: () => '查看' }
+          {
+            default: () => '查看'
+          }
         )
       }
     }
@@ -212,6 +160,62 @@ const handleCreateProject = () => {
 }
 
 </script>
+
+<template>
+  <LayoutSection
+    flex-content
+  >
+    <template #title>
+      <n-icon
+        :size="22"
+        class="flex items-center"
+      >
+        <IconPaperPlaneRegular />
+      </n-icon>
+      <h3>项目列表</h3>
+    </template>
+    <template #action>
+      <div class="w-320px">
+        <n-input
+          v-model:value="searchValue"
+          placeholder="请输入项目名称搜索"
+          clearable
+          @update:value="handleChangeTableData"
+        >
+          <template #prefix>
+            <n-icon
+              :component="IconSearch"
+            />
+          </template>
+        </n-input>
+      </div>
+      <n-button
+        type="primary"
+        @click="handleCreateProject()"
+      >
+        <template #icon>
+          <n-icon :component="IconAdd" />
+        </template>
+        添加项目
+      </n-button>
+    </template>
+
+    <n-data-table
+      :columns="tableColumns"
+      :data="filterTableData"
+      :style="{
+        height: `100%`,
+      }"
+      striped
+      flex-height
+      :loading="tableLoading"
+      :bordered="false"
+    />
+    <CustomFooter
+      show-border
+    />
+  </LayoutSection>
+</template>
 
 <style lang="scss" scoped>
 </style>
