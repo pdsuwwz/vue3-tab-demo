@@ -17,8 +17,11 @@ const NaiveProviderWrapper = defineComponent({
   name: 'NaiveProviderWrapper',
   setup(props, { slots }) {
     registerNaiveTools()
-    console.log('撒大叔2323232')
-    return () => h('div')
+    return () => h('div', {
+      class: 'h-vh w-vw'
+    }, {
+      default: slots.default!
+    })
   }
 })
 
@@ -33,8 +36,9 @@ const { notifyPlacement } = useNotifyPlacement()
           :placement="notifyPlacement"
         >
           <NMessageProvider>
-            <slot></slot>
-            <NaiveProviderWrapper />
+            <NaiveProviderWrapper>
+              <slot></slot>
+            </NaiveProviderWrapper>
           </NMessageProvider>
         </NNotificationProvider>
       </NDialogProvider>
