@@ -1,1 +1,0 @@
-import{d as o,o as s,b as t,aE as n,ch as l}from"./index-DMvxVjEm.js";const d=o({name:"LayoutPage",__name:"LayoutPage",props:{padding:{type:Boolean,default:!1}},setup(a){return(e,p)=>(s(),t("div",{class:l(["h-full overflow-y-auto",{"px-10px py-12px":a.padding}])},[n(e.$slots,"default")],2))}});export{d as _};
