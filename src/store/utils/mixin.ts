@@ -1,4 +1,4 @@
-import { RespData } from '@/utils/request'
+import type { RespData } from '@/utils/request'
 
 type ResponseCallback<T> = (res: RespData<T>) => (typeof res) | any
 
@@ -13,10 +13,8 @@ export function getFilterResponse<T>(
     } else {
       errorCallback
         ? errorCallback(res)
-        : setTimeout(() => {
-          window.$ModalMessage?.error(res.msg!, {
-            closable: true
-          })
+        : window.$ModalMessage?.error(res.msg!, {
+          closable: true
         })
     }
     resolve(res)
