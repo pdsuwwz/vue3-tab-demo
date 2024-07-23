@@ -160,7 +160,7 @@ export default defineFlatConfig([
       'no-loss-of-precision': 'error',
       'no-misleading-character-class': 'error',
       'no-multi-str': 'error',
-      'no-new': 'error',
+      'no-new': 'off',
       'no-new-func': 'error',
       'no-new-native-nonconstructor': 'error',
       'no-new-wrappers': 'error',
@@ -361,6 +361,7 @@ export default defineFlatConfig([
       '@typescript-eslint/indent': ['error', 2, {
         SwitchCase: 1
       }],
+      '@typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': 1,
