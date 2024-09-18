@@ -19,7 +19,7 @@
     "prepare": "husky"
   },
   "engines": {
-    "node": ">= 18.15.x",
+    "node": ">= 18.12.x",
     "pnpm": ">= 9.x"
   },
   "keywords": [
