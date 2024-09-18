@@ -20,7 +20,7 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 ## 🌱 技术栈
 
 * Naive UI 2.x
-* Vue 3.4.x
+* Vue 3.5.x
 * Vite 5.x + Vitest
 * Pinia 2.x
 * TypeScript 5.x
@@ -47,7 +47,7 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 
 ## 前置条件
 
-* Vue 3.4.x
+* Vue 3.5.x
 * Node >= 16.15.x
 * Pnpm 8.x
 * **VS Code 插件 `dbaeumer.vscode-eslint` >= v3.0.5 (pre-release)**
