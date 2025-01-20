@@ -1,70 +1,65 @@
-<script lang="ts">
+<script lang="ts" setup>
 
-export default defineComponent({
-  name: 'IconFont',
-  props: {
-    icon: {
-      type: String,
-      default: ''
-    },
-    shadow: {
-      type: Boolean,
-      default: false
-    },
-    verticalCenter: {
-      type: Boolean,
-      default: false
-    },
-    cursor: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
+const props = defineProps({
+  icon: {
+    type: String,
+    default: ''
   },
-  emits: ['click'],
-  setup (props, { emit }) {
-    const getClassName = computed(() => {
-      const className: string[] = []
-      if (props.verticalCenter) {
-        className.push('middle')
-      }
-      if (props.cursor) {
-        className.push('cursor')
-      }
-      if (props.disabled) {
-        className.push('disabled')
-      }
-      return className
-    })
-
-    const handleClick = () => {
-      !props.disabled && emit('click')
-    }
-
-    const getAttrs = () => {
-      const attrs: any = {}
-      props.shadow &&
-      (attrs.filter = 'url(#drop-shadow)')
-      return attrs
-    }
-    return {
-      getClassName,
-
-      handleClick,
-      getAttrs
-    }
+  shadow: {
+    type: Boolean,
+    default: false
+  },
+  verticalCenter: {
+    type: Boolean,
+    default: false
+  },
+  cursor: {
+    type: Boolean,
+    default: false
+  },
+  disabled: {
+    type: Boolean,
+    default: false
   }
 })
+
+const emit = defineEmits(['click'])
+
+const getClassNames = computed(() => {
+  const classNames: string[] = []
+  if (props.verticalCenter) {
+    classNames.push('middle')
+  }
+  if (props.cursor) {
+    classNames.push('cursor')
+  }
+  if (props.disabled) {
+    classNames.push('disabled')
+  }
+  return classNames
+})
+
+const handleClick = () => {
+  if (!props.disabled) {
+    emit('click')
+  }
+}
+
+const getAttrs = () => {
+  const attrs: any = {}
+  if (props.shadow) {
+    attrs.filter = 'url(#drop-shadow)'
+  }
+  return attrs
+}
+
 </script>
 
 <template>
   <svg
     class="icon-font"
     aria-hidden="true"
-    :class="getClassName"
+    :class="getClassNames"
     @click="handleClick()"
   >
     <filter

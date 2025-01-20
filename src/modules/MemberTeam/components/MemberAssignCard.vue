@@ -59,7 +59,9 @@ const handleUpdateCheckedRows = (keys, rows: Array<object>, meta) => {
     checkedRowsRef.value.push(_row)
   } else {
     const _index = checkedRowsRef.value.findIndex(checkedRow => checkedRow.userId === _row.userId)
-    _index > -1 && checkedRowsRef.value.splice(_index, 1)
+    if (_index > -1) {
+      checkedRowsRef.value.splice(_index, 1)
+    }
   }
 }
 
