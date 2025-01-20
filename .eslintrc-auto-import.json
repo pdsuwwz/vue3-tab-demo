@@ -348,6 +348,18 @@
     "watchThrottled": true,
     "watchTriggerable": true,
     "watchWithFilter": true,
-    "whenever": true
+    "whenever": true,
+    "DirectiveBinding": true,
+    "IProjectModule": true,
+    "IResultModule": true,
+    "IUserAccountState": true,
+    "MaybeRef": true,
+    "MaybeRefOrGetter": true,
+    "ProjectDetailProps": true,
+    "ReloadRouterViewApiInjection": true,
+    "Theme": true,
+    "onElementRemoval": true,
+    "usePreferredReducedTransparency": true,
+    "useSSRWidth": true
   }
 }
