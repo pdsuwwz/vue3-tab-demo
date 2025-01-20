@@ -1,0 +1,1 @@
+import{d as o,b as s,bE as t,cc as n,o as l}from"./index-BQQ2VPbK.js";const c=o({name:"LayoutPage",__name:"LayoutPage",props:{padding:{type:Boolean,default:!1}},setup(e){return(a,p)=>(l(),s("div",{class:n(["h-full overflow-y-auto",{"px-10px py-12px":e.padding}])},[t(a.$slots,"default")],2))}});export{c as _};
