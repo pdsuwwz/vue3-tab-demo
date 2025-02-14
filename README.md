@@ -11,7 +11,7 @@
 
 ## 简介
 
-🗂️ 一个基于 Vite5 + Vue3 + Naive UI + Pinia + TS + ESLint(v9) + Unplugin + Husky 的 Tab 切换选项卡演示项目，其内部抽象出了一个**比较贴近实战**的**项目管理系统**的业务场景，虽不涉及特别复杂的业务逻辑但也不失灵活，旨在更好地理解和展示如何使用 Tab 标签页组件，项目基于原子化 UnoCSS 框架配置主题，还自带一个模块化的组件开发环境，使页面组件、路由组件、状态管理和样式等模块可以根据 Modules 目录进行解耦，它是一个开箱即用的解决方案，也适合作为快速开发中后台前端，可用于学习和参考
+🗂️ 一个基于 Vite6 + Vue3 + Naive UI + Pinia (v3) + TS + ESLint (v9) + Unplugin + Husky 的 Tab 切换选项卡演示项目，其内部抽象出了一个**比较贴近实战**的**项目管理系统**的业务场景，虽不涉及特别复杂的业务逻辑但也不失灵活，旨在更好地理解和展示如何使用 Tab 标签页组件，项目基于原子化 UnoCSS 框架配置主题，还自带一个模块化的组件开发环境，使页面组件、路由组件、状态管理和样式等模块可以根据 Modules 目录进行解耦，它是一个开箱即用的解决方案，也适合作为快速开发中后台前端，可用于学习和参考
 
 
 __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
@@ -21,8 +21,8 @@ __[🌈 Live Demo 在线体验](https://pdsuwwz.github.io/vue3-tab-demo)__
 
 * Naive UI 2.x
 * Vue 3.5.x
-* Vite 5.x + Vitest
-* Pinia 2.x
+* Vite 6.x + Vitest
+* Pinia 3.x
 * TypeScript 5.x
 * ESLint 9.x + Stylistic
 * Husky + lint-staged
@@ -252,9 +252,9 @@ export interface WorkTab {
 
 * 如有问题请直接在 Issues 中提, 或者您发现问题并有非常好的解决方案, 欢迎 PR 👍
 
-* 推荐一个 Vite5 + Vue3 + TS + Element Plus 开源入门项目, 对 Element Plus UI 库感兴趣的朋友可以去看看。[地址在这里](https://github.com/pdsuwwz/vite-ts-starter)
+* 推荐一个 Vite6 + Vue3 + TS + Element Plus 开源入门项目, 对 Element Plus UI 库感兴趣的朋友可以去看看。[地址在这里](https://github.com/pdsuwwz/vite-ts-starter)
 
-* 另外一个 Vite5 + Vue3 + Naive UI + TS 的入门项目, 比当前项目简洁很多, 非常适合入门练习和二次开发。[地址在这里](https://github.com/pdsuwwz/vite-naive-template)
+* 另外一个 Vite6 + Vue3 + Naive UI + TS 的入门项目, 比当前项目简洁很多, 非常适合入门练习和二次开发。[地址在这里](https://github.com/pdsuwwz/vite-naive-template)
 
 
 ## License

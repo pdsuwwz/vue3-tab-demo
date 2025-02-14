@@ -152,6 +152,7 @@ declare global {
   const useCostBudgetStore: typeof import('./src/modules/CostBudget/store/index')['useCostBudgetStore']
   const useCostCollectionStore: typeof import('./src/modules/CostCollection/store/index')['useCostCollectionStore']
   const useCostDistributeStore: typeof import('./src/modules/CostDistribute/store/index')['useCostDistributeStore']
+  const useCountdown: typeof import('@vueuse/core')['useCountdown']
   const useCounter: typeof import('@vueuse/core')['useCounter']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVar: typeof import('@vueuse/core')['useCssVar']
@@ -510,6 +511,7 @@ declare module 'vue' {
     readonly useCostBudgetStore: UnwrapRef<typeof import('./src/modules/CostBudget/store/index')['useCostBudgetStore']>
     readonly useCostCollectionStore: UnwrapRef<typeof import('./src/modules/CostCollection/store/index')['useCostCollectionStore']>
     readonly useCostDistributeStore: UnwrapRef<typeof import('./src/modules/CostDistribute/store/index')['useCostDistributeStore']>
+    readonly useCountdown: UnwrapRef<typeof import('@vueuse/core')['useCountdown']>
     readonly useCounter: UnwrapRef<typeof import('@vueuse/core')['useCounter']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVar: UnwrapRef<typeof import('@vueuse/core')['useCssVar']>
