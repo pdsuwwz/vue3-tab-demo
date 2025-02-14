@@ -1,0 +1,1 @@
+import{d as o,b as s,bA as t,cc as n,o as l}from"./index-Dr4_a72h.js";const c=o({name:"LayoutPage",__name:"LayoutPage",props:{padding:{type:Boolean,default:!1}},setup(e){return(a,p)=>(l(),s("div",{class:n(["h-full overflow-y-auto",{"px-10px py-12px":e.padding}])},[t(a.$slots,"default")],2))}});export{c as _};

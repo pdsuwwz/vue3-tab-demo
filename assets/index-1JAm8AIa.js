@@ -1,0 +1,1 @@
+import{d as e,b as o,o as t}from"./index-Dr4_a72h.js";import{_ as n}from"./_plugin-vue_export-helper-DlAUqK2U.js";const s=e({name:"XxBox"}),c={class:"xxx-container"};function a(r,_,d,p,i,f){return t(),o("div",c)}const l=n(s,[["render",a],["__scopeId","data-v-7c5448f8"]]);export{l as default};

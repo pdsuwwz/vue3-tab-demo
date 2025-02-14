@@ -1,1 +1,0 @@
-import{_ as r}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{c as e,w as a,r as s,o,a as c}from"./index-BQQ2VPbK.js";const p={name:"AppMain"};function _(i,m,f,l,u,d){const t=s("router-view");return o(),e(t,null,{default:a(({Component:n})=>[(o(),e(c(n)))]),_:1})}const w=r(p,[["render",_]]);export{w as default};
